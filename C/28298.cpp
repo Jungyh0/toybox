@@ -1,64 +1,62 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int n, m, k, ans = 0;
 
-int calc(int n, int m, vector<vector<char> > &vec, int k, int x, int y){
+int calc(int n, int m, int k, vector<vector<char> > &vec1, int x, int y){
+	int total = 0, max_value = 0;
+	char max_key = 0;
 	map<char, int> cnt;
-	int max_value = 0, total_calc = 0, total = 0;	char max_key = 0;
 	
 	for (int i = x; i < n; i += k){
 		for (int j = y; j < m; j += k){
-			cnt[vec[i][j]] ++;
+			cnt[vec1[i][j]]++;
 		}
 	}
-
-	for (map<char, int>::iterator it = cnt.begin(); it !=  cnt.end(); it++){
+	
+	for (map<char, int>::iterator it = cnt.begin(); it != cnt.end(); it++){
 		total += it->second;
-		if (it->second > max_value) {
-    		max_value = it->second;
-    		max_key = it->first;
-   		}
-	}
-	
-	for (int i = 0; i < k; i += k){
-		for (int j = 0; j < k; j += k){
-			vec[i][j] = max_key;
+		if (it->second > max_value){
+			max_value = it->second;
+			max_key = it->first;
 		}
 	}
 	
-	total_calc = total - max_value;
+	for (int i = x; i < n; i += k){
+		for (int j = y; j < m; j += k){
+			vec1[i][j] = max_key;
+		}
+	}
 	
-	return total_calc;
+	return total - max_value;
 }
 
 void solve(){
+	int n, m, k, ans = 0;
 	cin >> n >> m >> k;
-	vector<vector<char> > vec1 (n, vector<char>(m) );
+	vector<vector<char> > vec (n, vector<char>(m) );
 	
-	for (int i = 0; i < m; i++){
-		for (int j = 0; j < n; j++){
-			cin >> vec1[i][j];
+	for (int i = 0; i < n; i ++){
+		for (int j = 0; j < m; j ++){
+			cin >> vec[i][j];
 		}
 	}
 	
-	for (int i = 0; i < k; i ++){
-		for (int j = 0; j < k; j ++){
-			ans += calc(n, m, vec1, k, i, j);
+	for (int i = 0; i < n; i ++){
+		for (int j = 0; j < m; j ++){
+			ans += calc(n, m, k, vec, i, j);
 		}
 	}
 	
-	 cout << ans << "\n";
+	cout << ans << "\n";
 	
-	for (int i = 0; i < n; i++) {
-    	for (int j = 0; j < m; j++) {
-     		cout << vec1[i][j];
-    	}
-  }	
+	for (int i = 0; i < n; i ++){
+		for (int j = 0; j < m; j ++){
+			cout << vec[i][j];
+		}
+		cout << "\n";
+	}
 }
-
 
 int main(){
 	solve();
-	return 0;
 }
