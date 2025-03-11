@@ -70,27 +70,27 @@ void bouns_ball(int bouns);
 
 int battle(poketmon *my, poketmon *enmy, poketmon list[]);
 
-// °ø°İÇÏ´Â ÂÊ, ¹æ¾îÇÏ´Â ÂÊ 
+// ê³µê²©í•˜ëŠ” ìª½, ë°©ì–´í•˜ëŠ” ìª½ 
 float type_matchup[NUM_TYPES][NUM_TYPES] = {
-//³ë¸» ºÒ ¹° Àü±â Ç® ¾óÀ½ °İÅõ µ¶ ¶¥ ºñÇà ¾Ö½ºÆÛ ¹ú·¹ ¹ÙÀ§ °í½ºÆ® µå·¡°ï ¾Ç °­Ã¶ Æä¾î¸® 
-{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 1, 1},	//³ë¸» 
-{1, 0.5, 0.5, 1, 2, 2, 1, 1, 0.5, 1, 1, 2, 0.5, 1, 1, 1, 2, 1},	//ºÒ 
-{1, 2, 0.5, 1, 0.5, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1},	//¹° 
-{1, 1, 2, 0.5, 0.5, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0.5, 1, 1, 1},// Àü±â 
-{1, 0.5, 2, 1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 1, 1},	//Ç® 
-{1, 0.5, 0.5, 1, 2, 0.5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1},	//¾óÀ½ 
-{2, 1, 1, 1, 1, 2, 1, 0.5, 1, 0.5, 0.5, 0.5, 2, 0, 1, 2, 2, 0.5},	//°İÅõ 
-{1, 1, 1, 2, 1, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 0, 2},	//µ¶ 
-{1, 2, 1, 2, 0.5, 1, 1, 2, 1, 0, 1, 0.5, 2, 1, 1, 1, 2, 1},	//¶¥ 
-{1, 1, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 0.5, 1},	//ºñÇà 
-{1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0.5, 1, 1, 1, 1, 0, 0.5, 1},	//¾Ö½ºÆÛ 
-{1, 0.5, 1, 1, 2, 2, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 2, 0.5, 0.5},	//¹ú·¹ 
-{1, 2, 1, 1, 1, 2, 0.5, 1, 0.5, 2, 1, 2, 1, 1, 1, 0.5, 1},	//¹ÙÀ§ 
-{0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 1},	//°í½ºÆ® 
-{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5, 0},	//µå·¡°ï 
-{1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 0.5},	//¾Ç 
-{1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2},	//°­Ã¶ 
-{1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 2, 2, 0.5, 1}		//Æä¾î¸® 
+//ë…¸ë§ ë¶ˆ ë¬¼ ì „ê¸° í’€ ì–¼ìŒ ê²©íˆ¬ ë… ë•… ë¹„í–‰ ì• ìŠ¤í¼ ë²Œë ˆ ë°”ìœ„ ê³ ìŠ¤íŠ¸ ë“œë˜ê³¤ ì•… ê°•ì²  í˜ì–´ë¦¬ 
+{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0, 1, 1, 1, 1},	//ë…¸ë§ 
+{1, 0.5, 0.5, 1, 2, 2, 1, 1, 0.5, 1, 1, 2, 0.5, 1, 1, 1, 2, 1},	//ë¶ˆ 
+{1, 2, 0.5, 1, 0.5, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1},	//ë¬¼ 
+{1, 1, 2, 0.5, 0.5, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0.5, 1, 1, 1},// ì „ê¸° 
+{1, 0.5, 2, 1, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 1, 1},	//í’€ 
+{1, 0.5, 0.5, 1, 2, 0.5, 1, 1, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1},	//ì–¼ìŒ 
+{2, 1, 1, 1, 1, 2, 1, 0.5, 1, 0.5, 0.5, 0.5, 2, 0, 1, 2, 2, 0.5},	//ê²©íˆ¬ 
+{1, 1, 1, 2, 1, 2, 1, 1, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 1, 0, 2},	//ë… 
+{1, 2, 1, 2, 0.5, 1, 1, 2, 1, 0, 1, 0.5, 2, 1, 1, 1, 2, 1},	//ë•… 
+{1, 1, 1, 0.5, 2, 1, 2, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 0.5, 1},	//ë¹„í–‰ 
+{1, 1, 1, 1, 1, 1, 2, 2, 1, 1, 0.5, 1, 1, 1, 1, 0, 0.5, 1},	//ì• ìŠ¤í¼ 
+{1, 0.5, 1, 1, 2, 2, 0.5, 0.5, 1, 0.5, 2, 1, 1, 0.5, 2, 0.5, 0.5},	//ë²Œë ˆ 
+{1, 2, 1, 1, 1, 2, 0.5, 1, 0.5, 2, 1, 2, 1, 1, 1, 0.5, 1},	//ë°”ìœ„ 
+{0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 1},	//ê³ ìŠ¤íŠ¸ 
+{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 0.5, 0},	//ë“œë˜ê³¤ 
+{1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 1, 0.5, 1, 0.5},	//ì•… 
+{1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0.5, 2},	//ê°•ì²  
+{1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 2, 2, 0.5, 1}		//í˜ì–´ë¦¬ 
 };
 
 poketmon poketmon_all_list[NUMBER_MAX];
@@ -125,15 +125,15 @@ void game_main(){
 	init_poketmon_data();
 	insert_poketmon_skill();
 	load_all_skill_data(all_skill_list);
-	snprintf(log_message, sizeof(log_message), "------------------------------\n±â¼ú µ¥ÀÌÅÍ ÃÊ±âÈ­ ¿Ï·á");
+	snprintf(log_message, sizeof(log_message), "------------------------------\nê¸°ìˆ  ë°ì´í„° ì´ˆê¸°í™” ì™„ë£Œ");
 	log_to_file(log_message);
 	
 	init_ball_data(my_ball_list);
-	snprintf(log_message, sizeof(log_message), "------------------------------\n¸ó½ºÅÍº¼ ¸®½ºÆ® ÃÊ±âÈ­ ¿Ï·á");
+	snprintf(log_message, sizeof(log_message), "------------------------------\nëª¬ìŠ¤í„°ë³¼ ë¦¬ìŠ¤íŠ¸ ì´ˆê¸°í™” ì™„ë£Œ");
 	log_to_file(log_message);
 	
 	init_item_data(all_item_list);
-	snprintf(log_message, sizeof(log_message), "------------------------------\n¾ÆÀÌÅÛ µ¥ÀÌÅÍ ÃÊ±âÈ­ ¿Ï·á");
+	snprintf(log_message, sizeof(log_message), "------------------------------\nì•„ì´í…œ ë°ì´í„° ì´ˆê¸°í™” ì™„ë£Œ");
 	log_to_file(log_message);
 	CursorView(0);
 	my_bag.money = 500;
@@ -147,11 +147,11 @@ void game_main(){
 			if (ch == 224){
 				ch = _getch();
 				switch(ch){
-					case 72://À§ 
+					case 72://ìœ„ 
 						if (POS == 0)	POS = 2;
 						else POS --;
 						break;
-					case 80://¾Æ·¡ 
+					case 80://ì•„ë˜ 
 						if (POS == 2)	POS = 0;
 						else POS ++;
 						break;
@@ -195,14 +195,14 @@ void game_main(){
 		select_my_poketmon(poketmon_all_list, &my_user, all_skill_list);
 		POS = 0; 
 		set_stat(&my_user.poketmon_list[0], 5, poketmon_all_list);
-		snprintf(log_message, sizeof(log_message), "\nselect_my_poketmonÀ¸·Î ¼±ÅÃ ÈÄ °Ë»ç\n%sÀÇ learn_skill_level[0] = %d	learn_skill[0] = %d\n", my_user.poketmon_list[0].name, my_user.poketmon_list[0].learn_skill_level[0], my_user.poketmon_list[0].learn_skill[0]);	log_to_file(log_message);
+		snprintf(log_message, sizeof(log_message), "\nselect_my_poketmonìœ¼ë¡œ ì„ íƒ í›„ ê²€ì‚¬\n%sì˜ learn_skill_level[0] = %d	learn_skill[0] = %d\n", my_user.poketmon_list[0].name, my_user.poketmon_list[0].learn_skill_level[0], my_user.poketmon_list[0].learn_skill[0]);	log_to_file(log_message);
 		my_user.poketmon_list[0].skill_filled = 2;
 		my_user.num_pokemons = 1;
 		my_user.alive_pokemon ++;
 	}
 	if (POS == 1){
 		load_game(&g_round, &my_user, poketmon_all_list);
-		snprintf(log_message, sizeof(log_message), "³» Æ÷ÄÏ¸óÀÇ ÀÌ¸§: %s", my_user.poketmon_list[0].name);
+		snprintf(log_message, sizeof(log_message), "ë‚´ í¬ì¼“ëª¬ì˜ ì´ë¦„: %s", my_user.poketmon_list[0].name);
 		log_to_file(log_message);
 	}
 	if (POS == 2)	return;
@@ -215,7 +215,7 @@ void game_main(){
 		gotoxy(0, 0); printf("round: %d", g_round);	
 		gotoxy(25, 0); 
 		SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-		// Àû Æ÷ÄÏ¸ó ¼ÂÆÃ
+		// ì  í¬ì¼“ëª¬ ì…‹íŒ…
 		if (g_round == MAX_ROUND){
 			memcpy(&enemy_poketmon, &poketmon_all_list[149], sizeof(poketmon));
 			poketmon_learn_skill(&enemy_poketmon, all_skill_list, 57); 
@@ -246,7 +246,7 @@ void game_main(){
 					break;
 				case 1:
 					clear_line(12);	clear_line(13);
-					gotoxy(2,12);	printf("%d°ñµå¸¦ ¾ò¾ú´Ù!!", get_gold);
+					gotoxy(2,12);	printf("%dê³¨ë“œë¥¼ ì–»ì—ˆë‹¤!!", get_gold);
 					my_bag.money += get_gold;	
 					make_input_buffer();
 					break;
@@ -259,10 +259,11 @@ void game_main(){
 					break;
 				case 3: 
 					if (hidden == 2){
-						snprintf(log_message, sizeof(log_message), "È÷µçÀ¸·Î ´É·ÂÄ¡ »ó½Â, Ã¼·Â È¸º¹!");
+						hidden = 0;
+						snprintf(log_message, sizeof(log_message), "íˆë“ ìœ¼ë¡œ ëŠ¥ë ¥ì¹˜ ìƒìŠ¹, ì²´ë ¥ íšŒë³µ!");
 						log_to_file(log_message);
 						clear_line(12);	clear_line(13);
-						gotoxy(2,12);	printf("%sÀÇ ¸ğµç ´É·ÂÄ¡°¡ ¸Å¿ì Å©°Ô ¿Ã¶ú´Ù!!", my_user.poketmon_list[using_poketmon_index].name);
+						gotoxy(2,12);	printf("%sì˜ ëª¨ë“  ëŠ¥ë ¥ì¹˜ê°€ ë§¤ìš° í¬ê²Œ ì˜¬ëë‹¤!!", my_user.poketmon_list[using_poketmon_index].name);
 						make_input_buffer();
 						for (int i = 0; i < 4; i ++){
 							if (my_user.poketmon_list[using_poketmon_index].rank_up[i] < 6)
@@ -296,7 +297,7 @@ int calc_max_hp(poketmon *p, poketmon list[]){
 	if (hp_rank_up > 0){
 		for (int i = 0; i < hp_rank_up; i++){
     		max_hp += max_hp / 2;
-    		snprintf(log_message, sizeof(log_message), "Ã¼·Â 1·©Å© »ó½Â!!");
+    		snprintf(log_message, sizeof(log_message), "ì²´ë ¥ 1ë­í¬ ìƒìŠ¹!!");
 			log_to_file(log_message);
 		}
 	}
@@ -305,7 +306,7 @@ int calc_max_hp(poketmon *p, poketmon list[]){
 }
 
 void prt_poketmon_info(poketmon *p, poketmon list[], int x){
-	if (x == 0) {	// ³» Æ÷ÄÏ¸ó 
+	if (x == 0) {	// ë‚´ í¬ì¼“ëª¬ 
 		gotoxy(15,8);	printf("%s	Lv. %d", p->name, p->level);
 		SetColor(10);
 		prt_hp_bar(p, list, 15, 9);
@@ -315,7 +316,7 @@ void prt_poketmon_info(poketmon *p, poketmon list[], int x){
 		SetColor(15);
 		gotoxy(0,11);	printf("--------------------------------");
 	}
-	if (x == 1) {	//»ó´ë Æ÷ÄÏ¸ó 
+	if (x == 1) {	//ìƒëŒ€ í¬ì¼“ëª¬ 
 		clear_line(1);
 		gotoxy(4,1);	printf("%s Lv. %d", p->name, p->level);
 		prt_hp_bar(p, list, 4, 2);
@@ -333,17 +334,17 @@ void prt_item_ui(int x, int y, char *str, int money){
 	int line_x = 1, line_y = 12;
 	
 	SetColor(5);
-	gotoxy(5,6);	printf("¤±");
+	gotoxy(5,6);	printf("ã…");
 	SetColor(11);
 	gotoxy(x,y);	printf(">");
 	SetColor(6);
-	gotoxy(15,6);	printf("¤±");
+	gotoxy(15,6);	printf("ã…");
 	SetColor(3);
-	gotoxy(25,6);	printf("¤±");
+	gotoxy(25,6);	printf("ã…");
 	SetColor(14);
 	gotoxy(25, 1);	printf("$: %d", money);
 	SetColor(15);
-	gotoxy(24, 10);	printf("°Ç³Ê¶Ù±â");
+	gotoxy(24, 10);	printf("ê±´ë„ˆë›°ê¸°");
 	for (int i = 0; i < len; i++) {
 		if (str1[i] == ' ') {
             line_x++;
@@ -397,12 +398,12 @@ void prt_start_text(poketmon *my, poketmon *enmy){
 	clear_line(12);
 	clear_line(13);
 	gotoxy(2,12);	
-	printf("¾ß»ıÀÇ %s(ÀÌ)°¡ ³ªÅ¸³µ´Ù!",enmy->name);
+	printf("ì•¼ìƒì˜ %s(ì´)ê°€ ë‚˜íƒ€ë‚¬ë‹¤!",enmy->name);
 	make_input_buffer();
 	clear_line(12);
 	
 	gotoxy(2,12);
-	printf("°¡¶ù! %s!", my->name);
+	printf("ê°€ë! %s!", my->name);
 	make_input_buffer();
 	clear_line(12);
 	
@@ -411,14 +412,14 @@ void prt_start_text(poketmon *my, poketmon *enmy){
 		clear_line(13);
 		gotoxy(0,11);	printf("--------------------------------------");
 		gotoxy(2,12);
-		printf("Æ÷ÄÏ¸óÀ» ±³Ã¼ÇÏ½Ã°Ú½À´Ï±î?");
+		printf("í¬ì¼“ëª¬ì„ êµì²´í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 		gotoxy(30,12);	printf("|");
 		gotoxy(30,13);	printf("|");
 		
 		SetColor(11); 
 		gotoxy(31, 12);	printf(">");	SetColor(15); 
-		gotoxy(32, 12);	printf("¿¹");
-		gotoxy(32, 13);	printf("¾Æ´Ï¿ä");
+		gotoxy(32, 12);	printf("ì˜ˆ");
+		gotoxy(32, 13);	printf("ì•„ë‹ˆìš”");
 		int mo = select_released_poketmon(31, 13);
 		SetColor(15);
 		
@@ -445,7 +446,7 @@ void prt_start_text(poketmon *my, poketmon *enmy){
 			
 			while(my_user.poketmon_list[test].hp == 0){
 				test = select_my_poketmon_in_list(my, enmy);
-				snprintf(log_message, sizeof(log_message), "%sÀÇ Ã¼·ÂÀÌ %dÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇÏ¼¼¿ä.", my_user.poketmon_list[test], my_user.poketmon_list[test].hp);
+				snprintf(log_message, sizeof(log_message), "%sì˜ ì²´ë ¥ì´ %dì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•˜ì„¸ìš”.", my_user.poketmon_list[test], my_user.poketmon_list[test].hp);
 				log_to_file(log_message);
 			}
 			
@@ -473,14 +474,14 @@ void prt_text(char text[], poketmon *p){
 
 void prt_exp_bar(poketmon *p, int plus_exp){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "°æÇèÄ¡ »ó½Â Àû¿ë ½ÇÇà\nÇöÁ¦ °æÇèÄ¡: %d\n»ó½Â °æÇéÄ¡: %d",p->exp, plus_exp);
+	snprintf(log_message, sizeof(log_message), "ê²½í—˜ì¹˜ ìƒìŠ¹ ì ìš© ì‹¤í–‰\ní˜„ì œ ê²½í—˜ì¹˜: %d\nìƒìŠ¹ ê²½í—™ì¹˜: %d",p->exp, plus_exp);
 	log_to_file(log_message);
 	int lv = p->level;
 
 	int n = p->level + 1;
 	int max_exp =  1.2 * (int)pow((double)n, 3.0) - 15 * (int)pow((double)n, 2.0) + 100 * n - 140;
 	p->max_exp = max_exp;
-	snprintf(log_message, sizeof(log_message), "\nÃÖ´ë °æÇèÄ¡:  %d\n", p->max_exp);
+	snprintf(log_message, sizeof(log_message), "\nìµœëŒ€ ê²½í—˜ì¹˜:  %d\n", p->max_exp);
 	log_to_file(log_message);
 	clear_line(12);	clear_line(13);
 	SetColor(p->color_number);
@@ -491,10 +492,10 @@ void prt_exp_bar(poketmon *p, int plus_exp){
 	p->exp = exp; 
 	float draw_rate = ((float)exp / max_exp) * 10;
 	int draw = (int)round(draw_rate);
-	snprintf(log_message, sizeof(log_message), "»ó½ÂÈÄ °æÇèÄ¡: %d",p->exp);
+	snprintf(log_message, sizeof(log_message), "ìƒìŠ¹í›„ ê²½í—˜ì¹˜: %d",p->exp);
 	log_to_file(log_message);
 	
-	snprintf(log_message, sizeof(log_message), "\n °æÇèÄ¡Ä­ ¼ö: %d\n",draw);
+	snprintf(log_message, sizeof(log_message), "\n ê²½í—˜ì¹˜ì¹¸ ìˆ˜: %d\n",draw);
 	log_to_file(log_message);
 	if (draw < 11){
 		if (draw < 1 && exp > 0){
@@ -521,7 +522,7 @@ void prt_exp_bar(poketmon *p, int plus_exp){
 int select_user_move(poketmon *my_p){
 	gotoxy(0,11);	printf("----------------------------------------------------");
 	gotoxy(2,12);
-	printf("%s(Àº)´Â ¹«¾ùÀ» ÇÒ±î??", my_p->name);
+	printf("%s(ì€)ëŠ” ë¬´ì—‡ì„ í• ê¹Œ??", my_p->name);
 	
 	gotoxy(30,12);	printf("|");
 	gotoxy(30,13);	printf("|");
@@ -530,11 +531,11 @@ int select_user_move(poketmon *my_p){
 	gotoxy(32,12);	printf(">"); 
 	SetColor(15);
 	
-	gotoxy(33,12);	printf("½Î¿î´Ù");
-	gotoxy(33,13);	printf("Æ÷ÄÏ¸ó");
+	gotoxy(33,12);	printf("ì‹¸ìš´ë‹¤");
+	gotoxy(33,13);	printf("í¬ì¼“ëª¬");
 	
-	gotoxy(43,12);	printf("º¼");
-	gotoxy(43,13);	printf("µµ¸Á°£´Ù");
+	gotoxy(43,12);	printf("ë³¼");
+	gotoxy(43,13);	printf("ë„ë§ê°„ë‹¤");
 	
 	int s_POS = 0;
 	
@@ -544,22 +545,22 @@ int select_user_move(poketmon *my_p){
             if (ch == 224) { 
                 ch = _getch(); 
                 switch (ch) {
-                    case 75: //¿ŞÂÊ 
+                    case 75: //ì™¼ìª½ 
                         if (s_POS == 0) s_POS = 1;
                         else if(s_POS == 2) s_POS = 3;
                         else s_POS -= 1;
                         break;
-                    case 77: //¿À¸¥ÂÊ 
+                    case 77: //ì˜¤ë¥¸ìª½ 
                         if (s_POS == 1) s_POS = 0;
                         else if(s_POS == 3) s_POS = 2;
                         else s_POS += 1;
                         break;
-                    case 72: //À§ 
+                    case 72: //ìœ„ 
                         if (s_POS == 1) s_POS = 3;
                         else if(s_POS == 0)	s_POS = 2;
                         else s_POS -= 2;
                         break;
-                    case 80: //¾Æ·¡ 
+                    case 80: //ì•„ë˜ 
                         if (s_POS == 3) s_POS = 1;
                         else if(s_POS == 2)	s_POS = 0;
                         else s_POS += 2;
@@ -614,7 +615,7 @@ int select_user_move(poketmon *my_p){
 					clear_line(12);
 					clear_line(13);
 					gotoxy(2,12); 
-					printf("¿¡·¯ ¹ß»ı!!");
+					printf("ì—ëŸ¬ ë°œìƒ!!");
 					make_input_buffer();
 					break;
 			}
@@ -629,14 +630,14 @@ int select_user_move(poketmon *my_p){
 
 int calc_run(poketmon *my_p, poketmon *en_p){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "µµ¸ÁÄ¡±â¸¦ ¼±ÅÃ!!\nÇöÁ¦ µµ¸Á½Ãµµ È½¼ö: %d", run_count);
+	snprintf(log_message, sizeof(log_message), "ë„ë§ì¹˜ê¸°ë¥¼ ì„ íƒ!!\ní˜„ì œ ë„ë§ì‹œë„ íšŸìˆ˜: %d", run_count);
     log_to_file(log_message);
-    snprintf(log_message, sizeof(log_message), "³» Æ÷ÄÏ¸óÀÇ ½ºÇÇµå: %d\nÀû Æ÷ÄÏ¸óÀÇ ½ºÇÇµå: %d", my_p->speed, en_p->speed);
+    snprintf(log_message, sizeof(log_message), "ë‚´ í¬ì¼“ëª¬ì˜ ìŠ¤í”¼ë“œ: %d\nì  í¬ì¼“ëª¬ì˜ ìŠ¤í”¼ë“œ: %d", my_p->speed, en_p->speed);
     log_to_file(log_message);
 	float run_rate = (((float)(my_p->speed * 32) / (en_p->speed * 32)) + (30.0 * run_count)) / 256.0 * 100.0;
 	srand(time(NULL));
 	int random_value = rand() % 100;
-	snprintf(log_message, sizeof(log_message), "µµ¸Á°¥ È®·ü: %f", run_rate);
+	snprintf(log_message, sizeof(log_message), "ë„ë§ê°ˆ í™•ë¥ : %f", run_rate);
     log_to_file(log_message);
 	
 	if (run_rate >= random_value || g_round == MAX_ROUND - 1) {
@@ -667,9 +668,9 @@ void insert_ball_in_my_bag(ball *b){
 void prt_battle(poketmon *my, poketmon *enmy, poketmon list[]){
 	char log_message[200];
 	int run;
-	snprintf(log_message, sizeof(log_message), "prt_battle½ÃÀÛ");
+	snprintf(log_message, sizeof(log_message), "prt_battleì‹œì‘");
     log_to_file(log_message);
-	// UI±×¸®±â 
+	// UIê·¸ë¦¬ê¸° 
 	prt_poketmon_info(my, list, 0);
 	prt_poketmon_info(enmy, list, 1);
 	prt_start_text(my, enmy);
@@ -681,7 +682,7 @@ void prt_battle(poketmon *my, poketmon *enmy, poketmon list[]){
 		int enemy_level = get_enemy_level(my_user.poketmon_list[using_poketmon_index].level);
 		set_stat(enmy, enemy_level, poketmon_all_list);
 
-		cls;  // È­¸é ÃÊ±âÈ­
+		cls;  // í™”ë©´ ì´ˆê¸°í™”
 		gotoxy(0, 0); 
 		printf("round: %d", g_round);
 		gotoxy(25, 0); 
@@ -690,14 +691,14 @@ void prt_battle(poketmon *my, poketmon *enmy, poketmon list[]){
 	}
 	
 	if (my->hp == 0){
-		prt_text("Àº(´Â) ¾²·¯Á³´Ù", my);
+		prt_text("ì€(ëŠ”) ì“°ëŸ¬ì¡Œë‹¤", my);
 		my_user.alive_pokemon--;
 		make_input_buffer();
 		clear_line(12);
 		gotoxy(2,12);
 		
 		if (my_user.alive_pokemon <= 0){
-			printf("´«¾ÕÀÌ ±ô±ôÇØÁ³´Ù....");
+			printf("ëˆˆì•ì´ ê¹œê¹œí•´ì¡Œë‹¤....");
 			make_input_buffer();
 			cls;
 			clear_input_buffer();
@@ -743,7 +744,7 @@ void prt_battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			prt_poketmon_info(enmy, poketmon_all_list, 1);
 			
 			clear_line(12);
-			gotoxy(2, 12); printf("°¡¶ù %s!!", my->name);
+			gotoxy(2, 12); printf("ê°€ë %s!!", my->name);
 			make_input_buffer();
 			battle(my, enmy, poketmon_all_list);	
 			
@@ -751,7 +752,7 @@ void prt_battle(poketmon *my, poketmon *enmy, poketmon list[]){
 		
 	}
 	else if (enmy->hp == 0){
-		prt_text("Àº(´Â) ¾²·¯Á³´Ù", enmy);
+		prt_text("ì€(ëŠ”) ì“°ëŸ¬ì¡Œë‹¤", enmy);
 		Sleep(100);
 		clear_line(3);
 		make_input_buffer();
@@ -759,7 +760,7 @@ void prt_battle(poketmon *my, poketmon *enmy, poketmon list[]){
 		int up_exp = (int)round(up_exp_rate);
 		clear_line(12);
 		gotoxy(2,12);
-		printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+		printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 		make_input_buffer(); 
 		prt_exp_bar(my, up_exp);
 		make_input_buffer();
@@ -780,24 +781,24 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			prt_skill_txt(my->skill_list);
 
 			skill my_use_skill = select_skill(my->skill_list);
-			if (strcmp(my_use_skill.skill_name, "µ¹¾Æ°¡±â") == 0){
+			if (strcmp(my_use_skill.skill_name, "ëŒì•„ê°€ê¸°") == 0){
 				 continue; 
 			}
 		
-			snprintf(log_message, sizeof(log_message), "³» Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+			snprintf(log_message, sizeof(log_message), "ë‚´ í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
     		log_to_file(log_message);
 			skill enemy_use_skill = select_enemy_skill(enmy, my);
-			snprintf(log_message, sizeof(log_message), "Àû Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+			snprintf(log_message, sizeof(log_message), "ì  í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
     		log_to_file(log_message);
 			skill use_skill_list[2] = {};
 			use_skill_list[0] = my_use_skill;
 			use_skill_list[1] = enemy_use_skill;
 			int skill_idx = check_priority(&use_skill_list[0],&use_skill_list[1]);
-			snprintf(log_message, sizeof(log_message), "¿ì¼±µµ °è»ê ¿Ï·á");
+			snprintf(log_message, sizeof(log_message), "ìš°ì„ ë„ ê³„ì‚° ì™„ë£Œ");
     		log_to_file(log_message);
-			// µ¥¹ÌÁö °è»ê, Àû¿ë 
+			// ë°ë¯¸ì§€ ê³„ì‚°, ì ìš© 
 			float match = type_matchup[use_skill_list[0].type][my_user.poketmon_list[using_poketmon_index].type];
-			snprintf(log_message, sizeof(log_message), "»ó¼º °è»ê ¿Ï·á");
+			snprintf(log_message, sizeof(log_message), "ìƒì„± ê³„ì‚° ì™„ë£Œ");
 			log_to_file(log_message);
 			battle_turn(skill_idx, my, enmy, &use_skill_list[0], &use_skill_list[1], list);
 		}
@@ -821,7 +822,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					clear_select_poketball_ui();
 					gotoxy(36, 3);	printf(" "); 
 					prt_ball_throw(my_ball_list[0].color_index);
-					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_index°¡ 0ÀÏ ¶§ ¸ó½ºÅÍº¼ È®ÀÎ");
+					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_indexê°€ 0ì¼ ë•Œ ëª¬ìŠ¤í„°ë³¼ í™•ì¸");
 					log_to_file(log_message);
 					snprintf(log_message, sizeof(log_message), "my_ball_list[0].name: %s, my_ball_list[0].bonus: %f", my_ball_list[0].name, my_ball_list[0].ball_bonus);
 					log_to_file(log_message);
@@ -836,13 +837,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					if (bouns_and_success[1] == 1){
 						clear_line(12);
 						clear_line(13);	gotoxy(2,12);
-						printf("½Å³­´Ù! ¾ß»ıÀÇ %s¸¦ Àâ¾Ò´Ù!!", enmy->name);	make_input_buffer();
+						printf("ì‹ ë‚œë‹¤! ì•¼ìƒì˜ %së¥¼ ì¡ì•˜ë‹¤!!", enmy->name);	make_input_buffer();
 						if (my_user.num_pokemons < 5){
 							float up_exp_rate = ((6* pow(enmy->level, 2)) / 5) * 3;
 							int up_exp = (int)round(up_exp_rate);
 							clear_line(12);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
@@ -853,13 +854,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 						
 						if (my_user.num_pokemons >= 5){
 							clear_line(12);	gotoxy(2, 12);
-							printf("Áö´Ñ Æ÷ÄÏ¸óÀÌ °¡µæ Ã¡½À´Ï´Ù.");
-							gotoxy(2, 13);	printf("´ë½ÅÇØ Æ÷ÄÏ¸óÀ» ³õ¾ÆÁÖ½Ã°Ú½À´Ï±î??");
+							printf("ì§€ë‹Œ í¬ì¼“ëª¬ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤.");
+							gotoxy(2, 13);	printf("ëŒ€ì‹ í•´ í¬ì¼“ëª¬ì„ ë†“ì•„ì£¼ì‹œê² ìŠµë‹ˆê¹Œ??");
 							SetColor(11);
 							gotoxy(40, 12);	printf(">");
 							SetColor(15);
-							gotoxy(41, 12);	printf("¿¹");
-							gotoxy(41, 13);	printf("¾Æ´Ï¿ä");
+							gotoxy(41, 12);	printf("ì˜ˆ");
+							gotoxy(41, 13);	printf("ì•„ë‹ˆìš”");
 							int mo = select_released_poketmon(40, 13);
 							SetColor(15);
 							
@@ -883,19 +884,19 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 									}
 								}
 								int test = select_my_poketmon_in_list(my, enmy);
-								gotoxy(2, 16);	printf("%s(À»)¸¦ Á¤¸» ³õ¾ÆÁÖ°Ú½À´Ï±î?", my_user.poketmon_list[test].name);
+								gotoxy(2, 16);	printf("%s(ì„)ë¥¼ ì •ë§ ë†“ì•„ì£¼ê² ìŠµë‹ˆê¹Œ?", my_user.poketmon_list[test].name);
 								SetColor(11);
 								gotoxy(49, 16);	printf(">");
 								SetColor(15);
-								gotoxy(50, 16);	printf("¿¹");
-								gotoxy(50, 17);	printf("¾Æ´Ï¿ä");	
+								gotoxy(50, 16);	printf("ì˜ˆ");
+								gotoxy(50, 17);	printf("ì•„ë‹ˆìš”");	
 								mo = select_released_poketmon(49, 17);
 								if (mo == 0){
 									clear_line(16);
 									clear_line(17);
 									clear_line(18);
 									remove_poketmon(test, my, enmy);
-									gotoxy(2, 16);	printf("¹ÙÀÌ¹ÙÀÌ %s!!", my_user.poketmon_list[test].name);
+									gotoxy(2, 16);	printf("ë°”ì´ë°”ì´ %s!!", my_user.poketmon_list[test].name);
 									make_input_buffer();
 									memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
 									cls;
@@ -909,7 +910,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 							clear_line(12);
 							clear_line(13);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							make_input_buffer();	
@@ -918,18 +919,18 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					}	
 					else{
 						clear_line(12);	clear_line(13);
-						gotoxy(2, 12);	printf("¾Ñ! º¼¿¡¼­ ³ª¿Í¹ö·È´Ù!");
+						gotoxy(2, 12);	printf("ì•—! ë³¼ì—ì„œ ë‚˜ì™€ë²„ë ¸ë‹¤!");
 						make_input_buffer(); 	
 						skill enemy_use_skill = select_enemy_skill(enmy, my);
-						snprintf(log_message, sizeof(log_message), "Àû Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+						snprintf(log_message, sizeof(log_message), "ì  í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 		    			log_to_file(log_message);
 		    			
 		    			float match = type_matchup[enemy_use_skill.type][my->type];
-		    			snprintf(log_message, sizeof(log_message), "»ó¼º °è»ê ¿Ï·á");
+		    			snprintf(log_message, sizeof(log_message), "ìƒì„± ê³„ì‚° ì™„ë£Œ");
 						log_to_file(log_message);
 					
 						battle_start(enmy, my, &enemy_use_skill, 1, poketmon_all_list);
-						snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enemy_use_skill.skill_name, my->name);
+						snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enemy_use_skill.skill_name, my->name);
 		    			log_to_file(log_message);
 					}
 				}
@@ -938,7 +939,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			        gotoxy(36, 3);	printf(" "); 
 			        clear_line(12);
 			        clear_line(13);
-			        gotoxy(2, 12);	printf("¸ó½ºÅÍ º¼ÀÌ ºÎÁ·ÇÕ´Ï´Ù!!");
+			        gotoxy(2, 12);	printf("ëª¬ìŠ¤í„° ë³¼ì´ ë¶€ì¡±í•©ë‹ˆë‹¤!!");
 			        make_input_buffer();
 				}
 			}
@@ -948,7 +949,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					clear_select_poketball_ui();
 					gotoxy(36, 5);	printf(" "); 
 					prt_ball_throw(my_ball_list[1].color_index);
-					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_index°¡ 1 ¶§ ¸ó½ºÅÍº¼ È®ÀÎ");
+					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_indexê°€ 1 ë•Œ ëª¬ìŠ¤í„°ë³¼ í™•ì¸");
 					log_to_file(log_message);
 					snprintf(log_message, sizeof(log_message), "my_ball_list[0].name: %s, my_ball_list[1].bonus: %f", my_ball_list[1].name, my_ball_list[1].ball_bonus);
 					log_to_file(log_message);
@@ -963,13 +964,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					if (bouns_and_success[1] == 1){
 						clear_line(12);
 						clear_line(13);	gotoxy(2,12);
-						printf("½Å³­´Ù! ¾ß»ıÀÇ %s¸¦ Àâ¾Ò´Ù!!", enmy->name);	make_input_buffer();
+						printf("ì‹ ë‚œë‹¤! ì•¼ìƒì˜ %së¥¼ ì¡ì•˜ë‹¤!!", enmy->name);	make_input_buffer();
 						if (my_user.num_pokemons < 5){
 							float up_exp_rate = ((6* pow(enmy->level, 2)) / 5) * 3;
 							int up_exp = (int)round(up_exp_rate);
 							clear_line(12);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
@@ -980,13 +981,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 						
 						if (my_user.num_pokemons >= 5){
 							clear_line(12);	gotoxy(2, 12);
-							printf("Áö´Ñ Æ÷ÄÏ¸óÀÌ °¡µæ Ã¡½À´Ï´Ù.");
-							gotoxy(2, 13);	printf("´ë½ÅÇØ Æ÷ÄÏ¸óÀ» ³õ¾ÆÁÖ½Ã°Ú½À´Ï±î??");
+							printf("ì§€ë‹Œ í¬ì¼“ëª¬ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤.");
+							gotoxy(2, 13);	printf("ëŒ€ì‹ í•´ í¬ì¼“ëª¬ì„ ë†“ì•„ì£¼ì‹œê² ìŠµë‹ˆê¹Œ??");
 							SetColor(11);
 							gotoxy(40, 12);	printf(">");
 							SetColor(15);
-							gotoxy(41, 12);	printf("¿¹");
-							gotoxy(41, 13);	printf("¾Æ´Ï¿ä");
+							gotoxy(41, 12);	printf("ì˜ˆ");
+							gotoxy(41, 13);	printf("ì•„ë‹ˆìš”");
 							int mo = select_released_poketmon(40, 13);
 							SetColor(15);
 							
@@ -1010,19 +1011,19 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 									}
 								}
 								int test = select_my_poketmon_in_list(my, enmy);
-								gotoxy(2, 16);	printf("%s(À»)¸¦ Á¤¸» ³õ¾ÆÁÖ°Ú½À´Ï±î?", my_user.poketmon_list[test].name);
+								gotoxy(2, 16);	printf("%s(ì„)ë¥¼ ì •ë§ ë†“ì•„ì£¼ê² ìŠµë‹ˆê¹Œ?", my_user.poketmon_list[test].name);
 								SetColor(11);
 								gotoxy(49, 16);	printf(">");
 								SetColor(15);
-								gotoxy(50, 16);	printf("¿¹");
-								gotoxy(50, 17);	printf("¾Æ´Ï¿ä");	
+								gotoxy(50, 16);	printf("ì˜ˆ");
+								gotoxy(50, 17);	printf("ì•„ë‹ˆìš”");	
 								mo = select_released_poketmon(49, 17);
 								if (mo == 0){
 									clear_line(16);
 									clear_line(17);
 									clear_line(18);
 									remove_poketmon(test, my, enmy);
-									gotoxy(2, 16);	printf("¹ÙÀÌ¹ÙÀÌ %s!!", my_user.poketmon_list[test].name);
+									gotoxy(2, 16);	printf("ë°”ì´ë°”ì´ %s!!", my_user.poketmon_list[test].name);
 									make_input_buffer();
 									memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
 									cls;
@@ -1036,7 +1037,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 							clear_line(12);
 							clear_line(13);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							make_input_buffer();	
@@ -1045,18 +1046,18 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					}
 					else{
 						clear_line(12);	clear_line(13);
-						gotoxy(2, 12);	printf("¾Ñ! º¼¿¡¼­ ³ª¿Í¹ö·È´Ù!");
+						gotoxy(2, 12);	printf("ì•—! ë³¼ì—ì„œ ë‚˜ì™€ë²„ë ¸ë‹¤!");
 						make_input_buffer(); 	
 						skill enemy_use_skill = select_enemy_skill(enmy, my);
-						snprintf(log_message, sizeof(log_message), "Àû Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+						snprintf(log_message, sizeof(log_message), "ì  í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 		    			log_to_file(log_message);
 		    			
 		    			float match = type_matchup[enemy_use_skill.type][my->type];
-		    			snprintf(log_message, sizeof(log_message), "»ó¼º °è»ê ¿Ï·á");
+		    			snprintf(log_message, sizeof(log_message), "ìƒì„± ê³„ì‚° ì™„ë£Œ");
 						log_to_file(log_message);
 					
 						battle_start(enmy, my, &enemy_use_skill, 1, poketmon_all_list);
-						snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enemy_use_skill.skill_name, my->name);
+						snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enemy_use_skill.skill_name, my->name);
 		    			log_to_file(log_message);
 					}
 				}
@@ -1065,7 +1066,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			        gotoxy(36, 5);	printf(" "); 
 			        clear_line(12);
 			        clear_line(13);
-			        gotoxy(2, 12);	printf("¸ó½ºÅÍ º¼ÀÌ ºÎÁ·ÇÕ´Ï´Ù!!");
+			        gotoxy(2, 12);	printf("ëª¬ìŠ¤í„° ë³¼ì´ ë¶€ì¡±í•©ë‹ˆë‹¤!!");
 			        make_input_buffer();
 				}
 			}
@@ -1075,7 +1076,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					clear_select_poketball_ui();
 					gotoxy(36, 7);	printf(" "); 
 					prt_ball_throw(my_ball_list[2].color_index);
-					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_index°¡ 2 ¶§ ¸ó½ºÅÍº¼ È®ÀÎ");
+					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_indexê°€ 2 ë•Œ ëª¬ìŠ¤í„°ë³¼ í™•ì¸");
 					log_to_file(log_message);
 					snprintf(log_message, sizeof(log_message), "my_ball_list[0].name: %s, my_ball_list[1].bonus: %f", my_ball_list[2].name, my_ball_list[2].ball_bonus);
 					log_to_file(log_message);
@@ -1090,13 +1091,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					if (bouns_and_success[1] == 1){
 						clear_line(12);
 						clear_line(13);	gotoxy(2,12);
-						printf("½Å³­´Ù! ¾ß»ıÀÇ %s¸¦ Àâ¾Ò´Ù!!", enmy->name);	make_input_buffer();
+						printf("ì‹ ë‚œë‹¤! ì•¼ìƒì˜ %së¥¼ ì¡ì•˜ë‹¤!!", enmy->name);	make_input_buffer();
 						if (my_user.num_pokemons < 5){
 							float up_exp_rate = ((6* pow(enmy->level, 2)) / 5) * 3;
 							int up_exp = (int)round(up_exp_rate);
 							clear_line(12);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
@@ -1107,13 +1108,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 						
 						if (my_user.num_pokemons >= 5){
 							clear_line(12);	gotoxy(2, 12);
-							printf("Áö´Ñ Æ÷ÄÏ¸óÀÌ °¡µæ Ã¡½À´Ï´Ù.");
-							gotoxy(2, 13);	printf("´ë½ÅÇØ Æ÷ÄÏ¸óÀ» ³õ¾ÆÁÖ½Ã°Ú½À´Ï±î??");
+							printf("ì§€ë‹Œ í¬ì¼“ëª¬ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤.");
+							gotoxy(2, 13);	printf("ëŒ€ì‹ í•´ í¬ì¼“ëª¬ì„ ë†“ì•„ì£¼ì‹œê² ìŠµë‹ˆê¹Œ??");
 							SetColor(11);
 							gotoxy(40, 12);	printf(">");
 							SetColor(15);
-							gotoxy(41, 12);	printf("¿¹");
-							gotoxy(41, 13);	printf("¾Æ´Ï¿ä");
+							gotoxy(41, 12);	printf("ì˜ˆ");
+							gotoxy(41, 13);	printf("ì•„ë‹ˆìš”");
 							int mo = select_released_poketmon(40, 13);
 							SetColor(15);
 							
@@ -1137,19 +1138,19 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 									}
 								}
 								int test = select_my_poketmon_in_list(my, enmy);
-								gotoxy(2, 16);	printf("%s(À»)¸¦ Á¤¸» ³õ¾ÆÁÖ°Ú½À´Ï±î?", my_user.poketmon_list[test].name);
+								gotoxy(2, 16);	printf("%s(ì„)ë¥¼ ì •ë§ ë†“ì•„ì£¼ê² ìŠµë‹ˆê¹Œ?", my_user.poketmon_list[test].name);
 								SetColor(11);
 								gotoxy(49, 16);	printf(">");
 								SetColor(15);
-								gotoxy(50, 16);	printf("¿¹");
-								gotoxy(50, 17);	printf("¾Æ´Ï¿ä");	
+								gotoxy(50, 16);	printf("ì˜ˆ");
+								gotoxy(50, 17);	printf("ì•„ë‹ˆìš”");	
 								mo = select_released_poketmon(49, 17);
 								if (mo == 0){
 									clear_line(16);
 									clear_line(17);
 									clear_line(18);
 									remove_poketmon(test, my, enmy);
-									gotoxy(2, 16);	printf("¹ÙÀÌ¹ÙÀÌ %s!!", my_user.poketmon_list[test].name);
+									gotoxy(2, 16);	printf("ë°”ì´ë°”ì´ %s!!", my_user.poketmon_list[test].name);
 									make_input_buffer();
 									memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
 									cls;
@@ -1163,7 +1164,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 							clear_line(12);
 							clear_line(13);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							make_input_buffer();	
@@ -1172,18 +1173,18 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					}
 					else{
 						clear_line(12);	clear_line(13);
-						gotoxy(2, 12);	printf("¾Ñ! º¼¿¡¼­ ³ª¿Í¹ö·È´Ù!");
+						gotoxy(2, 12);	printf("ì•—! ë³¼ì—ì„œ ë‚˜ì™€ë²„ë ¸ë‹¤!");
 						make_input_buffer(); 	
 						skill enemy_use_skill = select_enemy_skill(enmy, my);
-						snprintf(log_message, sizeof(log_message), "Àû Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+						snprintf(log_message, sizeof(log_message), "ì  í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 		    			log_to_file(log_message);
 		    			
 		    			float match = type_matchup[enemy_use_skill.type][my->type];
-		    			snprintf(log_message, sizeof(log_message), "»ó¼º °è»ê ¿Ï·á");
+		    			snprintf(log_message, sizeof(log_message), "ìƒì„± ê³„ì‚° ì™„ë£Œ");
 						log_to_file(log_message);
 					
 						battle_start(enmy, my, &enemy_use_skill, 1, poketmon_all_list);
-						snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enemy_use_skill.skill_name, my->name);
+						snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enemy_use_skill.skill_name, my->name);
 		    			log_to_file(log_message);
 					}
 				}
@@ -1192,7 +1193,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			        gotoxy(36, 7);	printf(" "); 
 			        clear_line(12);
 			        clear_line(13);
-			        gotoxy(2, 12);	printf("¸ó½ºÅÍ º¼ÀÌ ºÎÁ·ÇÕ´Ï´Ù!!");
+			        gotoxy(2, 12);	printf("ëª¬ìŠ¤í„° ë³¼ì´ ë¶€ì¡±í•©ë‹ˆë‹¤!!");
 			        make_input_buffer();
 				}
 			}
@@ -1202,7 +1203,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					clear_select_poketball_ui();
 					gotoxy(36, 9);	printf(" "); 
 					prt_ball_throw(my_ball_list[3].color_index);
-					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_index°¡ 3 ¶§ ¸ó½ºÅÍº¼ È®ÀÎ");
+					snprintf(log_message, sizeof(log_message), "--------------------------------\nball_indexê°€ 3 ë•Œ ëª¬ìŠ¤í„°ë³¼ í™•ì¸");
 					log_to_file(log_message);
 					snprintf(log_message, sizeof(log_message), "my_ball_list[0].name: %s, my_ball_list[1].bonus: %f", my_ball_list[3].name, my_ball_list[3].ball_bonus);
 					log_to_file(log_message);
@@ -1217,14 +1218,14 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 					if (bouns_and_success[1] == 1){
 						clear_line(12);
 						clear_line(13);	gotoxy(2,12);
-						printf("½Å³­´Ù! ¾ß»ıÀÇ %s¸¦ Àâ¾Ò´Ù!!", enmy->name);	make_input_buffer();
+						printf("ì‹ ë‚œë‹¤! ì•¼ìƒì˜ %së¥¼ ì¡ì•˜ë‹¤!!", enmy->name);	make_input_buffer();
 						if (my_user.num_pokemons < 5){
 							my_user.alive_pokemon ++;
 							float up_exp_rate = ((6* pow(enmy->level, 2)) / 5) * 3;
 							int up_exp = (int)round(up_exp_rate);
 							clear_line(12);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							memcpy(&my_user.poketmon_list[my_user.num_pokemons], enmy, sizeof(poketmon));
@@ -1235,13 +1236,13 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 						
 						if (my_user.num_pokemons >= 5){ 
 							clear_line(12);	gotoxy(2, 12);
-							printf("Áö´Ñ Æ÷ÄÏ¸óÀÌ °¡µæ Ã¡½À´Ï´Ù.");
-							gotoxy(2, 13);	printf("´ë½ÅÇØ Æ÷ÄÏ¸óÀ» ³õ¾ÆÁÖ½Ã°Ú½À´Ï±î??");
+							printf("ì§€ë‹Œ í¬ì¼“ëª¬ì´ ê°€ë“ ì°¼ìŠµë‹ˆë‹¤.");
+							gotoxy(2, 13);	printf("ëŒ€ì‹ í•´ í¬ì¼“ëª¬ì„ ë†“ì•„ì£¼ì‹œê² ìŠµë‹ˆê¹Œ??");
 							SetColor(11);
 							gotoxy(40, 12);	printf(">");
 							SetColor(15);
-							gotoxy(41, 12);	printf("¿¹");
-							gotoxy(41, 13);	printf("¾Æ´Ï¿ä");
+							gotoxy(41, 12);	printf("ì˜ˆ");
+							gotoxy(41, 13);	printf("ì•„ë‹ˆìš”");
 							int mo = select_released_poketmon(40, 13);
 							SetColor(15);
 							
@@ -1265,19 +1266,19 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 									}
 								}
 								int test = select_my_poketmon_in_list(my, enmy);
-								gotoxy(2, 16);	printf("%s(À»)¸¦ Á¤¸» ³õ¾ÆÁÖ°Ú½À´Ï±î?", my_user.poketmon_list[test].name);
+								gotoxy(2, 16);	printf("%s(ì„)ë¥¼ ì •ë§ ë†“ì•„ì£¼ê² ìŠµë‹ˆê¹Œ?", my_user.poketmon_list[test].name);
 								SetColor(11);
 								gotoxy(49, 16);	printf(">");
 								SetColor(15);
-								gotoxy(50, 16);	printf("¿¹");
-								gotoxy(50, 17);	printf("¾Æ´Ï¿ä");	
+								gotoxy(50, 16);	printf("ì˜ˆ");
+								gotoxy(50, 17);	printf("ì•„ë‹ˆìš”");	
 								mo = select_released_poketmon(49, 17);
 								if (mo == 0){
 									clear_line(16);
 									clear_line(17);
 									clear_line(18);
 									remove_poketmon(test, my, enmy);
-									gotoxy(2, 16);	printf("¹ÙÀÌ¹ÙÀÌ %s!!", my_user.poketmon_list[test].name);
+									gotoxy(2, 16);	printf("ë°”ì´ë°”ì´ %s!!", my_user.poketmon_list[test].name);
 									my_user.alive_pokemon--;
 									make_input_buffer();
 									memcpy(&my_user.poketmon_list[test], &poketmon_all_list[enmy->number - 1], sizeof(poketmon));
@@ -1293,7 +1294,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 							clear_line(12);
 							clear_line(13);
 							gotoxy(2,12);
-							printf("%sÀº(´Â) %dÀÇ °æÇèÄ¡¸¦ ¾ò¾ú´Ù.", my->name, up_exp);
+							printf("%sì€(ëŠ”) %dì˜ ê²½í—˜ì¹˜ë¥¼ ì–»ì—ˆë‹¤.", my->name, up_exp);
 							make_input_buffer(); 
 							prt_exp_bar(my, up_exp);
 							make_input_buffer();	
@@ -1306,7 +1307,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			        gotoxy(36, 9);	printf(" "); 
 			        clear_line(12);
 			        clear_line(13);
-			        gotoxy(2, 12);	printf("¸ó½ºÅÍ º¼ÀÌ ºÎÁ·ÇÕ´Ï´Ù!!");
+			        gotoxy(2, 12);	printf("ëª¬ìŠ¤í„° ë³¼ì´ ë¶€ì¡±í•©ë‹ˆë‹¤!!");
 			        make_input_buffer();
 				}
 			}
@@ -1346,7 +1347,7 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			if (run == 1){
 				clear_line(12);
 				clear_line(13);
-				gotoxy(2,12);	printf("¹«»çÈ÷ µµ¸ÁÃÆ´Ù!!");
+				gotoxy(2,12);	printf("ë¬´ì‚¬íˆ ë„ë§ì³¤ë‹¤!!");
 				run_count = 0;	g_round++;
 				make_input_buffer();
 				break;
@@ -1355,18 +1356,18 @@ int battle(poketmon *my, poketmon *enmy, poketmon list[]){
 			else if(run == 0){
 				clear_line(12);
 				clear_line(13);
-				gotoxy(2,12);	printf("µµ¸ÁÄ¥ ¼ö ¾ø´Ù!!");
+				gotoxy(2,12);	printf("ë„ë§ì¹  ìˆ˜ ì—†ë‹¤!!");
 				make_input_buffer();
 				skill enemy_use_skill = select_enemy_skill(enmy, my);
-				snprintf(log_message, sizeof(log_message), "Àû Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+				snprintf(log_message, sizeof(log_message), "ì  í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
     			log_to_file(log_message);
     			
     			float match = type_matchup[enemy_use_skill.type][my->type];
-    			snprintf(log_message, sizeof(log_message), "»ó¼º °è»ê ¿Ï·á");
+    			snprintf(log_message, sizeof(log_message), "ìƒì„± ê³„ì‚° ì™„ë£Œ");
 				log_to_file(log_message);
 			
 				battle_start(enmy, my, &enemy_use_skill, 1, poketmon_all_list);
-				snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enemy_use_skill.skill_name, my->name);
+				snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enemy_use_skill.skill_name, my->name);
     			log_to_file(log_message);
 			} 
 		}
@@ -1486,7 +1487,7 @@ int select_my_poketmon_in_list(poketmon *my, poketmon *enmy){
 				printf("round: %d", g_round);
 				gotoxy(25, 0); 
 				SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-				// UI±×¸®±â 
+				// UIê·¸ë¦¬ê¸° 
 				prt_poketmon_info(my, poketmon_all_list, 0);
 				prt_poketmon_info(enmy, poketmon_all_list, 1);
 				return 27;
@@ -1494,21 +1495,21 @@ int select_my_poketmon_in_list(poketmon *my, poketmon *enmy){
             else if (ch == 224) { 
                 ch = _getch(); 
                 switch (ch) {
-                    case 75: //¿ŞÂÊ 
+                    case 75: //ì™¼ìª½ 
                         if (s_POS == 2) s_POS = 0;
                         else if(s_POS == 3) s_POS = 0;
                         else if(s_POS == 4 && my_user.poketmon_list[1].level > 0) s_POS = 1;
                         break;
-                    case 77: //¿À¸¥ÂÊ 
+                    case 77: //ì˜¤ë¥¸ìª½ 
                         if (s_POS == 0 && my_user.poketmon_list[2].level > 0) s_POS = 2;
                         else if(s_POS == 1 && my_user.poketmon_list[4].level > 0) s_POS = 4;
                         break;
-                    case 72: //À§ 
+                    case 72: //ìœ„ 
                         if (s_POS == 1) s_POS = 0;
                         else if(s_POS == 3 && my_user.poketmon_list[2].level > 0)	s_POS = 2;
                         else if(s_POS == 4 && my_user.poketmon_list[3].level > 0)	s_POS = 3;
                         break;
-                    case 80: //¾Æ·¡ 
+                    case 80: //ì•„ë˜ 
                         if (s_POS == 0 && my_user.poketmon_list[1].level > 0) s_POS = 1;
                         else if(s_POS == 2 && my_user.poketmon_list[3].level > 0)	s_POS = 3;
                         else if(s_POS == 3 && my_user.poketmon_list[4].level > 0)	s_POS = 4;
@@ -1571,7 +1572,7 @@ int select_my_poketmon_in_list(poketmon *my, poketmon *enmy){
 					clear_line(12);
 					clear_line(13);
 					gotoxy(2,12); 
-					printf("¿¡·¯ ¹ß»ı!!");
+					printf("ì—ëŸ¬ ë°œìƒ!!");
 					make_input_buffer();
 					break;
 			}
@@ -1590,10 +1591,10 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 				clear_line(16);
 				clear_line(17);
 				clear_line(18);
-				gotoxy(2, 16);	printf("ÀÌ¹Ì ÀüÅõÁßÀÎ Æ÷ÄÏ¸óÀÔ´Ï´Ù.");
+				gotoxy(2, 16);	printf("ì´ë¯¸ ì „íˆ¬ì¤‘ì¸ í¬ì¼“ëª¬ì…ë‹ˆë‹¤.");
 				make_input_buffer();
 				clear_line(16);
-				gotoxy(2, 16); printf("Æ÷ÄÏ¸óÀ» ¼±ÅÃÇÏ¼¼¿ä.");
+				gotoxy(2, 16); printf("í¬ì¼“ëª¬ì„ ì„ íƒí•˜ì„¸ìš”.");
 				int test = select_my_poketmon_in_list(my, enmy);
 				
 				if (test != 27){
@@ -1626,12 +1627,12 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 					clear_line(16);
 					clear_line(17);
 					clear_line(18);
-					gotoxy(2, 16);	printf("ÀüÅõ¿¡ ³ª°¥ ¼ö ¾ø´Â Æ÷ÄÏ¸óÀÔ´Ï´Ù!");
+					gotoxy(2, 16);	printf("ì „íˆ¬ì— ë‚˜ê°ˆ ìˆ˜ ì—†ëŠ” í¬ì¼“ëª¬ì…ë‹ˆë‹¤!");
 					make_input_buffer();
-					clear_line(16);	gotoxy(2, 16);	printf("Æ÷ÄÏ¸óÀ» ¼±ÅÃÇÏ¼¼¿ä.");
+					clear_line(16);	gotoxy(2, 16);	printf("í¬ì¼“ëª¬ì„ ì„ íƒí•˜ì„¸ìš”.");
 					s_POS = select_my_poketmon_in_list(my, enmy);
 					
-					snprintf(log_message, sizeof(log_message), "¼±ÅÃµÈ Æ÷ÄÏ¸ó s_POS: %d, HP: %d\n", s_POS, my_user.poketmon_list[s_POS].hp);
+					snprintf(log_message, sizeof(log_message), "ì„ íƒëœ í¬ì¼“ëª¬ s_POS: %d, HP: %d\n", s_POS, my_user.poketmon_list[s_POS].hp);
     				log_to_file(log_message);
 				}
 			}
@@ -1643,15 +1644,15 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 			prt_poketmon_info(enmy, poketmon_all_list, 1);
 			change_poketmon(my, s_POS);
 			skill enemy_use_skill = select_enemy_skill(enmy, my);
-			snprintf(log_message, sizeof(log_message), "Àû Æ÷ÄÏ¸óÀÇ ±â¼úÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
+			snprintf(log_message, sizeof(log_message), "ì  í¬ì¼“ëª¬ì˜ ê¸°ìˆ ì´ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤.");
 	    	log_to_file(log_message);
 	    			
 	    	float match = type_matchup[enemy_use_skill.type][my->type];
-	    	snprintf(log_message, sizeof(log_message), "»ó¼º °è»ê ¿Ï·á");
+	    	snprintf(log_message, sizeof(log_message), "ìƒì„± ê³„ì‚° ì™„ë£Œ");
 			log_to_file(log_message);
 				
 			battle_start(enmy, my, &enemy_use_skill, 1, poketmon_all_list);
-			snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enemy_use_skill.skill_name, my->name);
+			snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enemy_use_skill.skill_name, my->name);
 	    	log_to_file(log_message);	
 			
 			break;
@@ -1665,10 +1666,10 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 				clear_line(17);
 				clear_line(18);
 				gotoxy(2, 16);
-				printf("ÀüÅõÁßÀÎ Æ÷ÄÏ¸óÀº ³õ¾ÆÁÙ ¼ö ¾ø½À´Ï´Ù.");
+				printf("ì „íˆ¬ì¤‘ì¸ í¬ì¼“ëª¬ì€ ë†“ì•„ì¤„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 				make_input_buffer();
 				clear_line(16);
-				gotoxy(2, 16); printf("Æ÷ÄÏ¸óÀ» ¼±ÅÃÇÏ¼¼¿ä.");
+				gotoxy(2, 16); printf("í¬ì¼“ëª¬ì„ ì„ íƒí•˜ì„¸ìš”.");
 				int test = select_my_poketmon_in_list(my, enmy);
 				if (test == 27){
 					cls;
@@ -1676,25 +1677,25 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 					printf("round: %d", g_round);
 					gotoxy(25, 0); 
 					SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-					// UI±×¸®±â 
+					// UIê·¸ë¦¬ê¸° 
 					prt_poketmon_info(my, poketmon_all_list, 0);
 					prt_poketmon_info(enmy, poketmon_all_list, 1);
 				}
 			} 
 			else{
-				gotoxy(2, 16);	printf("%s(À»)¸¦ Á¤¸» ³õ¾ÆÁÖ°Ú½À´Ï±î?", my_user.poketmon_list[s_POS].name);
+				gotoxy(2, 16);	printf("%s(ì„)ë¥¼ ì •ë§ ë†“ì•„ì£¼ê² ìŠµë‹ˆê¹Œ?", my_user.poketmon_list[s_POS].name);
 				SetColor(11);
 				gotoxy(49, 16);	printf(">");
 				SetColor(15);
-				gotoxy(50, 16);	printf("¿¹");
-				gotoxy(50, 17);	printf("¾Æ´Ï¿ä");	
+				gotoxy(50, 16);	printf("ì˜ˆ");
+				gotoxy(50, 17);	printf("ì•„ë‹ˆìš”");	
 				mo = select_released_poketmon(49, 17);
 				if (mo == 0){
 					clear_line(16);
 					clear_line(17);
 					clear_line(18);
 					remove_poketmon(s_POS, my, enmy);
-					gotoxy(2, 16);	printf("¹ÙÀÌ¹ÙÀÌ %s!!", my_user.poketmon_list[s_POS].name);
+					gotoxy(2, 16);	printf("ë°”ì´ë°”ì´ %s!!", my_user.poketmon_list[s_POS].name);
 					sort_ppoketmon_list(my_user.poketmon_list);
 					make_input_buffer();
 					cls;
@@ -1723,7 +1724,7 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 						printf("round: %d", g_round);
 						gotoxy(25, 0); 
 						SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-						// UI±×¸®±â 
+						// UIê·¸ë¦¬ê¸° 
 						prt_poketmon_info(my, poketmon_all_list, 0);
 						prt_poketmon_info(enmy, poketmon_all_list, 1);
 					}
@@ -1731,7 +1732,7 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 				else if (mo == 1){
 					clear_line(16);
 					clear_line(17);
-					gotoxy(2, 16); printf("Æ÷ÄÏ¸óÀ» ¼±ÅÃÇÏ¼¼¿ä.");
+					gotoxy(2, 16); printf("í¬ì¼“ëª¬ì„ ì„ íƒí•˜ì„¸ìš”.");
 					int test = select_my_poketmon_in_list(my, enmy);
 					if (test == 27){
 						cls;
@@ -1739,7 +1740,7 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 						printf("round: %d", g_round);
 						gotoxy(25, 0); 
 						SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-						// UI±×¸®±â 
+						// UIê·¸ë¦¬ê¸° 
 						prt_poketmon_info(my, poketmon_all_list, 0);
 						prt_poketmon_info(enmy, poketmon_all_list, 1);
 					}
@@ -1749,7 +1750,7 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 		case 2:
 			clear_line(16);
 			clear_line(17);
-			gotoxy(2, 16); printf("Æ÷ÄÏ¸óÀ» ¼±ÅÃÇÏ¼¼¿ä.");
+			gotoxy(2, 16); printf("í¬ì¼“ëª¬ì„ ì„ íƒí•˜ì„¸ìš”.");
 			int test = select_my_poketmon_in_list(my, enmy);
 			if (test == 27){
 				cls;
@@ -1757,7 +1758,7 @@ void move(int selct_move, poketmon *my, poketmon *enmy, int s_POS){
 				printf("round: %d", g_round);
 				gotoxy(25, 0); 
 				SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-				// UI±×¸®±â 
+				// UIê·¸ë¦¬ê¸° 
 				prt_poketmon_info(my, poketmon_all_list, 0);
 				prt_poketmon_info(enmy, poketmon_all_list, 1);
 			}
@@ -1769,7 +1770,7 @@ void remove_poketmon(int index, poketmon *my, poketmon *enmy){
 	if (index == 0){
 		clear_line(16);
 		gotoxy(2, 16);
-		printf("ÀüÅõÁßÀÎ Æ÷ÄÏ¸óÀº ³õ¾ÆÁÙ ¼ö ¾ø½À´Ï´Ù.");
+		printf("ì „íˆ¬ì¤‘ì¸ í¬ì¼“ëª¬ì€ ë†“ì•„ì¤„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 		make_input_buffer();
 		clear_line(16);
 		clear_line(17);
@@ -1780,7 +1781,7 @@ void remove_poketmon(int index, poketmon *my, poketmon *enmy){
 			printf("round: %d", g_round);
 			gotoxy(25, 0); 
 			SetColor(14);	printf("$: %d", my_bag.money);	SetColor(15);
-			// UI±×¸®±â 
+			// UIê·¸ë¦¬ê¸° 
 			prt_poketmon_info(my, poketmon_all_list, 0);
 			prt_poketmon_info(enmy, poketmon_all_list, 1);
 		}
@@ -1842,7 +1843,7 @@ int select_released_poketmon(int x, int y){
 } 
 
 void change_poketmon(poketmon *my, int change_poketmon_index) {
-    gotoxy(2, 12); printf("µ¹¾Æ¿Í %s!!", my->name);
+    gotoxy(2, 12); printf("ëŒì•„ì™€ %s!!", my->name);
     block_input_for_ms(500);
     gotoxy(2,10); printf(" ");
     gotoxy(10,8); printf("                                                         ");
@@ -1855,7 +1856,7 @@ void change_poketmon(poketmon *my, int change_poketmon_index) {
 	int hp = my->hp;
 	set_stat(my, my->level, poketmon_all_list);
 	my->hp = hp;
-    // Æ÷ÄÏ¸ó ±³Ã¼ 
+    // í¬ì¼“ëª¬ êµì²´ 
     poketmon change_poketmon = my_user.poketmon_list[change_poketmon_index];
     my_user.poketmon_list[change_poketmon_index] = *my;
     *my = change_poketmon;
@@ -1864,7 +1865,7 @@ void change_poketmon(poketmon *my, int change_poketmon_index) {
     for (int i = 0; i < 4; i ++){
 		my->rank_up[i] = 0;
 	}
-    gotoxy(2, 12); printf("°¡¶ù %s!!", my->name);
+    gotoxy(2, 12); printf("ê°€ë %s!!", my->name);
     block_input_for_ms(500);
     Sleep(500); 
 	clear_input_buffer();
@@ -1877,9 +1878,9 @@ int select_move_in_poketmon_list(){
 	SetColor(11);
 	gotoxy(4,16);	printf(">");
 	SetColor(15);
-	gotoxy(5, 16);	printf("±³Ã¼ÇÑ´Ù");
-	gotoxy(20, 16);	printf("³õ¾ÆÁØ´Ù");
-	gotoxy(35, 16);	printf("±×¸¸ µĞ´Ù");
+	gotoxy(5, 16);	printf("êµì²´í•œë‹¤");
+	gotoxy(20, 16);	printf("ë†“ì•„ì¤€ë‹¤");
+	gotoxy(35, 16);	printf("ê·¸ë§Œ ë‘”ë‹¤");
 	
 	int Pos = 0;
 	
@@ -1890,11 +1891,11 @@ int select_move_in_poketmon_list(){
 			if (ch == 224){
 				ch = _getch();
 				switch(ch){
-					case 75:	//¿ŞÂÊ 
+					case 75:	//ì™¼ìª½ 
 						if (Pos == 0)	Pos = 2;
 						else Pos --;
 						break;
-					case 77:	//¿À¸¥ÂÊ
+					case 77:	//ì˜¤ë¥¸ìª½
 						if (Pos == 2)	Pos = 0;
 						else Pos ++;
 						break; 
@@ -1939,12 +1940,12 @@ int select_move_in_poketmon_list(){
 
 void calc_rank_up(poketmon *p){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "\n·©Å©¾÷ ¹è¿­ÀÇ °ªµéÀ» °Ë»çÇÏ°í ·©Å©¾÷À» ½ÃÀÛÇÕ´Ï´Ù!!");
+	snprintf(log_message, sizeof(log_message), "\në­í¬ì—… ë°°ì—´ì˜ ê°’ë“¤ì„ ê²€ì‚¬í•˜ê³  ë­í¬ì—…ì„ ì‹œì‘í•©ë‹ˆë‹¤!!");
 	log_to_file(log_message);
-	snprintf(log_message, sizeof(log_message), "ÇöÁ¦ ´É·ÂÄ¡:\n hp: %d\nat: %d\ndef: %d\nspped: %d", p->hp, p->attack_power, p->defense, p->speed);
+	snprintf(log_message, sizeof(log_message), "í˜„ì œ ëŠ¥ë ¥ì¹˜:\n hp: %d\nat: %d\ndef: %d\nspped: %d", p->hp, p->attack_power, p->defense, p->speed);
 	log_to_file(log_message);
 	set_stat(p, p->level, poketmon_all_list);
-	snprintf(log_message, sizeof(log_message), "\n°Ë»çÇÑ Æ÷ÄÏ¸ó ·©Å©¾÷ ¹è¿­\nhp: %d\natk: %d\ndef: %d\nspeed: %d\n", p->rank_up[0], p->rank_up[1], p->rank_up[2], p->rank_up[3]);
+	snprintf(log_message, sizeof(log_message), "\nê²€ì‚¬í•œ í¬ì¼“ëª¬ ë­í¬ì—… ë°°ì—´\nhp: %d\natk: %d\ndef: %d\nspeed: %d\n", p->rank_up[0], p->rank_up[1], p->rank_up[2], p->rank_up[3]);
 	log_to_file(log_message);
 	
 	if (p->rank_up[0] > 0){
@@ -1953,25 +1954,25 @@ void calc_rank_up(poketmon *p){
 	if (p->rank_up[1] > 0){
 		for (int i = p->rank_up[1]; i > 0; i --){
 			p->attack_power += p->attack_power / 2;
-			snprintf(log_message, sizeof(log_message), "°ø°İ·Â 1·©Å© »ó½Â!!");
+			snprintf(log_message, sizeof(log_message), "ê³µê²©ë ¥ 1ë­í¬ ìƒìŠ¹!!");
 			log_to_file(log_message);
 		}
 	}
 	if (p->rank_up[2] > 0){
 		for (int i = p->rank_up[2]; i > 0; i --){
 			p->defense += p->defense / 2;
-			snprintf(log_message, sizeof(log_message), "¹æ¿©·Â 1·©Å© »ó½Â!!");
+			snprintf(log_message, sizeof(log_message), "ë°©ì—¬ë ¥ 1ë­í¬ ìƒìŠ¹!!");
 			log_to_file(log_message);
 		}
 	}
 	if (p->rank_up[3] > 0){
 		for (int i = p->rank_up[3]; i > 0; i --){
 		p->speed += p->speed / 2;
-			snprintf(log_message, sizeof(log_message), "½ºÇÇµå 1·©Å© »ó½Â!!");
+			snprintf(log_message, sizeof(log_message), "ìŠ¤í”¼ë“œ 1ë­í¬ ìƒìŠ¹!!");
 			log_to_file(log_message);
 		}
 	}
-	snprintf(log_message, sizeof(log_message), "·©Å©¾÷ ÈÄ ´É·ÂÄ¡:\n hp: %d\nat: %d\ndef: %d\nspped: %d", p->hp, p->attack_power, p->defense, p->speed);
+	snprintf(log_message, sizeof(log_message), "ë­í¬ì—… í›„ ëŠ¥ë ¥ì¹˜:\n hp: %d\nat: %d\ndef: %d\nspped: %d", p->hp, p->attack_power, p->defense, p->speed);
 	log_to_file(log_message);
 }
 
@@ -1980,7 +1981,7 @@ void level_up(poketmon *p){
 	p->exp = 0;
 	clear_line(12);
 	clear_line(13);
-	gotoxy(2,12);	printf("%s(ÀÌ)°¡ ·¹º§¾÷Çß´Ù!!", p->name);
+	gotoxy(2,12);	printf("%s(ì´)ê°€ ë ˆë²¨ì—…í–ˆë‹¤!!", p->name);
 	make_input_buffer();
 	int n_hp = p->hp;
 	int max_hp = calc_max_hp(p, poketmon_all_list);
@@ -1996,7 +1997,7 @@ void level_up(poketmon *p){
         prt_evolution(p, p->evolution_poketmon);
         evolution(p);
     }
-    snprintf(log_message, sizeof(log_message), "\n%sÀÇ ´É·ÂÄ¡\nhp: %d / %d\natk: %d\ndef: %d\nspeed: %d\n", p->name, p->hp, new_max_hp, p->attack_power, p->defense, p->speed);
+    snprintf(log_message, sizeof(log_message), "\n%sì˜ ëŠ¥ë ¥ì¹˜\nhp: %d / %d\natk: %d\ndef: %d\nspeed: %d\n", p->name, p->hp, new_max_hp, p->attack_power, p->defense, p->speed);
 	log_to_file(log_message);
 	make_input_buffer();
 }
@@ -2046,17 +2047,17 @@ skill select_enemy_skill(poketmon *enemy, poketmon *my) {
 int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int max_hp){
 	cls;
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "¾ÆÀÌÅÛ ¼±ÅÃ ½ÇÇà");
+	snprintf(log_message, sizeof(log_message), "ì•„ì´í…œ ì„ íƒ ì‹¤í–‰");
 	log_to_file(log_message);
 	int my_money = money;
 	int get_gold = gold;
-	gotoxy(10,1);	printf("-¾ÆÀÌÅÛ ¼±ÅÃ-");
-	gotoxy(13,2);	printf("»óÃ³¾à");
+	gotoxy(10,1);	printf("-ì•„ì´í…œ ì„ íƒ-");
+	gotoxy(13,2);	printf("ìƒì²˜ì•½");
 	gotoxy(5,6);	printf("-");
 	gotoxy(15,6);	printf("-");
 	gotoxy(25,6);	printf("-");
 	gotoxy(25, 1);	printf("$: -");
-	gotoxy(24, 10);	printf("°Ç³Ê¶Ù±â");
+	gotoxy(24, 10);	printf("ê±´ë„ˆë›°ê¸°");
 	gotoxy(0,11);	printf("--------------------------------");
 	Sleep(500);
 	
@@ -2073,22 +2074,22 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
             if (ch == 224) { 
                 ch = _getch(); 
                 switch (ch) {
-                    case 75: //¿ŞÂÊ 
+                    case 75: //ì™¼ìª½ 
                         if (i_POS == 0) i_POS = 2;
                         else if(i_POS == 1)	i_POS = 0;
                         else if(i_POS == 2)	i_POS = 1;
                         break;
-                    case 77: //¿À¸¥ÂÊ 
+                    case 77: //ì˜¤ë¥¸ìª½ 
                         if (i_POS == 2) i_POS = 0;
                         else if(i_POS == 1)	i_POS = 2;
                         else if(i_POS == 0)	i_POS = 1;
                         break;
-                    case 72: //À§ 
+                    case 72: //ìœ„ 
                         if (i_POS == 3) i_POS = 0;
                         else if(i_POS == 4)	i_POS = 1;
                         else if(i_POS == 5)	i_POS = 2;
                         break;
-                    case 80: //¾Æ·¡ 
+                    case 80: //ì•„ë˜ 
                         if (i_POS == 0) i_POS = 3;
                         else if(i_POS == 1)	i_POS = 4;
                         else if(i_POS == 2)	i_POS = 5;
@@ -2105,13 +2106,13 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
                 	gotoxy(24,6);	printf(" ");
                 	gotoxy(23,10);	printf(" ");
                 	clear_line(12);	clear_line(13);
-                	gotoxy(13,2);	printf("»óÃ³¾à");
+                	gotoxy(13,2);	printf("ìƒì²˜ì•½");
                 	if (lv < 20)
-                    	prt_item_ui(4,6," 200°ñµå¸¦ »ç¿ëÇØ Æ÷ÄÏ¸ó 1¸¶¸®ÀÇ HP¸¦ 20 ¶Ç´Â 10% Áß ³ôÀº ¼öÄ¡¸¸Å­ È¸º¹ÇÑ´Ù.", money);
+                    	prt_item_ui(4,6," 200ê³¨ë“œë¥¼ ì‚¬ìš©í•´ í¬ì¼“ëª¬ 1ë§ˆë¦¬ì˜ HPë¥¼ 20 ë˜ëŠ” 10% ì¤‘ ë†’ì€ ìˆ˜ì¹˜ë§Œí¼ íšŒë³µí•œë‹¤.", money);
                     else if (lv >= 20 && lv < 36)
-                    	prt_item_ui(4,6," 500°ñµå¸¦ »ç¿ëÇØ Æ÷ÄÏ¸ó 1¸¶¸®ÀÇ HP¸¦ 50 ¶Ç´Â 25% Áß ³ôÀº ¼öÄ¡¸¸Å­ È¸º¹ÇÑ´Ù.", money);
+                    	prt_item_ui(4,6," 500ê³¨ë“œë¥¼ ì‚¬ìš©í•´ í¬ì¼“ëª¬ 1ë§ˆë¦¬ì˜ HPë¥¼ 50 ë˜ëŠ” 25% ì¤‘ ë†’ì€ ìˆ˜ì¹˜ë§Œí¼ íšŒë³µí•œë‹¤.", money);
                     else if (lv >= 36)
-                    	prt_item_ui(4,6," 1000°ñµå¸¦ »ç¿ëÇØ Æ÷ÄÏ¸ó 1¸¶¸®ÀÇ HP¸¦ 200 ¶Ç´Â 50% Áß ³ôÀº ¼öÄ¡¸¸Å­ È¸º¹ÇÑ´Ù.", money);
+                    	prt_item_ui(4,6," 1000ê³¨ë“œë¥¼ ì‚¬ìš©í•´ í¬ì¼“ëª¬ 1ë§ˆë¦¬ì˜ HPë¥¼ 200 ë˜ëŠ” 50% ì¤‘ ë†’ì€ ìˆ˜ì¹˜ë§Œí¼ íšŒë³µí•œë‹¤.", money);
                     break;
                 case 1:
                 	clear_line(2);
@@ -2119,10 +2120,10 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
                 	gotoxy(24,6);	printf(" ");
                 	gotoxy(23,10);	printf(" ");
                 	clear_line(12);	clear_line(13);
-                    prt_item_ui(14,6,"°ñµå È¹µæ", money);
-                    gotoxy(13,2);	printf("°ñµå È¹µæ");
+                    prt_item_ui(14,6,"ê³¨ë“œ íšë“", money);
+                    gotoxy(13,2);	printf("ê³¨ë“œ íšë“");
                     SetColor(14);
-					gotoxy(12,12); printf("(%d°ñµå)", get_gold);
+					gotoxy(12,12); printf("(%dê³¨ë“œ)", get_gold);
 					SetColor(15);
                     break;
                 case 2:
@@ -2131,8 +2132,8 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
                 	gotoxy(14,6);	printf(" ");
                 	gotoxy(23,10);	printf(" ");
 					clear_line(12);	clear_line(13);
-                    prt_item_ui(24,6,"Æ÷ÄÏ¸óÀÇ ½ºÅİÁß 1°¡Áö¸¦ ¹«ÀÛÀ§·Î °ñ¶ó 10% »ó½Â½ÃÅ²´Ù.", money);
-                    gotoxy(13,2);	printf("½ºÅİ Áõ°¡");
+                    prt_item_ui(24,6,"í¬ì¼“ëª¬ì˜ ìŠ¤í…Ÿì¤‘ 1ê°€ì§€ë¥¼ ë¬´ì‘ìœ„ë¡œ ê³¨ë¼ 10% ìƒìŠ¹ì‹œí‚¨ë‹¤.", money);
+                    gotoxy(13,2);	printf("ìŠ¤í…Ÿ ì¦ê°€");
                     break;
                 case 3: case 4: case 5:
                 	clear_line(2);
@@ -2140,22 +2141,22 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
                 	gotoxy(14,6);	printf(" ");
                 	gotoxy(24,6);	printf(" ");
 					clear_line(12);	clear_line(13);
-					gotoxy(13,2);	printf("°Ç³Ê¶Ù±â");
-                    prt_item_ui(23,10,"¼±ÅÃÇÏÁö ¾Ê°í ³Ñ¾î°¨", money);
+					gotoxy(13,2);	printf("ê±´ë„ˆë›°ê¸°");
+                    prt_item_ui(23,10,"ì„ íƒí•˜ì§€ ì•Šê³  ë„˜ì–´ê°", money);
                     break;
             }
         }
         Sleep(100);
 	}
 	if (i_POS == 0){
-		snprintf(log_message, sizeof(log_message), "»óÃ³¾à ¼±ÅÃ");
+		snprintf(log_message, sizeof(log_message), "ìƒì²˜ì•½ ì„ íƒ");
 		log_to_file(log_message);
 		if (lv < 20){
 			
 			if (money < 200){
 				clear_line(12);
 				clear_line(13);
-				gotoxy(2,12);	printf("%d°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù! ",money);
+				gotoxy(2,12);	printf("%dê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤! ",money);
 				make_input_buffer();
 			}
 		}
@@ -2166,7 +2167,7 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
 			if (money < 500){
 				clear_line(12);
 				clear_line(13);
-				gotoxy(2,12);	printf("%d°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù! ",money);
+				gotoxy(2,12);	printf("%dê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤! ",money);
 				make_input_buffer();
 			}
 		}
@@ -2177,7 +2178,7 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
 			if (money < 1000){
 				clear_line(12);
 				clear_line(13);
-				gotoxy(2,12);	printf("%d°ñµå°¡ ºÎÁ·ÇÕ´Ï´Ù! ",money);
+				gotoxy(2,12);	printf("%dê³¨ë“œê°€ ë¶€ì¡±í•©ë‹ˆë‹¤! ",money);
 				make_input_buffer();
 			}
 		}
@@ -2185,25 +2186,25 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
         else if (hp == max_hp){
 		clear_line(12);
 		clear_line(13);
-		gotoxy(2,12);	printf("»ç¿ëÇØµµ È¿°ú°¡ ¾ø´Ù! ");
+		gotoxy(2,12);	printf("ì‚¬ìš©í•´ë„ íš¨ê³¼ê°€ ì—†ë‹¤! ");
 		make_input_buffer();
 		}
 		else	return i_POS;
 	}
 		
 		else if (i_POS == 1){
-			snprintf(log_message, sizeof(log_message), "°ñµå ¼±ÅÃ");
+			snprintf(log_message, sizeof(log_message), "ê³¨ë“œ ì„ íƒ");
 			log_to_file(log_message);
 			return i_POS;
 		}
 		
 		else if (i_POS == 2){
-			snprintf(log_message, sizeof(log_message), "´É·ÂÄ¡ »ó½Â ¼±ÅÃ");
+			snprintf(log_message, sizeof(log_message), "ëŠ¥ë ¥ì¹˜ ìƒìŠ¹ ì„ íƒ");
 			log_to_file(log_message);
 			return i_POS;
 		}
 		else {
-			snprintf(log_message, sizeof(log_message), "°Ç³Ê¶Ù±â ¼±ÅÃ");
+			snprintf(log_message, sizeof(log_message), "ê±´ë„ˆë›°ê¸° ì„ íƒ");
 			log_to_file(log_message);
 			return i_POS;
 		}
@@ -2211,7 +2212,7 @@ int select_item(item ilst[], int gold, int money, int round, int lv, int hp, int
 
 void use_healing_pack(item *i, poketmon *p, bag *b, poketmon list[]){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "»óÃ³¾à »ç¿ë ½ÇÇà");
+	snprintf(log_message, sizeof(log_message), "ìƒì²˜ì•½ ì‚¬ìš© ì‹¤í–‰");
     log_to_file(log_message);
 	int number = p->number;
 	int hp_rank_up = p->rank_up[0];
@@ -2225,11 +2226,11 @@ void use_healing_pack(item *i, poketmon *p, bag *b, poketmon list[]){
 	}
 	
 	b->money -= price;
-	snprintf(log_message, sizeof(log_message), "°ñµå ÁöºÒ ¿Ï·á");
+	snprintf(log_message, sizeof(log_message), "ê³¨ë“œ ì§€ë¶ˆ ì™„ë£Œ");
     log_to_file(log_message);
 	
-	if (strcmp(i->name, "»óÃ³¾à") == 0){
-		snprintf(log_message, sizeof(log_message), "»óÃ³¾à ¼±Á¤");
+	if (strcmp(i->name, "ìƒì²˜ì•½") == 0){
+		snprintf(log_message, sizeof(log_message), "ìƒì²˜ì•½ ì„ ì •");
    		log_to_file(log_message);
 		 int ex = max_hp * (10 / 100);
 		 if (ex < 30){
@@ -2244,8 +2245,8 @@ void use_healing_pack(item *i, poketmon *p, bag *b, poketmon list[]){
 		 }
 	}
 	
-	else if (strcmp(i->name, "ÁÁÀº »óÃ³¾à") == 0){
-		snprintf(log_message, sizeof(log_message), "ÁÁÀº »óÃ³¾à ¼±Á¤");
+	else if (strcmp(i->name, "ì¢‹ì€ ìƒì²˜ì•½") == 0){
+		snprintf(log_message, sizeof(log_message), "ì¢‹ì€ ìƒì²˜ì•½ ì„ ì •");
    		log_to_file(log_message);
 		 int ex = max_hp * (25 / 100);
 		 if (ex < 60){
@@ -2260,8 +2261,8 @@ void use_healing_pack(item *i, poketmon *p, bag *b, poketmon list[]){
 		 }
 	}
 	
-	else if (strcmp(i->name, "°í±Ş »óÃ³¾à") == 0){
-		snprintf(log_message, sizeof(log_message), "°í±Ş »óÃ³¾à ¼±Á¤");
+	else if (strcmp(i->name, "ê³ ê¸‰ ìƒì²˜ì•½") == 0){
+		snprintf(log_message, sizeof(log_message), "ê³ ê¸‰ ìƒì²˜ì•½ ì„ ì •");
    		log_to_file(log_message);
 		 int ex = max_hp * (50 / 100);
 		 if (ex < 200){
@@ -2278,13 +2279,13 @@ void use_healing_pack(item *i, poketmon *p, bag *b, poketmon list[]){
 	
 	clear_line(12);
 	clear_line(13);
-	gotoxy(2,12);	printf("%s(Àº)´Â %dÀÇ Ã¼·ÂÀ» È¸º¹Çß´Ù!", p->name, heal_hp);
+	gotoxy(2,12);	printf("%s(ì€)ëŠ” %dì˜ ì²´ë ¥ì„ íšŒë³µí–ˆë‹¤!", p->name, heal_hp);
 	make_input_buffer();
 }
 
 void Rank_up(poketmon *p){
 	char log_message[200]; 
-	snprintf(log_message, sizeof(log_message), "·©Å©¾÷ ½ÇÇà");
+	snprintf(log_message, sizeof(log_message), "ë­í¬ì—… ì‹¤í–‰");
    	log_to_file(log_message);
 	int rand_num = 4;
 	int rank_up_idx = 0;
@@ -2295,8 +2296,8 @@ void Rank_up(poketmon *p){
 		sp = p->rank_up[3];
 	if (hp == 6 && at == 6 && de == 6 && sp == 6){
 		clear_line(12);	clear_line(13);
-		gotoxy(2,12);	printf("ÀÌ¹Ì ´É·ÂÄ¡°¡ ÃÖ´ëÄ¡ÀÔ´Ï´Ù!!");	make_input_buffer();
-		snprintf(log_message, sizeof(log_message), "´É·ÂÄ¡°¡ ÀÌ¹Ì ÃÖ´ë·Î ½ÇÇàÇÏÁö ¾Ê½À´Ï´Ù!!");
+		gotoxy(2,12);	printf("ì´ë¯¸ ëŠ¥ë ¥ì¹˜ê°€ ìµœëŒ€ì¹˜ì…ë‹ˆë‹¤!!");	make_input_buffer();
+		snprintf(log_message, sizeof(log_message), "ëŠ¥ë ¥ì¹˜ê°€ ì´ë¯¸ ìµœëŒ€ë¡œ ì‹¤í–‰í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤!!");
    		log_to_file(log_message);
 	}
 	
@@ -2308,28 +2309,28 @@ void Rank_up(poketmon *p){
         break;
     	}
 		switch (rank_up_idx) {
-        	case 0: // Ã¼·Â
+        	case 0: // ì²´ë ¥
         	    p->rank_up[0] ++;
         	    clear_line(12); clear_line(13);
-        	    gotoxy(2, 12); printf("%sÀÇ Ã¼·ÂÀÌ Å©°Ô ¿Ã¶ú´Ù!!", p->name); make_input_buffer();
+        	    gotoxy(2, 12); printf("%sì˜ ì²´ë ¥ì´ í¬ê²Œ ì˜¬ëë‹¤!!", p->name); make_input_buffer();
         	    break;
         	    
-        	case 1: // °ø°İ·Â
+        	case 1: // ê³µê²©ë ¥
         	    p->rank_up[1] ++;
         	    clear_line(12); clear_line(13);
-        	    gotoxy(2, 12); printf("%sÀÇ °ø°İ·ÂÀÌ Å©°Ô ¿Ã¶ú´Ù!!", p->name); make_input_buffer();
+        	    gotoxy(2, 12); printf("%sì˜ ê³µê²©ë ¥ì´ í¬ê²Œ ì˜¬ëë‹¤!!", p->name); make_input_buffer();
         	    break;
 	
-	        case 2: // ¹æ¾î·Â
+	        case 2: // ë°©ì–´ë ¥
     	        p->rank_up[2] ++;
     	        clear_line(12); clear_line(13);
-    	        gotoxy(2, 12); printf("%sÀÇ ¹æ¾î·ÂÀÌ Å©°Ô ¿Ã¶ú´Ù!!", p->name); make_input_buffer();
+    	        gotoxy(2, 12); printf("%sì˜ ë°©ì–´ë ¥ì´ í¬ê²Œ ì˜¬ëë‹¤!!", p->name); make_input_buffer();
     	        break;
 	
-	        case 3: // ½ºÇÇµå
+	        case 3: // ìŠ¤í”¼ë“œ
 	            p->rank_up[3] ++;
 	            clear_line(12); clear_line(13);
-	            gotoxy(2, 12); printf("%sÀÇ ½ºÇÇµå°¡ Å©°Ô ¿Ã¶ú´Ù!!", p->name); make_input_buffer();
+	            gotoxy(2, 12); printf("%sì˜ ìŠ¤í”¼ë“œê°€ í¬ê²Œ ì˜¬ëë‹¤!!", p->name); make_input_buffer();
 	            break;
 	
 	        default:
@@ -2392,7 +2393,7 @@ skill select_skill(skill skill_list[]){
 
 	int able_skill[4];
 	skill esc;
-	strcpy(esc.skill_name, "µ¹¾Æ°¡±â");
+	strcpy(esc.skill_name, "ëŒì•„ê°€ê¸°");
 	
 	for (int i = 0; i < 4; i ++){
 		if (strcmp(skill_list[i].skill_name, "----") == 0){
@@ -2408,25 +2409,25 @@ skill select_skill(skill skill_list[]){
             if (ch == 224) { 
                 ch = _getch(); 
                 switch (ch) {
-                    case 75: //¿ŞÂÊ 
+                    case 75: //ì™¼ìª½ 
                         if (skill_index == 0 && able_skill[1] == 1) skill_index = 1;
                         else if(skill_index == 2 && able_skill[3] == 1) skill_index = 3;
                         else if(skill_index == 1 && able_skill[0] == 1) skill_index = 0;
                         else if(skill_index == 3 && able_skill[2] == 1) skill_index = 2;
                         break;
-                    case 77: //¿À¸¥ÂÊ 
+                    case 77: //ì˜¤ë¥¸ìª½ 
                         if (skill_index == 0 && able_skill[1] == 1) skill_index = 1;
                         else if(skill_index == 2 && able_skill[3] == 1) skill_index = 3;
                         else if(skill_index == 1 && able_skill[0] == 1) skill_index = 0;
                         else if(skill_index == 3 && able_skill[2] == 1) skill_index = 2;
                         break;
-                    case 72: //À§ 
+                    case 72: //ìœ„ 
                         if (skill_index == 1 && able_skill[3] == 1) skill_index = 3;
                         else if(skill_index == 0 && able_skill[2] == 1) skill_index = 2;
                         else if(skill_index == 2 && able_skill[0] == 1) skill_index = 0;
                         else if(skill_index == 3 && able_skill[1] == 1) skill_index = 1;
                         break;
-                    case 80: //¾Æ·¡ 
+                    case 80: //ì•„ë˜ 
                         if (skill_index == 1 && able_skill[3] == 1) skill_index = 3;
                         else if(skill_index == 0 && able_skill[2] == 1) skill_index = 2;
                         else if(skill_index == 2 && able_skill[0] == 1) skill_index = 0;
@@ -2434,7 +2435,7 @@ skill select_skill(skill skill_list[]){
                         break;
                 }
             } else if(ch == 27 || ch == 'x' || ch == 'X'){
-            	snprintf(log_message, sizeof(log_message), "skill  ¼±ÅÃÃ¢¿¡¼­ esc¸¦ ´©¸§!",skill_list[skill_index].skill_name);
+            	snprintf(log_message, sizeof(log_message), "skill  ì„ íƒì°½ì—ì„œ escë¥¼ ëˆ„ë¦„!",skill_list[skill_index].skill_name);
     			log_to_file(log_message);
             	return esc; 
 			} 
@@ -2487,7 +2488,7 @@ skill select_skill(skill skill_list[]){
 					clear_line(12);
 					clear_line(13);
 					gotoxy(2,12); 
-					printf("¿¡·¯ ¹ß»ı!!");
+					printf("ì—ëŸ¬ ë°œìƒ!!");
 					make_input_buffer();
 					break;
 			}
@@ -2498,20 +2499,20 @@ skill select_skill(skill skill_list[]){
 	clear_line(13);
 	clear_line(12);
 	gotoxy(2,12);
-	snprintf(log_message, sizeof(log_message), "%s°¡ ¼±ÅÃµÆ½À´Ï´Ù.",skill_list[skill_index].skill_name);
+	snprintf(log_message, sizeof(log_message), "%sê°€ ì„ íƒëìŠµë‹ˆë‹¤.",skill_list[skill_index].skill_name);
     log_to_file(log_message);
 	return skill_list[skill_index];
 }
 
 void poketmon_learn_skill(poketmon *p, skill all_skill_list[], int skill_number){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "\n%sÀÇ skillfilled: %d",p->name, p->skill_filled);
+	snprintf(log_message, sizeof(log_message), "\n%sì˜ skillfilled: %d",p->name, p->skill_filled);
 	log_to_file(log_message);
 	for (int i = 0; i < MAX_SKILL; i ++){
 		if (strcmp(p->skill_list[i].skill_name, "----") == 0){
 			p->skill_list[i] = all_skill_list[skill_number - 1];
 			p->skill_filled ++;
-			snprintf(log_message, sizeof(log_message), "\npoketmon_learn_skill¿¡¼­ ½ÇÇà\n±â¼úÀ» ¹è¿î ÈÄ skill_filled ++ ½ÇÇà!!\nskillfilled: %d",p->skill_filled);
+			snprintf(log_message, sizeof(log_message), "\npoketmon_learn_skillì—ì„œ ì‹¤í–‰\nê¸°ìˆ ì„ ë°°ìš´ í›„ skill_filled ++ ì‹¤í–‰!!\nskillfilled: %d",p->skill_filled);
 			log_to_file(log_message);
 			break;
 		}
@@ -2536,10 +2537,10 @@ void select_my_poketmon(poketmon poketmon_all_list[], User *user, skill all_skil
     SetColor(10);
     gotoxy(3, 2); printf("%s", poketmon_all_list[0].name);
     SetColor(10);
-    gotoxy(3,4);	printf("%s" , "Ç®Å¸ÀÔ");
+    gotoxy(3,4);	printf("%s" , "í’€íƒ€ì…");
     SetColor(15);
-    gotoxy(10,4);	printf("%s" , "¸öÅë ¹ÚÄ¡±â");
-    gotoxy(22,4);	printf("%s" , "µ¢±¼ Ã¤Âï");
+    gotoxy(10,4);	printf("%s" , "ëª¸í†µ ë°•ì¹˜ê¸°");
+    gotoxy(22,4);	printf("%s" , "ë©êµ´ ì±„ì°");
     SetColor(12);
     gotoxy(14, 2); printf("%s", poketmon_all_list[3].name);
     SetColor(9);
@@ -2578,10 +2579,10 @@ void select_my_poketmon(poketmon poketmon_all_list[], User *user, skill all_skil
                     SetColor(10);
                     gotoxy(3, 2); printf("%s", poketmon_all_list[0].name);
                     SetColor(10);
-                    gotoxy(3,4);	printf("%s" , "Ç®Å¸ÀÔ");
+                    gotoxy(3,4);	printf("%s" , "í’€íƒ€ì…");
                     SetColor(15);
-    				gotoxy(10,4);	printf("%s" , "¸öÅë ¹ÚÄ¡±â");
-    				gotoxy(22,4);	printf("%s" , "µ¢±¼ Ã¤Âï");
+    				gotoxy(10,4);	printf("%s" , "ëª¸í†µ ë°•ì¹˜ê¸°");
+    				gotoxy(22,4);	printf("%s" , "ë©êµ´ ì±„ì°");
     				SetColor(12);
                     gotoxy(14, 2); printf("%s", poketmon_all_list[3].name);
                     SetColor(9);
@@ -2599,10 +2600,10 @@ void select_my_poketmon(poketmon poketmon_all_list[], User *user, skill all_skil
                     SetColor(10);
                     gotoxy(3, 2); printf("%s", poketmon_all_list[0].name);
                     SetColor(12);
-                    gotoxy(3,4);	printf("%s" , "ºÒÅ¸ÀÔ");
+                    gotoxy(3,4);	printf("%s" , "ë¶ˆíƒ€ì…");
                     SetColor(15);
-    				gotoxy(10,4);	printf("%s" , "ÇÒÄû±â");
-    				gotoxy(22,4);	printf("%s" , "ºÒ²É ¼¼·Ê");
+    				gotoxy(10,4);	printf("%s" , "í• í€´ê¸°");
+    				gotoxy(22,4);	printf("%s" , "ë¶ˆê½ƒ ì„¸ë¡€");
     				SetColor(12);
                     gotoxy(14, 2); printf("%s", poketmon_all_list[3].name);
                     SetColor(9);
@@ -2620,10 +2621,10 @@ void select_my_poketmon(poketmon poketmon_all_list[], User *user, skill all_skil
                     SetColor(10);
                     gotoxy(3, 2); printf("%s", poketmon_all_list[0].name);
                     SetColor(9);
-                    gotoxy(3,4);	printf("%s" , "¹°Å¸ÀÔ");
+                    gotoxy(3,4);	printf("%s" , "ë¬¼íƒ€ì…");
                     SetColor(15);
-    				gotoxy(10,4);	printf("%s" , "¸öÅë ¹ÚÄ¡±â");
-    				gotoxy(22,4);	printf("%s" , "¹°´ëÆ÷");
+    				gotoxy(10,4);	printf("%s" , "ëª¸í†µ ë°•ì¹˜ê¸°");
+    				gotoxy(22,4);	printf("%s" , "ë¬¼ëŒ€í¬");
     				SetColor(12);
                     gotoxy(14, 2); printf("%s", poketmon_all_list[3].name);
                     SetColor(9);
@@ -2635,39 +2636,39 @@ void select_my_poketmon(poketmon poketmon_all_list[], User *user, skill all_skil
         Sleep(100); 
     }
     if (POS == 0) {
-    	snprintf(log_message, sizeof(log_message), "%s°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù!!", poketmon_all_list[0]);	log_to_file(log_message);
-    	snprintf(log_message, sizeof(log_message), "\n%sÀÇ±âº» ±â¼ú ÀÎµ¦½º: %d, %d", poketmon_all_list[3].name, poketmon_all_list[3].base_skill[0], poketmon_all_list[3].base_skill[1]);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "%sê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤!!", poketmon_all_list[0]);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "\n%sì˜ê¸°ë³¸ ê¸°ìˆ  ì¸ë±ìŠ¤: %d, %d", poketmon_all_list[3].name, poketmon_all_list[3].base_skill[0], poketmon_all_list[3].base_skill[1]);	log_to_file(log_message);
     	memcpy(&user->poketmon_list[0], &poketmon_all_list[0], sizeof(poketmon));
 		poketmon_learn_skill(&user->poketmon_list[0], all_skill_list, user->poketmon_list[0].base_skill[0] + 1);
-		gotoxy(1,7);	printf("%s(ÀÌ)°¡ %s(À»)¸¦ ¹è¿ü´Ù!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[0].skill_name);
+		gotoxy(1,7);	printf("%s(ì´)ê°€ %s(ì„)ë¥¼ ë°°ì› ë‹¤!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[0].skill_name);
 		poketmon_learn_skill(&user->poketmon_list[0], all_skill_list, user->poketmon_list[0].base_skill[1] + 1);
-		gotoxy(1,8);	printf("%s(ÀÌ)°¡ %s(À»)¸¦ ¹è¿ü´Ù!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[1].skill_name);
+		gotoxy(1,8);	printf("%s(ì´)ê°€ %s(ì„)ë¥¼ ë°°ì› ë‹¤!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[1].skill_name);
 	}
 	
     else if (POS == 1){
-    	snprintf(log_message, sizeof(log_message), "\n%s°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù!!", poketmon_all_list[3].name);	log_to_file(log_message);
-    	snprintf(log_message, sizeof(log_message), "\n%sÀÇ±âº» ±â¼ú ÀÎµ¦½º: %d, %d", poketmon_all_list[3].name, poketmon_all_list[3].base_skill[0], poketmon_all_list[3].base_skill[1]);	log_to_file(log_message);
-    	snprintf(log_message, sizeof(log_message), "\n%sÀÇlearn_skill[0] = {%d, %d}", poketmon_all_list[3].name, poketmon_all_list[3].learn_skill_level[0], poketmon_all_list[3].learn_skill[0]);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "\n%sê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤!!", poketmon_all_list[3].name);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "\n%sì˜ê¸°ë³¸ ê¸°ìˆ  ì¸ë±ìŠ¤: %d, %d", poketmon_all_list[3].name, poketmon_all_list[3].base_skill[0], poketmon_all_list[3].base_skill[1]);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "\n%sì˜learn_skill[0] = {%d, %d}", poketmon_all_list[3].name, poketmon_all_list[3].learn_skill_level[0], poketmon_all_list[3].learn_skill[0]);	log_to_file(log_message);
 		memcpy(&user->poketmon_list[0], &poketmon_all_list[3], sizeof(poketmon));
     	poketmon_learn_skill(&user->poketmon_list[0], all_skill_list, user->poketmon_list[0].base_skill[0] + 1);
-		gotoxy(1,7);	printf("%s(ÀÌ)°¡ %s(À»)¸¦ ¹è¿ü´Ù!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[0].skill_name);
+		gotoxy(1,7);	printf("%s(ì´)ê°€ %s(ì„)ë¥¼ ë°°ì› ë‹¤!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[0].skill_name);
 		poketmon_learn_skill(&user->poketmon_list[0], all_skill_list, user->poketmon_list[0].base_skill[1] + 1);
-		gotoxy(1,8);	printf("%s(ÀÌ)°¡ %s(À»)¸¦ ¹è¿ü´Ù!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[1].skill_name);
-		snprintf(log_message, sizeof(log_message), "\nÀ¯Àú ¸®½ºÆ®·Î ÀÌµ¿ ÈÄ °Ë»ç\n%sÀÇlearn_skill[0] = {%d, %d}", user->poketmon_list[0].name, user->poketmon_list[0].learn_skill_level[0], user->poketmon_list[0].learn_skill[0]);	log_to_file(log_message);
+		gotoxy(1,8);	printf("%s(ì´)ê°€ %s(ì„)ë¥¼ ë°°ì› ë‹¤!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[1].skill_name);
+		snprintf(log_message, sizeof(log_message), "\nìœ ì € ë¦¬ìŠ¤íŠ¸ë¡œ ì´ë™ í›„ ê²€ì‚¬\n%sì˜learn_skill[0] = {%d, %d}", user->poketmon_list[0].name, user->poketmon_list[0].learn_skill_level[0], user->poketmon_list[0].learn_skill[0]);	log_to_file(log_message);
 	}
     else if (POS == 2) {
-    	snprintf(log_message, sizeof(log_message), "%s°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù!!", poketmon_all_list[6]);	log_to_file(log_message);
-    	snprintf(log_message, sizeof(log_message), "\n%sÀÇ±âº» ±â¼ú ÀÎµ¦½º: %d, %d", poketmon_all_list[3].name, poketmon_all_list[3].base_skill[0], poketmon_all_list[3].base_skill[1]);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "%sê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤!!", poketmon_all_list[6]);	log_to_file(log_message);
+    	snprintf(log_message, sizeof(log_message), "\n%sì˜ê¸°ë³¸ ê¸°ìˆ  ì¸ë±ìŠ¤: %d, %d", poketmon_all_list[3].name, poketmon_all_list[3].base_skill[0], poketmon_all_list[3].base_skill[1]);	log_to_file(log_message);
     	memcpy(&user->poketmon_list[0], &poketmon_all_list[6], sizeof(poketmon));
     	poketmon_learn_skill(&user->poketmon_list[0], all_skill_list, user->poketmon_list[0].base_skill[0] + 1);
-		gotoxy(1,7);	printf("%s(ÀÌ)°¡ %s(À»)¸¦ ¹è¿ü´Ù!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[0].skill_name);
+		gotoxy(1,7);	printf("%s(ì´)ê°€ %s(ì„)ë¥¼ ë°°ì› ë‹¤!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[0].skill_name);
 		poketmon_learn_skill(&user->poketmon_list[0], all_skill_list, user->poketmon_list[0].base_skill[1] + 1);
-		gotoxy(1,8);	printf("%s(ÀÌ)°¡ %s(À»)¸¦ ¹è¿ü´Ù!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[1].skill_name);
+		gotoxy(1,8);	printf("%s(ì´)ê°€ %s(ì„)ë¥¼ ë°°ì› ë‹¤!", user->poketmon_list[0].name, user->poketmon_list[0].skill_list[1].skill_name);
 	}
     POS = 0;
     make_input_buffer();
 	cls; 
-    snprintf(log_message, sizeof(log_message), "%s°¡ À¯ÀúÀÇ ¸®½ºÆ®·Î ÀÌµ¿",user->poketmon_list[0]);
+    snprintf(log_message, sizeof(log_message), "%sê°€ ìœ ì €ì˜ ë¦¬ìŠ¤íŠ¸ë¡œ ì´ë™",user->poketmon_list[0]);
     log_to_file(log_message);
 }
 
@@ -2685,7 +2686,7 @@ poketmon* select_enemy_poketmon(poketmon poketmon_all_list[], int color_number, 
 		}
 	}		
 	int idx = rand() % ran_num;
-	snprintf(log_message, sizeof(log_message), "%s°¡ Àû Æ÷ÄÏ¸óÀ¸·Î ¼ÂÆÃµÇ¾ú½À´Ï´Ù.",enemy_candi_list[idx]);
+	snprintf(log_message, sizeof(log_message), "%sê°€ ì  í¬ì¼“ëª¬ìœ¼ë¡œ ì…‹íŒ…ë˜ì—ˆìŠµë‹ˆë‹¤.",enemy_candi_list[idx]);
     log_to_file(log_message);
 	int skill_idx1 = rand() % 56;
 	int skill_idx2 = rand() % 56;
@@ -2696,16 +2697,16 @@ poketmon* select_enemy_poketmon(poketmon poketmon_all_list[], int color_number, 
 	while (skill_idx4 == skill_idx2 || skill_idx4 == skill_idx1 || skill_idx4 == skill_idx3)	skill_idx4 = rand() % 56;
 	
 	poketmon_learn_skill(&enemy_candi_list[idx], all_skill_list, skill_idx1 + 1);
-	snprintf(log_message, sizeof(log_message), "%s°¡ ÀûÀÇ 1¹øÂ° ±â¼ú·Î µî·ÏµÆ½À´Ï´Ù.", all_skill_list[skill_idx1]);
+	snprintf(log_message, sizeof(log_message), "%sê°€ ì ì˜ 1ë²ˆì§¸ ê¸°ìˆ ë¡œ ë“±ë¡ëìŠµë‹ˆë‹¤.", all_skill_list[skill_idx1]);
     log_to_file(log_message);
 	poketmon_learn_skill(&enemy_candi_list[idx], all_skill_list, skill_idx2 + 1);
-	snprintf(log_message, sizeof(log_message), "%s°¡ ÀûÀÇ 2¹øÂ° ±â¼ú·Î µî·ÏµÆ½À´Ï´Ù.", all_skill_list[skill_idx2]);
+	snprintf(log_message, sizeof(log_message), "%sê°€ ì ì˜ 2ë²ˆì§¸ ê¸°ìˆ ë¡œ ë“±ë¡ëìŠµë‹ˆë‹¤.", all_skill_list[skill_idx2]);
     log_to_file(log_message);
 	poketmon_learn_skill(&enemy_candi_list[idx], all_skill_list, skill_idx3 + 1);
-	snprintf(log_message, sizeof(log_message), "%s°¡ ÀûÀÇ 3¹øÂ° ±â¼ú·Î µî·ÏµÆ½À´Ï´Ù.", all_skill_list[skill_idx3]);
+	snprintf(log_message, sizeof(log_message), "%sê°€ ì ì˜ 3ë²ˆì§¸ ê¸°ìˆ ë¡œ ë“±ë¡ëìŠµë‹ˆë‹¤.", all_skill_list[skill_idx3]);
     log_to_file(log_message);
 	poketmon_learn_skill(&enemy_candi_list[idx], all_skill_list, skill_idx4 + 1);
-	snprintf(log_message, sizeof(log_message), "%s°¡ ÀûÀÇ 4¹øÂ° ±â¼ú·Î µî·ÏµÆ½À´Ï´Ù.", all_skill_list[skill_idx4]);
+	snprintf(log_message, sizeof(log_message), "%sê°€ ì ì˜ 4ë²ˆì§¸ ê¸°ìˆ ë¡œ ë“±ë¡ëìŠµë‹ˆë‹¤.", all_skill_list[skill_idx4]);
     log_to_file(log_message);
 	
 	*enemy_poketmon = enemy_candi_list[idx];
@@ -2716,14 +2717,14 @@ poketmon* select_enemy_poketmon(poketmon poketmon_all_list[], int color_number, 
 void set_stat(poketmon *p, int lv, poketmon list[]){
 	char log_message[200];
 	int grow;
-	snprintf(log_message, sizeof(log_message), "½ºÅİ Á¶Á¤ÀÌ ½ÇÇàµÆ½À´Ï´Ù!! .");
+	snprintf(log_message, sizeof(log_message), "ìŠ¤í…Ÿ ì¡°ì •ì´ ì‹¤í–‰ëìŠµë‹ˆë‹¤!! .");
     log_to_file(log_message);
 	int level = p->level;
 	int base_hp = list[p->number - 1].hp;
 	int base_attack_power = list[p->number - 1].attack_power;
 	int base_defense = list[p->number - 1].defense;
 	int base_speed = list[p->number - 1].speed;
-	//·¹º§¾÷ÇßÀ» ‹š¿Í ·©Å©¾÷ÇÏ±â ÀüÀ» ³ª´©±â À§ÇÑ ºñ±³ 
+	//ë ˆë²¨ì—…í–ˆì„ Â‹Âšì™€ ë­í¬ì—…í•˜ê¸° ì „ì„ ë‚˜ëˆ„ê¸° ìœ„í•œ ë¹„êµ 
 	if (lv > level) grow = lv - level;
 	else	grow = level;
 
@@ -2736,9 +2737,9 @@ void set_stat(poketmon *p, int lv, poketmon list[]){
 
 void evolution(poketmon *p){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "\n-----------------evolutionÇÔ¼ö ½ÃÀÛ---------------------", p->name, p->evolution_poketmon->name);
+	snprintf(log_message, sizeof(log_message), "\n-----------------evolutioní•¨ìˆ˜ ì‹œì‘---------------------", p->name, p->evolution_poketmon->name);
 	log_to_file(log_message);
-	snprintf(log_message, sizeof(log_message), "\n%s°¡ %s(À¸)·Î ÁøÈ¸¸¦ ½ÃÀÛÇÕ´Ï´Ù!!\n", p->name, p->evolution_poketmon->name);
+	snprintf(log_message, sizeof(log_message), "\n%sê°€ %s(ìœ¼)ë¡œ ì§„íšŒë¥¼ ì‹œì‘í•©ë‹ˆë‹¤!!\n", p->name, p->evolution_poketmon->name);
 	log_to_file(log_message);
 	
 	poketmon evolution_poketmon;
@@ -2762,7 +2763,7 @@ void evolution(poketmon *p){
     set_stat(p, p->level, poketmon_all_list);
     calc_rank_up(p);
     
-    snprintf(log_message, sizeof(log_message), "%s°¡ %s(À¸)·Î ÁøÈ­Çß½À´Ï´Ù!", poketmon_name, evolution_poketmon.name);
+    snprintf(log_message, sizeof(log_message), "%sê°€ %s(ìœ¼)ë¡œ ì§„í™”í–ˆìŠµë‹ˆë‹¤!", poketmon_name, evolution_poketmon.name);
     log_to_file(log_message);
 }
 
@@ -2773,7 +2774,7 @@ void prt_evolution(poketmon *p, poketmon *ev_p){
 	gotoxy (15,6);	printf("%c", p->imege);
 	SetColor(15);
 	gotoxy (0,11);	printf("--------------------------------");
-	gotoxy (2, 12);	printf("¿ÀÀ×..?! %sÀÇ ¸ğ½ÀÀÌ....??", p->name);
+	gotoxy (2, 12);	printf("ì˜¤ì‰..?! %sì˜ ëª¨ìŠµì´....??", p->name);
 	block_input_for_ms(3000);
 	Sleep(3000);
 	while (idx != 0){
@@ -2791,18 +2792,18 @@ void prt_evolution(poketmon *p, poketmon *ev_p){
 
 	clear_line(12);	
 	SetColor(15);
-	gotoxy (2, 12);	printf("ÃàÇÏÇÕ´Ï´Ù! %s´Â %s(À¸)·Î ÁøÈ­Çß½À´Ï´Ù!", p->name, ev_p->name);
+	gotoxy (2, 12);	printf("ì¶•í•˜í•©ë‹ˆë‹¤! %sëŠ” %s(ìœ¼)ë¡œ ì§„í™”í–ˆìŠµë‹ˆë‹¤!", p->name, ev_p->name);
 	clear_input_buffer();
 }
 
 void check_new_skill(poketmon *p){
 	char log_message[200];
-	snprintf(log_message, sizeof(log_message), "\n·¹º§¾÷ÈÄ »õ·Î¿î ±â¼úÀ» ½ÀµæÇÒ ·¹º§ÀÌ µÇ¾ú´ÂÁö Ã¼Å©ÇÕ´Ï´Ù.");
+	snprintf(log_message, sizeof(log_message), "\në ˆë²¨ì—…í›„ ìƒˆë¡œìš´ ê¸°ìˆ ì„ ìŠµë“í•  ë ˆë²¨ì´ ë˜ì—ˆëŠ”ì§€ ì²´í¬í•©ë‹ˆë‹¤.");
 	log_to_file(log_message);
 	int lv = p->level;
 	for (int i = 0; i < 20; i ++){
 		if (p->learn_skill_level[i] == lv){
-			snprintf(log_message, sizeof(log_message), "\n»õ·Î¿î ±â¼úÀ» ¹è¿ï ¼ö ÀÖ´Â ·¹º§ÀÔ´Ï´Ù!!\nskillfilled: %d", p->skill_filled);
+			snprintf(log_message, sizeof(log_message), "\nìƒˆë¡œìš´ ê¸°ìˆ ì„ ë°°ìš¸ ìˆ˜ ìˆëŠ” ë ˆë²¨ì…ë‹ˆë‹¤!!\nskillfilled: %d", p->skill_filled);
 			log_to_file(log_message);
 			snprintf(log_message, sizeof(log_message), "\np->learn_skill_level[i]: %d	p->learn_skill[i]: %d", p->learn_skill_level[i], p->learn_skill[i]);
 			log_to_file(log_message);
@@ -2810,7 +2811,7 @@ void check_new_skill(poketmon *p){
 			if (p->skill_filled < 4){
 				poketmon_learn_skill(p, all_skill_list, ++idx);
 				clear_line(12);	clear_line(13);	
-				gotoxy(2, 12);	printf("%s´Â %s¸¦ ¹è¿ü´Ù!!", p->name, all_skill_list[idx].skill_name);
+				gotoxy(2, 12);	printf("%sëŠ” %së¥¼ ë°°ì› ë‹¤!!", p->name, all_skill_list[idx].skill_name);
 			}
 			else{
 				select_remove_skill(p, &all_skill_list[idx]);
@@ -2823,29 +2824,29 @@ void check_new_skill(poketmon *p){
 
 void select_remove_skill(poketmon *p, skill *s){
 	clear_line(12);	clear_line(13);
-	gotoxy(2,12);	printf("%s´Â %s¸¦ ¹è¿ì°í½Í´Ù...", p->name, s->skill_name);	make_input_buffer();
+	gotoxy(2,12);	printf("%sëŠ” %së¥¼ ë°°ìš°ê³ ì‹¶ë‹¤...", p->name, s->skill_name);	make_input_buffer();
 	clear_line(12);	clear_line(13);
-	gotoxy(2,12);	printf("±×·¯³ª ±â¼ú 4°³¸¦ ¾Ë°í ÀÖÀ¸¹Ç·Î´õ ÀÌ»ó ¹è¿ï ¼ö ¾ø´Ù!!");	make_input_buffer();
+	gotoxy(2,12);	printf("ê·¸ëŸ¬ë‚˜ ê¸°ìˆ  4ê°œë¥¼ ì•Œê³  ìˆìœ¼ë¯€ë¡œë” ì´ìƒ ë°°ìš¸ ìˆ˜ ì—†ë‹¤!!");	make_input_buffer();
 	clear_line(12);	clear_line(13);
-	gotoxy(2,12);	printf("%s´ë½Å ´Ù¸¥ ±â¼úÀ» ÀØ°Ô ÇÏ°Ú½À´Ï±î??", s->skill_name);
+	gotoxy(2,12);	printf("%sëŒ€ì‹  ë‹¤ë¥¸ ê¸°ìˆ ì„ ìŠê²Œ í•˜ê² ìŠµë‹ˆê¹Œ??", s->skill_name);
 	Sleep(100);
 	int check_POS = 0;
 	gotoxy(32,11);	printf("---------------------");
 	gotoxy(44, 12);	printf("|");	gotoxy(44, 13);	printf("|");
     gotoxy(45, 12);	printf(">");
-	gotoxy(46, 12);	printf("¿¹");
-	gotoxy(46, 13);	printf("¾Æ´Ï¿À");
+	gotoxy(46, 12);	printf("ì˜ˆ");
+	gotoxy(46, 13);	printf("ì•„ë‹ˆì˜¤");
 	while(1){
 		if (_kbhit()) {
             int ch = _getch();
             if (ch == 224) { 
                 ch = _getch(); 
                 switch (ch) {
-                   case 72: //À§ 
+                   case 72: //ìœ„ 
                         if (check_POS == 0) check_POS = 1;
                         else if(check_POS == 1)	check_POS = 0;
                         break;
-                    case 80: //¾Æ·¡ 
+                    case 80: //ì•„ë˜ 
                         if (check_POS == 1) check_POS = 0;
                         else if(check_POS == 0)	check_POS = 1;
                         break;
@@ -2859,15 +2860,15 @@ void select_remove_skill(poketmon *p, skill *s){
                 	gotoxy(45, 12);	printf(" ");
                 	gotoxy(45, 13);	printf(" ");
                 	gotoxy(45, 12);	printf(">");
-					gotoxy(46, 12);	printf("¿¹");
-					gotoxy(46, 13);	printf("¾Æ´Ï¿À");
+					gotoxy(46, 12);	printf("ì˜ˆ");
+					gotoxy(46, 13);	printf("ì•„ë‹ˆì˜¤");
                     break;
                 case 1:
                 	gotoxy(45, 12);	printf(" ");
                 	gotoxy(45, 13);	printf(" ");
                 	gotoxy(45, 13);	printf(">");
-					gotoxy(46, 12);	printf("¿¹");
-					gotoxy(46, 13);	printf("¾Æ´Ï¿À");
+					gotoxy(46, 12);	printf("ì˜ˆ");
+					gotoxy(46, 13);	printf("ì•„ë‹ˆì˜¤");
                     break;
             }
         }
@@ -2876,18 +2877,18 @@ void select_remove_skill(poketmon *p, skill *s){
 	if (check_POS == 0){
 		clear_line(11);	clear_line(12);	clear_line(13);
 		gotoxy(0, 11);	printf("--------------------------------");
-		gotoxy(2, 12);	printf("¾î´À ±â¼úÀ» ÀØ°Ô ÇÏ°Ú½À´Ï±î??");
+		gotoxy(2, 12);	printf("ì–´ëŠ ê¸°ìˆ ì„ ìŠê²Œ í•˜ê² ìŠµë‹ˆê¹Œ??");
 		make_input_buffer();
 		prt_skill_txt(p->skill_list);
 		skill remove_skill = select_skill(all_skill_list);
 		change_skill(p->skill_list, remove_skill.skill_number, *s);
 		clear_line(12);	clear_line(13);
-		gotoxy(2, 12);	printf("%s´Â %s¸¦ ÀØ°í %s¸¦ ¹è¿ü´Ù!!!", p->name, remove_skill.skill_name, s->skill_name);
+		gotoxy(2, 12);	printf("%sëŠ” %së¥¼ ìŠê³  %së¥¼ ë°°ì› ë‹¤!!!", p->name, remove_skill.skill_name, s->skill_name);
 	}
 	else if (check_POS == 1){
 		clear_line(11);	clear_line(12);	clear_line(13);
 		gotoxy(0,11);	printf("--------------------------------");
-		gotoxy(2,12);	printf("%s´Â %s¸¦ ¹è¿ìÁö ¾Ê¾Ò´Ù!!", p->name, s->skill_name);
+		gotoxy(2,12);	printf("%sëŠ” %së¥¼ ë°°ìš°ì§€ ì•Šì•˜ë‹¤!!", p->name, s->skill_name);
 	}
 	return;
 }
@@ -2907,18 +2908,18 @@ void battle_start(poketmon *at_p, poketmon *de_p, skill *s1, int idx, poketmon l
 	clear_line(12);
 	float match = type_matchup[s1->type][de_p->type];
 	int acc_rate = calc_acc(s1->accuracy);
-	gotoxy(2,12);	printf("%sÀÇ %s!!",at_p->name, s1->skill_name);	Sleep(100);
+	gotoxy(2,12);	printf("%sì˜ %s!!",at_p->name, s1->skill_name);	Sleep(100);
 	if (acc_rate == 0){
-		gotoxy(2,12);	printf("%s¿¡°Ô´Â ¸ÂÁö ¾Ê¾Ò´Ù!!",de_p->name); 	make_input_buffer();
-		snprintf(log_message, sizeof(log_message), "%sÀÇ °ø°İÀÌ ºø³ª°¬½À´Ï´Ù.", at_p->name);
+		gotoxy(2,12);	printf("%sì—ê²ŒëŠ” ë§ì§€ ì•Šì•˜ë‹¤!!",de_p->name); 	make_input_buffer();
+		snprintf(log_message, sizeof(log_message), "%sì˜ ê³µê²©ì´ ë¹—ë‚˜ê°”ìŠµë‹ˆë‹¤.", at_p->name);
     	log_to_file(log_message); 
 	}
 	else{
-		snprintf(log_message, sizeof(log_message), "%sÀÇ °ø°İ ½ÃÀÛ", at_p->name);
+		snprintf(log_message, sizeof(log_message), "%sì˜ ê³µê²© ì‹œì‘", at_p->name);
     	log_to_file(log_message);
 		if (match == 0){
 			clear_line(12);
-			gotoxy(2,12);	printf("%s¿¡°Ô´Â È¿°ú°¡ ¾ø´Â °Í °°´Ù....", de_p->name);	make_input_buffer();
+			gotoxy(2,12);	printf("%sì—ê²ŒëŠ” íš¨ê³¼ê°€ ì—†ëŠ” ê²ƒ ê°™ë‹¤....", de_p->name);	make_input_buffer();
 		}
 		else{
 			if (de_p->hp <= 0){
@@ -2947,16 +2948,16 @@ void battle_start(poketmon *at_p, poketmon *de_p, skill *s1, int idx, poketmon l
 				clear_line(12);
 				gotoxy(2,12);
 				if (match == 0.5){
-					printf("È¿°ú°¡ º°·ÎÀÎ °Í °°´Ù...");
+					printf("íš¨ê³¼ê°€ ë³„ë¡œì¸ ê²ƒ ê°™ë‹¤...");
 					make_input_buffer();
 				}
 				if (match == 2){
-					printf("È¿°ú°¡ ±²ÀåÇß´Ù!");
+					printf("íš¨ê³¼ê°€ êµ‰ì¥í–ˆë‹¤!");
 					make_input_buffer();
 				}	
 			}
 		}
-		snprintf(log_message, sizeof(log_message), "\n%sÀÇ Ã¼·ÂÀÌ %d³²¾Ò½À´Ï´Ù.",de_p->name, de_p->hp);
+		snprintf(log_message, sizeof(log_message), "\n%sì˜ ì²´ë ¥ì´ %dë‚¨ì•˜ìŠµë‹ˆë‹¤.",de_p->name, de_p->hp);
 	    log_to_file(log_message);	
 	}
 }
@@ -2973,7 +2974,7 @@ int calc_attack_damage(poketmon *atk_p, poketmon *def_p, skill *s){
 	if (atk_p->type == s->type)	attack_s = attack_s * 1.5;
 	
 	int damage = (((level * 2 / 5) + 2) * attack_s * attack_p / 15) / defence; 
-	snprintf(log_message, sizeof(log_message), "\n%sÀÇ µ¥¹ÌÁö °è»ê¿Ï·á: %d",atk_p->name, damage);
+	snprintf(log_message, sizeof(log_message), "\n%sì˜ ë°ë¯¸ì§€ ê³„ì‚°ì™„ë£Œ: %d",atk_p->name, damage);
     log_to_file(log_message);
 	return damage;
 }
@@ -2991,7 +2992,7 @@ int calc_acc(int acc){
 float calc_rate(poketmon *enmy, ball *b){
 	char log_message[200];
 	
-	snprintf(log_message, sizeof(log_message), "-----------------------------------------------\ncalc_rate½ÇÇà");
+	snprintf(log_message, sizeof(log_message), "-----------------------------------------------\ncalc_rateì‹¤í–‰");
 	log_to_file(log_message);
 	
 	int enmy_max_hp = calc_max_hp(enmy, poketmon_all_list);
@@ -3001,7 +3002,7 @@ float calc_rate(poketmon *enmy, ball *b){
 	float status_bonus = enmy->status;
 	float total_rate = (((3.0 * (float)enmy_max_hp - 2.0 * (float)enmy_now_hp) * rate * ball_bonus) / (3.0 * (float)enmy_max_hp)) * status_bonus;
 	
-	snprintf(log_message, sizeof(log_message), "Àû Ã¼·Â: %d / %d\n%sÀÇ º¼ º¸³Ê½º: %f\n%sÀÇ Æ÷È¹·ü: %f\nÃÑ Æ÷È¹·ü: %f",enmy_now_hp, enmy_max_hp, b->name, ball_bonus, enmy->name, rate, total_rate);
+	snprintf(log_message, sizeof(log_message), "ì  ì²´ë ¥: %d / %d\n%sì˜ ë³¼ ë³´ë„ˆìŠ¤: %f\n%sì˜ í¬íšë¥ : %f\nì´ í¬íšë¥ : %f",enmy_now_hp, enmy_max_hp, b->name, ball_bonus, enmy->name, rate, total_rate);
 	log_to_file(log_message);
 	
 	return total_rate;
@@ -3012,7 +3013,7 @@ void success_catch(int success, int color){
 	if (success == 1){
 		gotoxy(25, 3);	printf(" ");
 		SetColor(8);
-		gotoxy(25, 3);	printf("¡Ü");	
+		gotoxy(25, 3);	printf("â—");	
 	}
 	
 	else{
@@ -3026,35 +3027,35 @@ void bouns_ball(int bouns){
 	if (bouns >= 1){
 		Sleep(100);
 		gotoxy(25, 3);	printf(" ");
-		gotoxy(24, 3);	printf("¡Ü");
+		gotoxy(24, 3);	printf("â—");
 	
 		Sleep(100);
 		gotoxy(24, 3);	printf(" ");
-		gotoxy(25, 3);	printf("¡Ü");	
+		gotoxy(25, 3);	printf("â—");	
 	}
 	
 	if (bouns >= 2){
 		Sleep(500);
 		gotoxy(25, 3);	printf(" ");
-		gotoxy(26, 3);	printf("¡Ü");
+		gotoxy(26, 3);	printf("â—");
 		
 		Sleep(100);
 		gotoxy(26, 3);	printf(" ");
-		gotoxy(25, 3);	printf("¡Ü");	
+		gotoxy(25, 3);	printf("â—");	
 	}
 	
 	if (bouns == 3){
 		Sleep(500);
 		gotoxy(26, 3);	printf(" ");
-		gotoxy(25, 3);	printf("¡Ü");
+		gotoxy(25, 3);	printf("â—");
 		
 		Sleep(100);
 		gotoxy(25, 3);	printf(" ");
-		gotoxy(24, 3);	printf("¡Ü");
+		gotoxy(24, 3);	printf("â—");
 		
 		Sleep(100);
 		gotoxy(24, 3);	printf(" ");
-		gotoxy(25, 3);	printf("¡Ü");
+		gotoxy(25, 3);	printf("â—");
 	}
 }
 
@@ -3084,19 +3085,19 @@ int* calc_success_rate(float total_rate){
     answer[0] = bouns;
     answer[1] = success;
 
-	snprintf(log_message, sizeof(log_message), "---------------------------------\ncalc_success_rate½ÃÀÛ");
+	snprintf(log_message, sizeof(log_message), "---------------------------------\ncalc_success_rateì‹œì‘");
 	log_to_file(log_message);
 	
-	snprintf(log_message, sizeof(log_message), "%d¹ø Èçµé¸®°í ", bouns);
+	snprintf(log_message, sizeof(log_message), "%dë²ˆ í”ë“¤ë¦¬ê³  ", bouns);
 	log_to_file(log_message);
 	
 	if (success == 1){
-		snprintf(log_message, sizeof(log_message), "Æ÷È¹ ¼º°ø\n");
+		snprintf(log_message, sizeof(log_message), "í¬íš ì„±ê³µ\n");
 		log_to_file(log_message);
 	}
 	
 	else if (success == 0){
-		snprintf(log_message, sizeof(log_message), "Æ÷È¹ ½ÇÆĞ \n");
+		snprintf(log_message, sizeof(log_message), "í¬íš ì‹¤íŒ¨ \n");
 		log_to_file(log_message);
 	}
     return answer;
@@ -3106,21 +3107,21 @@ void battle_turn(int skill_idx, poketmon *my, poketmon *enmy, skill *my_s, skill
 	char log_message[200];
 	if (skill_idx == 0){
 		battle_start(my, enmy, my_s, 0, poketmon_all_list);
-    	snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", my->name, my_s->skill_name, enmy->name);
+    	snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", my->name, my_s->skill_name, enmy->name);
     	log_to_file(log_message);
 		if (enmy->hp > 0){
 			battle_start(enmy, my, enmy_s, 1, poketmon_all_list);
-			snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enmy_s->skill_name, my->name);
+			snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enmy_s->skill_name, my->name);
     		log_to_file(log_message);
 		}			
 	}
 	else if (skill_idx == 1){
 		battle_start(enmy, my, enmy_s, 1, poketmon_all_list);
-		snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enmy_s->skill_name, my->name);
+		snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enmy_s->skill_name, my->name);
     	log_to_file(log_message);
 		if (my->hp > 0){
 			battle_start(my, enmy, my_s, 0, poketmon_all_list);	
-			snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", my->name, my_s->skill_name, enmy->name);
+			snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", my->name, my_s->skill_name, enmy->name);
     		log_to_file(log_message);
 		}
 	}
@@ -3131,17 +3132,17 @@ void battle_turn(int skill_idx, poketmon *my, poketmon *enmy, skill *my_s, skill
 			battle_start(my, enmy, my_s, 0, poketmon_all_list);
 			if (enmy->hp > 0){
 				battle_start(enmy, my, enmy_s, 1, poketmon_all_list);
-				snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enmy_s->skill_name, my->name);
+				snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enmy_s->skill_name, my->name);
     			log_to_file(log_message);
     		}
 		}	
 		else{
 			battle_start(enmy, my, enmy_s, 1, poketmon_all_list);
-			snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", enmy->name, enmy_s->skill_name, my->name);
+			snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", enmy->name, enmy_s->skill_name, my->name);
     		log_to_file(log_message);
 			if (my->hp > 0){
 				battle_start(my, enmy, my_s, 0, poketmon_all_list);	
-				snprintf(log_message, sizeof(log_message), "%sÀÇ %s·Î %s¿¡°Ô °ø°İÀ» ½ÃÀÛÇÕ´Ï´Ù!", my->name, my_s->skill_name, enmy->name);
+				snprintf(log_message, sizeof(log_message), "%sì˜ %së¡œ %sì—ê²Œ ê³µê²©ì„ ì‹œì‘í•©ë‹ˆë‹¤!", my->name, my_s->skill_name, enmy->name);
     			log_to_file(log_message);
 			}
 		}
@@ -3209,78 +3210,78 @@ void init_ball(ball *b, char *name, float ball_bonus, int color_index){
 }
 
 void load_all_skill_data(skill all_skill_list[]){ 	
-	init_skill(1, &all_skill_list[0], "ÇÒÄû±â", 40, NORMAL, 100, 0);
-	init_skill(2, &all_skill_list[1], "ºÒ²É¼¼·Ê", 40, FIRE, 100, 0);
-	init_skill(3, &all_skill_list[2], "ºĞ³ë(p)", 20, NORMAL, 100, 0);
-	init_skill(4, &all_skill_list[3], "º£¾î°¡¸£±â", 70, NORMAL, 100, 0);
-	init_skill(5, &all_skill_list[4], "ºÒ²É ¾ö´Ï", 65, FIRE, 95, 0);
-	init_skill(6, &all_skill_list[5], "È­¿°¹æ»ç", 95, FIRE, 100, 0);
-	init_skill(7, &all_skill_list[6], "¿ëÀÇ ¼û°á", 60, DRAGON, 100, 0);
-	init_skill(8, &all_skill_list[7], "¸öÅë ¹ÚÄ¡±â", 35, NORMAL, 95, 0);
-	init_skill(9, &all_skill_list[8], "µ¢±¼ Ã¤Âï", 35, GRASS, 100, 0);
-	init_skill(10, &all_skill_list[9], "ÀÙ³¯ °¡¸£±â", 55, GRASS, 95, 0);
-	init_skill(11, &all_skill_list[10], "¼Ö¶óºö(p)", 120, GRASS, 100, 0);
-	init_skill(12, &all_skill_list[11], "¾¾ÆøÅº", 80, GRASS, 100, 0);
-	init_skill(13, &all_skill_list[12], "µ¹Áø", 90, NORMAL, 85, 0);
-	init_skill(14, &all_skill_list[13], "¹°´ëÆ÷", 40, WATER, 100, 0);
-	init_skill(15, &all_skill_list[14], "°í¼Ó ½ºÇÉ", 50, NORMAL, 100, 0);
-	init_skill(16, &all_skill_list[15], "¹°±â", 60, DARK, 100, 0);
-	init_skill(17, &all_skill_list[16], "¹°ÀÇ ÆÄµ¿", 60, WATER, 100, 0);
-	init_skill(18, &all_skill_list[17], "¾ÆÄí¾Æ Å×ÀÏ", 90, WATER, 90, 0);
-	init_skill(19, &all_skill_list[18], "ÇÏÀÌµå·Î ÆßÇÁ", 110, WATER, 80, 0);
-	init_skill(20, &all_skill_list[19], "¹ú·¹ ¸ÔÀ½", 60, BUG, 100, 0);
-	init_skill(21, &all_skill_list[20], "´Ü´ÜÇØÁö±â", 0, BUG, 100, 0);
-	init_skill(22, &all_skill_list[21], "¿°µ¿·Â", 50, PSYCHIC, 100, 0);
-	init_skill(23, &all_skill_list[22], "È¯»óºö", 65, PSYCHIC, 100, 0);
-	init_skill(24, &all_skill_list[23], "¿¡¾î ½½·¹½Ã", 75, FLYING, 95, 0);
-	init_skill(25, &all_skill_list[24], "¹ú·¹ÀÇ ¾ß´Ü ¹ı¼®", 90, FLYING, 100, 0);
-	init_skill(26, &all_skill_list[25], "º£³ğ ¼îÅ©", 65, POISON, 100, 0);
-	init_skill(27, &all_skill_list[26], "½ÂºÎ ±»È÷±â", 60, DARK, 100, 0);
-	init_skill(28, &all_skill_list[27], "¹Ù´Ã ¹Ì»çÀÏ", 75, BUG, 90, 0);
-	init_skill(29, &all_skill_list[28], "µ¶Âî¸£±â", 80, POISON, 100, 0);
-	init_skill(30, &all_skill_list[29], "¸¶Áö¸· ÀÏÄ§", 80, POISON, 100, 0);
-	init_skill(31, &all_skill_list[30], "¿¬¼Ó ÀÚ¸£±â", 65, BUG, 90, 0);
-	init_skill(32, &all_skill_list[31], "¹Ù¶÷ ÀÏÀ¸Å°±â", 40, FLYING, 100, 0);
-	init_skill(33, &all_skill_list[32], "Àü±¤ ¼®È­", 40, NORMAL, 100, 1);
-	init_skill(34, &all_skill_list[33], "È¸¿À¸®", 40, DRAGON, 100, 1);
-	init_skill(35, &all_skill_list[34], "³¯°³Ä¡±â", 60, FLYING, 100, 0);
-	init_skill(36, &all_skill_list[35], "Á¦ºñ ºÂÈ¯", 60, FLYING, 100, 0);
-	init_skill(37, &all_skill_list[36], "ÆøÇ³", 110, FLYING, 70, 0);
-	init_skill(38, &all_skill_list[37], "ÇÊ»ì¾Õ´Ï", 80, NORMAL, 90, 0);
-	init_skill(39, &all_skill_list[38], "±ú¹°¾î ºÎ¼ö±â", 80, DARK, 100, 0);
-	init_skill(40, &all_skill_list[39], "±â½À", 70, DARK, 100, 1);
-	init_skill(41, &all_skill_list[40], "ºĞ³ëÀÇ ¾Õ´Ï", 0, NORMAL, 90, 0);
-	init_skill(42, &all_skill_list[41], "ÀÌÆÇ»çÆÇÅÂÅ¬", 90, NORMAL, 100, 0);
-	init_skill(43, &all_skill_list[42], "ÂÉ±â", 35, FLYING, 100, 0);
-	init_skill(44, &all_skill_list[43], "µ¹Áø", 90, NORMAL, 80, 0);
-	init_skill(45, &all_skill_list[44], "È¸Àü ºÎ¸®", 80, FLYING, 80, 0);
-	init_skill(46, &all_skill_list[45], "¿ëÇØ¾×", 40, POISON, 100, 0);
-	init_skill(47, &all_skill_list[46], "¾Ö½Ãµåº½", 40, POISON, 100, 0);
-	init_skill(48, &all_skill_list[47], "¿À¹° ÆøÅº", 90, POISON, 100, 0);
-	init_skill(49, &all_skill_list[48], "´õ½ºÆ® ½´Æ®", 120, POISON, 90, 0);
-	init_skill(50, &all_skill_list[49], "Àü±â ¼îÅ©", 40, ELECTRIC, 100, 0);
-	init_skill(51, &all_skill_list[50], "ÀÏ·ºÆ®¸¯ º¼", 60, ELECTRIC, 100, 0);
-	init_skill(52, &all_skill_list[51], "½ºÆÄÅ©", 65, ELECTRIC, 100, 0);
-	init_skill(53, &all_skill_list[52], "Èû²¯ Ä¡±â", 80, NORMAL, 75, 0);
-	init_skill(54, &all_skill_list[53], "¹æÀü", 80, ELECTRIC, 100, 0);
-	init_skill(55, &all_skill_list[54], "10¸¸º¼Æ®", 90, ELECTRIC, 100, 0);
-	init_skill(56, &all_skill_list[55], "¹ø°³", 110, ELECTRIC, 70, 0);
-	init_skill(57, &all_skill_list[56], "»çÀÌÄÚ Å°³×½Ã½º", 90, PSYCHIC, 100, 0);
+	init_skill(1, &all_skill_list[0], "í• í€´ê¸°", 40, NORMAL, 100, 0);
+	init_skill(2, &all_skill_list[1], "ë¶ˆê½ƒì„¸ë¡€", 40, FIRE, 100, 0);
+	init_skill(3, &all_skill_list[2], "ë¶„ë…¸(p)", 20, NORMAL, 100, 0);
+	init_skill(4, &all_skill_list[3], "ë² ì–´ê°€ë¥´ê¸°", 70, NORMAL, 100, 0);
+	init_skill(5, &all_skill_list[4], "ë¶ˆê½ƒ ì—„ë‹ˆ", 65, FIRE, 95, 0);
+	init_skill(6, &all_skill_list[5], "í™”ì—¼ë°©ì‚¬", 95, FIRE, 100, 0);
+	init_skill(7, &all_skill_list[6], "ìš©ì˜ ìˆ¨ê²°", 60, DRAGON, 100, 0);
+	init_skill(8, &all_skill_list[7], "ëª¸í†µ ë°•ì¹˜ê¸°", 35, NORMAL, 95, 0);
+	init_skill(9, &all_skill_list[8], "ë©êµ´ ì±„ì°", 35, GRASS, 100, 0);
+	init_skill(10, &all_skill_list[9], "ìë‚  ê°€ë¥´ê¸°", 55, GRASS, 95, 0);
+	init_skill(11, &all_skill_list[10], "ì†”ë¼ë¹”(p)", 120, GRASS, 100, 0);
+	init_skill(12, &all_skill_list[11], "ì”¨í­íƒ„", 80, GRASS, 100, 0);
+	init_skill(13, &all_skill_list[12], "ëŒì§„", 90, NORMAL, 85, 0);
+	init_skill(14, &all_skill_list[13], "ë¬¼ëŒ€í¬", 40, WATER, 100, 0);
+	init_skill(15, &all_skill_list[14], "ê³ ì† ìŠ¤í•€", 50, NORMAL, 100, 0);
+	init_skill(16, &all_skill_list[15], "ë¬¼ê¸°", 60, DARK, 100, 0);
+	init_skill(17, &all_skill_list[16], "ë¬¼ì˜ íŒŒë™", 60, WATER, 100, 0);
+	init_skill(18, &all_skill_list[17], "ì•„ì¿ ì•„ í…Œì¼", 90, WATER, 90, 0);
+	init_skill(19, &all_skill_list[18], "í•˜ì´ë“œë¡œ íŒí”„", 110, WATER, 80, 0);
+	init_skill(20, &all_skill_list[19], "ë²Œë ˆ ë¨¹ìŒ", 60, BUG, 100, 0);
+	init_skill(21, &all_skill_list[20], "ë‹¨ë‹¨í•´ì§€ê¸°", 0, BUG, 100, 0);
+	init_skill(22, &all_skill_list[21], "ì—¼ë™ë ¥", 50, PSYCHIC, 100, 0);
+	init_skill(23, &all_skill_list[22], "í™˜ìƒë¹”", 65, PSYCHIC, 100, 0);
+	init_skill(24, &all_skill_list[23], "ì—ì–´ ìŠ¬ë ˆì‹œ", 75, FLYING, 95, 0);
+	init_skill(25, &all_skill_list[24], "ë²Œë ˆì˜ ì•¼ë‹¨ ë²•ì„", 90, FLYING, 100, 0);
+	init_skill(26, &all_skill_list[25], "ë² ë†ˆ ì‡¼í¬", 65, POISON, 100, 0);
+	init_skill(27, &all_skill_list[26], "ìŠ¹ë¶€ êµ³íˆê¸°", 60, DARK, 100, 0);
+	init_skill(28, &all_skill_list[27], "ë°”ëŠ˜ ë¯¸ì‚¬ì¼", 75, BUG, 90, 0);
+	init_skill(29, &all_skill_list[28], "ë…ì°Œë¥´ê¸°", 80, POISON, 100, 0);
+	init_skill(30, &all_skill_list[29], "ë§ˆì§€ë§‰ ì¼ì¹¨", 80, POISON, 100, 0);
+	init_skill(31, &all_skill_list[30], "ì—°ì† ìë¥´ê¸°", 65, BUG, 90, 0);
+	init_skill(32, &all_skill_list[31], "ë°”ëŒ ì¼ìœ¼í‚¤ê¸°", 40, FLYING, 100, 0);
+	init_skill(33, &all_skill_list[32], "ì „ê´‘ ì„í™”", 40, NORMAL, 100, 1);
+	init_skill(34, &all_skill_list[33], "íšŒì˜¤ë¦¬", 40, DRAGON, 100, 1);
+	init_skill(35, &all_skill_list[34], "ë‚ ê°œì¹˜ê¸°", 60, FLYING, 100, 0);
+	init_skill(36, &all_skill_list[35], "ì œë¹„ ë´”í™˜", 60, FLYING, 100, 0);
+	init_skill(37, &all_skill_list[36], "í­í’", 110, FLYING, 70, 0);
+	init_skill(38, &all_skill_list[37], "í•„ì‚´ì•ë‹ˆ", 80, NORMAL, 90, 0);
+	init_skill(39, &all_skill_list[38], "ê¹¨ë¬¼ì–´ ë¶€ìˆ˜ê¸°", 80, DARK, 100, 0);
+	init_skill(40, &all_skill_list[39], "ê¸°ìŠµ", 70, DARK, 100, 1);
+	init_skill(41, &all_skill_list[40], "ë¶„ë…¸ì˜ ì•ë‹ˆ", 0, NORMAL, 90, 0);
+	init_skill(42, &all_skill_list[41], "ì´íŒì‚¬íŒíƒœí´", 90, NORMAL, 100, 0);
+	init_skill(43, &all_skill_list[42], "ìª¼ê¸°", 35, FLYING, 100, 0);
+	init_skill(44, &all_skill_list[43], "ëŒì§„", 90, NORMAL, 80, 0);
+	init_skill(45, &all_skill_list[44], "íšŒì „ ë¶€ë¦¬", 80, FLYING, 80, 0);
+	init_skill(46, &all_skill_list[45], "ìš©í•´ì•¡", 40, POISON, 100, 0);
+	init_skill(47, &all_skill_list[46], "ì• ì‹œë“œë´„", 40, POISON, 100, 0);
+	init_skill(48, &all_skill_list[47], "ì˜¤ë¬¼ í­íƒ„", 90, POISON, 100, 0);
+	init_skill(49, &all_skill_list[48], "ë”ìŠ¤íŠ¸ ìŠˆíŠ¸", 120, POISON, 90, 0);
+	init_skill(50, &all_skill_list[49], "ì „ê¸° ì‡¼í¬", 40, ELECTRIC, 100, 0);
+	init_skill(51, &all_skill_list[50], "ì¼ë ‰íŠ¸ë¦­ ë³¼", 60, ELECTRIC, 100, 0);
+	init_skill(52, &all_skill_list[51], "ìŠ¤íŒŒí¬", 65, ELECTRIC, 100, 0);
+	init_skill(53, &all_skill_list[52], "í˜ê» ì¹˜ê¸°", 80, NORMAL, 75, 0);
+	init_skill(54, &all_skill_list[53], "ë°©ì „", 80, ELECTRIC, 100, 0);
+	init_skill(55, &all_skill_list[54], "10ë§Œë³¼íŠ¸", 90, ELECTRIC, 100, 0);
+	init_skill(56, &all_skill_list[55], "ë²ˆê°œ", 110, ELECTRIC, 70, 0);
+	init_skill(57, &all_skill_list[56], "ì‚¬ì´ì½” í‚¤ë„¤ì‹œìŠ¤", 90, PSYCHIC, 100, 0);
 }
 
 void init_item_data(item list[]){
 	int idx = 0;
-	init_item(&list[idx++], "»óÃ³¾à", 200, "200°ñµå¸¦ »ç¿ëÇØ Æ÷ÄÏ¸ó 1¸¶¸®ÀÇ HP¸¦ 20 ¶Ç´Â 10% Áß ³ôÀº ¼öÄ¡¸¸Å­ È¸º¹ÇÑ´Ù.");
-	init_item(&list[idx++], "ÁÁÀº »óÃ³¾à", 500, "500°ñµå¸¦ »ç¿ëÇØ Æ÷ÄÏ¸ó 1¸¶¸®ÀÇ HP¸¦ 50 ¶Ç´Â 25% Áß ³ôÀº ¼öÄ¡¸¸Å­ È¸º¹ÇÑ´Ù.");
-	init_item(&list[idx++], "°í±Ş »óÃ³¾à", 1000, "1000°ñµå¸¦ »ç¿ëÇØ Æ÷ÄÏ¸ó 1¸¶¸®ÀÇ HP¸¦ 200 ¶Ç´Â 50% Áß ³ôÀº ¼öÄ¡¸¸Å­ È¸º¹ÇÑ´Ù.");	
+	init_item(&list[idx++], "ìƒì²˜ì•½", 200, "200ê³¨ë“œë¥¼ ì‚¬ìš©í•´ í¬ì¼“ëª¬ 1ë§ˆë¦¬ì˜ HPë¥¼ 20 ë˜ëŠ” 10% ì¤‘ ë†’ì€ ìˆ˜ì¹˜ë§Œí¼ íšŒë³µí•œë‹¤.");
+	init_item(&list[idx++], "ì¢‹ì€ ìƒì²˜ì•½", 500, "500ê³¨ë“œë¥¼ ì‚¬ìš©í•´ í¬ì¼“ëª¬ 1ë§ˆë¦¬ì˜ HPë¥¼ 50 ë˜ëŠ” 25% ì¤‘ ë†’ì€ ìˆ˜ì¹˜ë§Œí¼ íšŒë³µí•œë‹¤.");
+	init_item(&list[idx++], "ê³ ê¸‰ ìƒì²˜ì•½", 1000, "1000ê³¨ë“œë¥¼ ì‚¬ìš©í•´ í¬ì¼“ëª¬ 1ë§ˆë¦¬ì˜ HPë¥¼ 200 ë˜ëŠ” 50% ì¤‘ ë†’ì€ ìˆ˜ì¹˜ë§Œí¼ íšŒë³µí•œë‹¤.");	
 }
 
 void init_ball_data(ball ball_info[]){
 	int idx = 0;
-	init_ball(&ball_info[idx ++], "¸ó½ºÅÍº¼", 1, 4);
-	init_ball(&ball_info[idx ++], "¼öÆÛº¼", 1.5, 9);
-	init_ball(&ball_info[idx ++], "ÇÏÀÌÆÛº¼", 2, 14);
-	init_ball(&ball_info[idx ++], "¸¶½ºÅÍº¼", 100, 13);
+	init_ball(&ball_info[idx ++], "ëª¬ìŠ¤í„°ë³¼", 1, 4);
+	init_ball(&ball_info[idx ++], "ìˆ˜í¼ë³¼", 1.5, 9);
+	init_ball(&ball_info[idx ++], "í•˜ì´í¼ë³¼", 2, 14);
+	init_ball(&ball_info[idx ++], "ë§ˆìŠ¤í„°ë³¼", 100, 13);
 }
 
 void init_poketmon_data(){
@@ -3288,214 +3289,214 @@ void init_poketmon_data(){
 	int base_skill[2] = {0};
 	
 	base_skill[0] = 7; base_skill[1] = 8; 
-    initi_poketmon(&poketmon_all_list[0], 1, "ÀÌ»óÇØ¾¾", GRASS, 45, 65, 65, 1, 16, 45, 14, &poketmon_all_list[1], base_skill, 45);
-    initi_poketmon(&poketmon_all_list[1], 2, "ÀÌ»óÇØÇ®", GRASS, 60, 80, 80, 1, 32, 60, 9, &poketmon_all_list[2], base_skill, 45);
-    initi_poketmon(&poketmon_all_list[2], 3, "ÀÌ»óÇØ²É", GRASS, 80, 100, 100, 1, 0, 80, 12, NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[0], 1, "ì´ìƒí•´ì”¨", GRASS, 45, 65, 65, 1, 16, 45, 14, &poketmon_all_list[1], base_skill, 45);
+    initi_poketmon(&poketmon_all_list[1], 2, "ì´ìƒí•´í’€", GRASS, 60, 80, 80, 1, 32, 60, 9, &poketmon_all_list[2], base_skill, 45);
+    initi_poketmon(&poketmon_all_list[2], 3, "ì´ìƒí•´ê½ƒ", GRASS, 80, 100, 100, 1, 0, 80, 12, NULL, base_skill, 45);
 
     base_skill[0] = 0; base_skill[1] = 1;
-    initi_poketmon(&poketmon_all_list[3], 4, "ÆÄÀÌ¸®", FIRE, 39, 60, 50, 1, 16, 65, 14, &poketmon_all_list[4], base_skill, 45);
-    initi_poketmon(&poketmon_all_list[4], 5, "¸®ÀÚµå", FIRE, 58, 80, 65, 1, 36, 80, 9, &poketmon_all_list[5], base_skill, 45);
-    initi_poketmon(&poketmon_all_list[5], 6, "¸®ÀÚ¸ù", FIRE, 78, 109, 85, 1, 0, 100, 12, NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[3], 4, "íŒŒì´ë¦¬", FIRE, 39, 60, 50, 1, 16, 65, 14, &poketmon_all_list[4], base_skill, 45);
+    initi_poketmon(&poketmon_all_list[4], 5, "ë¦¬ìë“œ", FIRE, 58, 80, 65, 1, 36, 80, 9, &poketmon_all_list[5], base_skill, 45);
+    initi_poketmon(&poketmon_all_list[5], 6, "ë¦¬ìëª½", FIRE, 78, 109, 85, 1, 0, 100, 12, NULL, base_skill, 45);
     
     base_skill[0] = 7; base_skill[1] = 13; 
-    initi_poketmon(&poketmon_all_list[6], 7, "²¿ºÎ±â", WATER, 44, 50, 64, 1, 16, 43, 14, &poketmon_all_list[7], base_skill, 45);
-    initi_poketmon(&poketmon_all_list[7], 8, "¾î´ÏºÎ±â", WATER, 59, 65, 80, 1, 36, 58, 9, &poketmon_all_list[8], base_skill, 45);
-    initi_poketmon(&poketmon_all_list[8], 9, "°ÅºÏ¿Õ", WATER, 79, 85, 105, 1, 0, 78, 12,NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[6], 7, "ê¼¬ë¶€ê¸°", WATER, 44, 50, 64, 1, 16, 43, 14, &poketmon_all_list[7], base_skill, 45);
+    initi_poketmon(&poketmon_all_list[7], 8, "ì–´ë‹ˆë¶€ê¸°", WATER, 59, 65, 80, 1, 36, 58, 9, &poketmon_all_list[8], base_skill, 45);
+    initi_poketmon(&poketmon_all_list[8], 9, "ê±°ë¶ì™•", WATER, 79, 85, 105, 1, 0, 78, 12,NULL, base_skill, 45);
     
     base_skill[0] = 7;	base_skill[1] = 19;
-    initi_poketmon(&poketmon_all_list[9], 10, "Ä³ÅÍÇÇ", BUG, 45, 30, 35, 1, 7, 45, 14, &poketmon_all_list[10], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[9], 10, "ìºí„°í”¼", BUG, 45, 30, 35, 1, 7, 45, 14, &poketmon_all_list[10], base_skill, 255);
     base_skill[0] = 20;
-    initi_poketmon(&poketmon_all_list[10], 11, "´Üµ¥±â", BUG, 50, 20, 55, 1, 10, 30, 9, &poketmon_all_list[11], base_skill, 120);
-    initi_poketmon(&poketmon_all_list[11], 12, "¹öÅÍÇÃ", BUG, 60, 45, 50, 1, 0, 70, 12, NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[10], 11, "ë‹¨ë°ê¸°", BUG, 50, 20, 55, 1, 10, 30, 9, &poketmon_all_list[11], base_skill, 120);
+    initi_poketmon(&poketmon_all_list[11], 12, "ë²„í„°í”Œ", BUG, 60, 45, 50, 1, 0, 70, 12, NULL, base_skill, 45);
     
     base_skill[0] = 19;	base_skill[1] = 7;
-    initi_poketmon(&poketmon_all_list[12], 13, "»ÔÃæÀÌ", BUG, 40, 35, 30, 1, 7, 50, 14, &poketmon_all_list[13], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[12], 13, "ë¿”ì¶©ì´", BUG, 40, 35, 30, 1, 7, 50, 14, &poketmon_all_list[13], base_skill, 255);
     base_skill[0] = 20;
-    initi_poketmon(&poketmon_all_list[13], 14, "µüÃæÀÌ", BUG, 45, 25, 50, 1, 10, 35, 9, &poketmon_all_list[14], base_skill, 120);
-    initi_poketmon(&poketmon_all_list[14], 15, "µ¶Ä§ºØ", BUG, 65, 80, 40, 1, 0, 75, 12, NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[13], 14, "ë”±ì¶©ì´", BUG, 45, 25, 50, 1, 10, 35, 9, &poketmon_all_list[14], base_skill, 120);
+    initi_poketmon(&poketmon_all_list[14], 15, "ë…ì¹¨ë¶•", BUG, 65, 80, 40, 1, 0, 75, 12, NULL, base_skill, 45);
     
     base_skill[0] = 7; base_skill[1] = 31;
-    initi_poketmon(&poketmon_all_list[15], 16, "±¸±¸", FLYING, 40, 45, 40, 1, 18, 56, 14, &poketmon_all_list[16], base_skill, 255);
-    initi_poketmon(&poketmon_all_list[16], 17, "ÇÇÁÔ", FLYING, 63, 60, 55, 1, 36, 71, 9, &poketmon_all_list[17], base_skill, 120);
-    initi_poketmon(&poketmon_all_list[17], 18, "ÇÇÁÔÅõ", FLYING, 83, 80, 75, 1, 0, 101, 12, NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[15], 16, "êµ¬êµ¬", FLYING, 40, 45, 40, 1, 18, 56, 14, &poketmon_all_list[16], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[16], 17, "í”¼ì£¤", FLYING, 63, 60, 55, 1, 36, 71, 9, &poketmon_all_list[17], base_skill, 120);
+    initi_poketmon(&poketmon_all_list[17], 18, "í”¼ì£¤íˆ¬", FLYING, 83, 80, 75, 1, 0, 101, 12, NULL, base_skill, 45);
     
     base_skill[0] = 7; base_skill[1] = 32;
-    initi_poketmon(&poketmon_all_list[18], 19, "²¿·¿", NORMAL, 30, 56, 35, 1, 20, 72, 14, &poketmon_all_list[19], base_skill, 255);
-    initi_poketmon(&poketmon_all_list[19], 20, "·¹Æ®¶ó", NORMAL, 55, 81, 60, 1, 0, 97, 9, NULL, base_skill, 127);
+    initi_poketmon(&poketmon_all_list[18], 19, "ê¼¬ë ›", NORMAL, 30, 56, 35, 1, 20, 72, 14, &poketmon_all_list[19], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[19], 20, "ë ˆíŠ¸ë¼", NORMAL, 55, 81, 60, 1, 0, 97, 9, NULL, base_skill, 127);
     
     base_skill[0] = 42;	base_skill[1] = 7;
-    initi_poketmon(&poketmon_all_list[20], 21, "±úºñÂü", NORMAL, 40, 60, 30, 1, 20, 70, 9, &poketmon_all_list[21], base_skill, 255);
-    initi_poketmon(&poketmon_all_list[21], 22, "±úºñµå¸±Á¶", NORMAL, 65, 90, 65, 1, 0, 100, 12, NULL, base_skill, 90);
+    initi_poketmon(&poketmon_all_list[20], 21, "ê¹¨ë¹„ì°¸", NORMAL, 40, 60, 30, 1, 20, 70, 9, &poketmon_all_list[21], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[21], 22, "ê¹¨ë¹„ë“œë¦´ì¡°", NORMAL, 65, 90, 65, 1, 0, 100, 12, NULL, base_skill, 90);
     
     base_skill[0] = 15;	base_skill[1] = 7;
-    initi_poketmon(&poketmon_all_list[22], 23, "¾Æº¸", POISON, 35, 60, 44, 1, 22, 55, 9, &poketmon_all_list[23], base_skill, 255);
-    initi_poketmon(&poketmon_all_list[23], 24, "¾Æº¸Å©", POISON, 60, 85, 69, 1, 0, 80, 12, NULL, base_skill, 90);
+    initi_poketmon(&poketmon_all_list[22], 23, "ì•„ë³´", POISON, 35, 60, 44, 1, 22, 55, 9, &poketmon_all_list[23], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[23], 24, "ì•„ë³´í¬", POISON, 60, 85, 69, 1, 0, 80, 12, NULL, base_skill, 90);
     
     base_skill[0] = 49;	base_skill[1] = 32;
-    initi_poketmon(&poketmon_all_list[24], 25, "ÇÇÄ«Ãò", ELECTRIC, 35, 55, 40, 1, 22, 90, 14, &poketmon_all_list[24], base_skill, 190);
-    initi_poketmon(&poketmon_all_list[25], 26, "¶óÀÌÃò", ELECTRIC, 60, 90, 55, 1, 0, 110, 6, NULL, base_skill, 75);
+    initi_poketmon(&poketmon_all_list[24], 25, "í”¼ì¹´ì¸„", ELECTRIC, 35, 55, 40, 1, 22, 90, 14, &poketmon_all_list[24], base_skill, 190);
+    initi_poketmon(&poketmon_all_list[25], 26, "ë¼ì´ì¸„", ELECTRIC, 60, 90, 55, 1, 0, 110, 6, NULL, base_skill, 75);
     
-    initi_poketmon(&poketmon_all_list[26], 27, "¸ğ·¡µÎÁö", GROUND, 50, 75, 85, 1, 22, 40, 14, &poketmon_all_list[27], base_skill, 255);
-    initi_poketmon(&poketmon_all_list[27], 28, "°íÁö", GROUND, 75, 100, 110, 1, 0, 65, 9, NULL, base_skill, 90);
-	initi_poketmon(&poketmon_all_list[28], 29, "´Ïµå·±¡Ï", POISON, 55, 47, 52, 1, 16, 41, 14, &poketmon_all_list[29], base_skill, 235);
-	initi_poketmon(&poketmon_all_list[29], 30, "´Ïµå¸®³ª", POISON, 70, 62, 67, 1, 32, 56, 9, &poketmon_all_list[30], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[30], 31, "´ÏµåÄı", POISON, 90, 92, 87, 1, 0, 76, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[31], 32, "´Ïµå·±¡Î", POISON, 46, 57, 40, 1, 16, 50, 14, &poketmon_all_list[32], base_skill, 235);
-	initi_poketmon(&poketmon_all_list[32], 33, "´Ïµå¸®³ë", POISON, 61, 72, 57, 1, 32, 65, 9, &poketmon_all_list[33], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[33], 34, "´ÏµåÅ·", POISON, 81, 102, 77, 1, 0, 85, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[34], 35, "»ß»ß", FAIRY, 70, 45, 48, 1, 32, 35, 14, &poketmon_all_list[35], base_skill, 150);
-	initi_poketmon(&poketmon_all_list[35], 36, "ÇÈ½Ã", FAIRY, 95, 70, 73, 1, 0, 60, 9, NULL, base_skill, 25);
-	initi_poketmon(&poketmon_all_list[36], 37, "½Ä½ºÅ×ÀÏ", FIRE, 38, 41, 40, 1, 22, 65, 14, &poketmon_all_list[37], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[37], 38, "³ªÀÎÅ×ÀÏ", FIRE, 73, 76, 75, 1, 0, 100, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[38], 39, "Çª¸°", FAIRY, 115, 45, 20, 1, 32, 20, 14, &poketmon_all_list[39], base_skill, 170);
-	initi_poketmon(&poketmon_all_list[39], 40, "ÇªÅ©¸°", FAIRY, 140, 70, 45, 1, 0, 45, 12, NULL, base_skill, 50);
-	initi_poketmon(&poketmon_all_list[40], 41, "ÁÖ¹î", POISON, 40, 45, 35, 1, 22, 55, 14, &poketmon_all_list[41], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[41], 42, "°ñ¹î", POISON, 75, 80, 70, 1, 0, 90, 12, NULL, base_skill, 90);
-	initi_poketmon(&poketmon_all_list[42], 43, "¶Ñ¹÷Ãİ", GRASS, 45, 75, 65, 1, 21, 30, 14, &poketmon_all_list[43], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[43], 44, "³¿»õ²¿", GRASS, 60, 58, 75, 1, 32, 40, 9, &poketmon_all_list[44], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[44], 45, "¶óÇÃ·¹½Ã¾Æ", GRASS, 75, 110, 90, 1, 0, 50, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[45], 46, "ÆÄ¶ó½º", BUG, 35, 70, 55, 1, 24, 25, 14, &poketmon_all_list[46], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[46], 47, "ÆÄ¶ó¼½Æ®", BUG, 60, 95, 80, 1, 0, 30, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[47], 48, "ÄÜÆÎ", BUG, 60, 55, 50, 1, 31, 45, 14, &poketmon_all_list[48], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[48], 49, "µµ³ª¸®", BUG, 70, 65, 60, 1, 0, 90, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[49], 50, "µğ±×´Ù", GROUND, 10, 55, 25, 1, 26, 95, 14, &poketmon_all_list[50], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[50], 51, "´ÚÆ®¸®¿À", GROUND, 35, 100, 50, 1, 0, 120, 12, NULL, base_skill, 50);
-	initi_poketmon(&poketmon_all_list[51], 52, "³ª¿Ë", NORMAL, 40, 45, 35, 1, 28, 90, 14, &poketmon_all_list[52], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[52], 53, "Æä¸£½Ã¿Â", NORMAL, 65, 70, 60, 1, 0, 115, 12, NULL, base_skill, 90);
-	initi_poketmon(&poketmon_all_list[53], 54, "°í¶óÆÄ´ö", WATER, 50, 52, 48, 1, 33, 55, 14, &poketmon_all_list[54], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[54], 55, "°ñ´ö", WATER, 80, 82, 78, 1, 0, 85, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[55], 56, "¸ÁÅ°", FIGHTING, 40, 80, 35, 1, 28, 70, 14, &poketmon_all_list[56], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[56], 57, "¼º¿ø¼ş", FIGHTING, 65, 105, 60, 1, 0, 95, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[57], 58, "°¡µğ", FIRE, 55, 70, 45, 1, 36, 60, 14, &poketmon_all_list[58], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[58], 59, "À©µğ", FIRE, 90, 110, 80, 1, 0, 95, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[59], 60, "¹ßÃ¬ÀÌ", WATER, 40, 50, 40, 1, 25, 90, 14, &poketmon_all_list[60], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[60], 61, "½´·úÃ¬ÀÌ", WATER, 65, 65, 65, 1, 36, 70, 9, &poketmon_all_list[61], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[61], 62, "°­Ã¬ÀÌ", WATER, 90, 95, 95, 1, 0, 70, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[62], 63, "Ä³ÀÌ½Ã", PSYCHIC, 25, 20, 15, 1, 16, 90, 14, &poketmon_all_list[63], base_skill, 200);
-    initi_poketmon(&poketmon_all_list[63], 64, "À±°Ö¶ó", PSYCHIC, 40, 35, 30, 1, 36, 105, 9, &poketmon_all_list[64], base_skill, 100);
-    initi_poketmon(&poketmon_all_list[64], 65, "ÈÄµò", PSYCHIC, 55, 50, 45, 1, 0, 120, 12, NULL, base_skill, 50);	    
-	initi_poketmon(&poketmon_all_list[65], 66, "¾ËÅë¸ó", FIGHTING, 70, 80, 50, 1, 28, 70, 14, &poketmon_all_list[66], base_skill, 180);
-	initi_poketmon(&poketmon_all_list[66], 67, "±ÙÀ°¸ó", FIGHTING, 80, 100, 70, 1, 36, 45, 9, &poketmon_all_list[67], base_skill, 90);
-	initi_poketmon(&poketmon_all_list[67], 68, "±«·Â¸ó", FIGHTING, 90, 130, 80, 1, 0, 55, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[68], 69, "¸ğ´ÙÇÇ", GRASS, 50, 75, 35, 1, 21, 30, 14, &poketmon_all_list[69], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[69], 70, "¿ìÃ÷µ¿", GRASS, 65, 90, 50, 1, 36, 45, 9, &poketmon_all_list[70], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[70], 71, "¿ìÃ÷º¸Æ®", GRASS, 80, 105, 65, 1, 0, 70, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[71], 72, "¿Õ´«ÇØ", WATER, 40, 40, 35, 1, 30, 70, 14, &poketmon_all_list[72], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[72], 73, "µ¶ÆÄ¸®", WATER, 80, 70, 65, 1, 0, 100, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[73], 74, "²¿¸¶µ¹", ROCK, 40, 80, 100, 1, 25, 20, 14, &poketmon_all_list[74], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[74], 75, "µ¥±¸¸®", ROCK, 55, 95, 115, 1, 36, 35, 9, &poketmon_all_list[75], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[75], 76, "µü±¸¸®", ROCK, 80, 120, 130, 1, 0, 45, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[76], 77, "Æ÷´ÏÅ¸", FIRE, 50, 85, 55, 1, 40, 90, 14, &poketmon_all_list[77], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[77], 78, "³¯½ß¸¶", FIRE, 65, 100, 70, 1, 0, 105, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[78], 79, "¾ßµ·", WATER, 90, 65, 65, 1, 37, 15, 14, &poketmon_all_list[79], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[79], 80, "¾ßµµ¶õ", WATER, 95, 75, 110, 1, 0, 30, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[80], 81, "ÄÚÀÏ", ELECTRIC, 25, 35, 70, 1, 30, 45, 14, &poketmon_all_list[81], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[81], 82, "·¹¾îÄÚÀÏ", ELECTRIC, 50, 60, 95, 1, 0, 70, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[82], 83, "ÆÄ¿À¸®", FLYING, 52, 65, 55, 1, 0, 60, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[83], 84, "µÎµÎ", NORMAL, 35, 85, 45, 1, 31, 75, 14, &poketmon_all_list[84], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[84], 85, "µÎÆ®¸®¿À", NORMAL, 60, 110, 70, 1, 0, 100, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[85], 86, "ÁêÁê", WATER, 65, 45, 55, 1, 34, 45, 14, &poketmon_all_list[86], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[86], 87, "Áê·¹°ï", WATER, 90, 70, 80, 1, 0, 70, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[87], 88, "ÁúÆÜÀÌ", POISON, 80, 80, 50, 1, 38, 25, 14, &poketmon_all_list[88], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[88], 89, "Áú»µ±â", POISON, 105, 105, 75, 1, 0, 50, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[89], 90, "¼¿·¯", WATER, 30, 65, 100, 1, 36, 40, 14, &poketmon_all_list[90], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[90], 91, "ÆÄ¸£¼¿", WATER, 50, 95, 180, 1, 0, 70, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[91], 92, "°í¿À½º", GHOST, 30, 35, 30, 1, 25, 80, 14, &poketmon_all_list[92], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[92], 93, "°í¿ì½ºÆ®", GHOST, 45, 50, 45, 1, 38, 95, 9, &poketmon_all_list[93], base_skill, 90);
-	initi_poketmon(&poketmon_all_list[93], 94, "ÆÒÅÒ", GHOST, 60, 65, 60, 1, 0, 110, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[94], 95, "·Õ½ºÅæ", ROCK, 35, 45, 160, 1, 0, 70, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[95], 96, "½½¸®ÇÁ", PSYCHIC, 60, 48, 45, 1, 26, 42, 14, &poketmon_all_list[96], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[96], 97, "½½¸®ÆÛ", PSYCHIC, 85, 73, 70, 1, 0, 67, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[97], 98, "Å©·¦", WATER, 30, 105, 90, 1, 28, 50, 14, &poketmon_all_list[98], base_skill, 225);
-	initi_poketmon(&poketmon_all_list[98], 99, "Å·Å©·¦", WATER, 55, 130, 115, 1, 0, 75, 9, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[99], 100, "Âî¸®¸®°ø", ELECTRIC, 40, 30, 50, 1, 30, 100, 14, &poketmon_all_list[100], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[100], 101, "ºÕº¼", ELECTRIC, 60, 50, 70, 1, 0, 140, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[101], 102, "¾Æ¶ó¸®", GRASS, 60, 40, 80, 1, 36, 40, 14, &poketmon_all_list[102], base_skill, 90);
-	initi_poketmon(&poketmon_all_list[102], 103, "³ª½Ã", GRASS, 95, 95, 85, 1, 0, 55, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[103], 104, "ÅÁ±¸¸®", GROUND, 50, 50, 95, 1, 28, 35, 14, &poketmon_all_list[104], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[104], 105, "ÅÖ±¸¸®", GROUND, 60, 80, 110, 1, 0, 45, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[105], 106, "½Ã¶ó¼Ò¸ó", FIGHTING, 50, 120, 53, 1, 0, 87, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[106], 107, "È«¼ö¸ó", FIGHTING, 50, 105, 79, 1, 0, 76, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[107], 108, "³»·ç¹Ì", NORMAL, 90, 55, 75, 1, 0, 30, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[108], 109, "¶Ç°¡½º", POISON, 40, 65, 95, 1, 35, 35, 14, &poketmon_all_list[109], base_skill, 190);
-	initi_poketmon(&poketmon_all_list[109], 110, "¶Çµµ°¡½º", POISON, 65, 90, 120, 1, 0, 60, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[110], 111, "»ÔÄ«³ë", GROUND, 80, 85, 95, 1, 42, 25, 9, &poketmon_all_list[111], base_skill, 120);
-	initi_poketmon(&poketmon_all_list[111], 112, "ÄÚ»Ñ¸®", GROUND, 105, 130, 120, 1, 0, 40, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[112], 113, "·°Å°", NORMAL, 250, 5, 5, 1, 0, 50, 9, NULL, base_skill, 30);
-	initi_poketmon(&poketmon_all_list[113], 114, "µ¢Äí¸®", GRASS, 65, 55, 115, 1, 0, 60, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[114], 115, "Ä»Ä«", NORMAL, 105, 95, 80, 1, 0, 90, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[115], 116, "½îµå¶ó", WATER, 30, 40, 70, 1, 32, 60, 14, &poketmon_all_list[116], base_skill, 225);
-	initi_poketmon(&poketmon_all_list[116], 117, "½Ãµå¶ó", WATER, 55, 65, 95, 1, 0, 85, 12, NULL, base_skill, 75);
-	initi_poketmon(&poketmon_all_list[117], 118, "ÄÜÄ¡", WATER, 45, 67, 60, 1, 33, 63, 14, &poketmon_all_list[118], base_skill, 225);
-	initi_poketmon(&poketmon_all_list[118], 119, "¿ÕÄÜÄ¡", WATER, 80, 92, 65, 1, 0, 68, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[119], 120, "º°°¡»ç¸®", WATER, 30, 45, 55, 1, 36, 85, 14, &poketmon_all_list[120], base_skill, 225);
-	initi_poketmon(&poketmon_all_list[120], 121, "¾ÆÄí½ºÅ¸", WATER, 60, 75, 85, 1, 0, 115, 12, NULL, base_skill, 60);
-	initi_poketmon(&poketmon_all_list[121], 122, "¸¶ÀÓ¸Ç", PSYCHIC, 40, 45, 65, 1, 0, 90, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[122], 123, "½º¶óÅ©", BUG, 70, 110, 80, 1, 0, 105, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[123], 124, "·çÁÖ¶ó", ICE, 65, 50, 35, 1, 0, 95, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[124], 125, "¿¡·¹ºê", ELECTRIC, 65, 83, 57, 1, 0, 105, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[125], 126, "¸¶±×¸¶", FIRE, 65, 95, 57, 1, 0, 93, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[126], 127, "»Ú»çÀÌÀú", BUG, 65, 125, 100, 1, 0, 85, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[127], 128, "ÄËÅ¸·Î½º", NORMAL, 75, 100, 95, 1, 0, 110, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[128], 129, "À×¾îÅ·", WATER, 20, 10, 55, 1, 20, 80, 14, &poketmon_all_list[129], base_skill, 255);
-	initi_poketmon(&poketmon_all_list[129], 130, "°¼¶óµµ½º", WATER, 95, 125, 79, 1, 0, 81, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[130], 131, "¶óÇÁ¶ó½º", WATER, 130, 85, 80, 1, 0, 60, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[131], 132, "¸ŞÅ¸¸ù", NORMAL, 48, 48, 48, 1, 0, 48, 12, NULL, base_skill, 35);
-	initi_poketmon(&poketmon_all_list[132], 133, "ÀÌºêÀÌ", NORMAL, 55, 55, 50, 1, 26, 55, 14, &poketmon_all_list[133], base_skill, 45);
-	initi_poketmon(&poketmon_all_list[133], 134, "»ş¹Ìµå", WATER, 130, 65, 60, 1, 0, 65, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[134], 135, "ÁêÇÇ½ã´õ", ELECTRIC, 65, 65, 60, 1, 0, 130, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[135], 136, "ºÎ½ºÅÍ", FIRE, 65, 130, 60, 1, 0, 65, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[136], 137, "Æú¸®°ï", NORMAL, 65, 60, 70, 1, 0, 40, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[137], 138, "¾Ï³ªÀÌÆ®", ROCK, 35, 40, 100, 1, 40, 35, 14, &poketmon_all_list[138], base_skill, 45);
-	initi_poketmon(&poketmon_all_list[138], 139, "¾Ï½ºÅ¸", ROCK, 70, 60, 125, 1, 0, 55, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[139], 140, "Åõ±¸", ROCK, 30, 80, 90, 1, 40, 55, 14, &poketmon_all_list[140], base_skill, 45);
-	initi_poketmon(&poketmon_all_list[140], 141, "Åõ±¸Çª½º", ROCK, 60, 115, 105, 1, 0, 80, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[141], 142, "ÇÁÅ×¶ó", ROCK, 80, 105, 65, 1, 0, 130, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[142], 143, "Àá¸¸º¸", NORMAL, 160, 110, 65, 1, 0, 30, 12, NULL, base_skill, 25);
-	initi_poketmon(&poketmon_all_list[143], 144, "ÇÁ¸®Á®", ICE, 90, 85, 100, 1, 0, 85, 12, NULL, base_skill, 3);
-	initi_poketmon(&poketmon_all_list[144], 145, "½ã´õ", ELECTRIC, 90, 90, 85, 1, 0, 100, 12, NULL, base_skill, 3);
-	initi_poketmon(&poketmon_all_list[145], 146, "ÆÄÀÌ¾î", FIRE, 90, 100, 90, 1, 0, 90, 12, NULL, base_skill, 3);
-	initi_poketmon(&poketmon_all_list[146], 147, "¹Ì´¨", DRAGON, 41, 64, 45, 1, 30, 50, 14, &poketmon_all_list[147], base_skill, 45);
-	initi_poketmon(&poketmon_all_list[147], 148, "½Å´¨", DRAGON, 61, 84, 65, 1, 55, 70, 9, &poketmon_all_list[148], base_skill, 45);
-	initi_poketmon(&poketmon_all_list[148], 149, "¸Á³ª´¨", DRAGON, 91, 134, 95, 1, 0, 80, 12, NULL, base_skill, 45);
-	initi_poketmon(&poketmon_all_list[149], 150, "¹ÂÃ÷", PSYCHIC, 106, 110, 90, 1, 0, 130, 5, NULL, base_skill, 3);
-	initi_poketmon(&poketmon_all_list[150], 151, "¹Â", PSYCHIC, 100, 100, 100, 1, 0, 100, 5, NULL, base_skill, 45);
+    initi_poketmon(&poketmon_all_list[26], 27, "ëª¨ë˜ë‘ì§€", GROUND, 50, 75, 85, 1, 22, 40, 14, &poketmon_all_list[27], base_skill, 255);
+    initi_poketmon(&poketmon_all_list[27], 28, "ê³ ì§€", GROUND, 75, 100, 110, 1, 0, 65, 9, NULL, base_skill, 90);
+	initi_poketmon(&poketmon_all_list[28], 29, "ë‹ˆë“œëŸ°â™€", POISON, 55, 47, 52, 1, 16, 41, 14, &poketmon_all_list[29], base_skill, 235);
+	initi_poketmon(&poketmon_all_list[29], 30, "ë‹ˆë“œë¦¬ë‚˜", POISON, 70, 62, 67, 1, 32, 56, 9, &poketmon_all_list[30], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[30], 31, "ë‹ˆë“œí€¸", POISON, 90, 92, 87, 1, 0, 76, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[31], 32, "ë‹ˆë“œëŸ°â™‚", POISON, 46, 57, 40, 1, 16, 50, 14, &poketmon_all_list[32], base_skill, 235);
+	initi_poketmon(&poketmon_all_list[32], 33, "ë‹ˆë“œë¦¬ë…¸", POISON, 61, 72, 57, 1, 32, 65, 9, &poketmon_all_list[33], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[33], 34, "ë‹ˆë“œí‚¹", POISON, 81, 102, 77, 1, 0, 85, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[34], 35, "ì‚ì‚", FAIRY, 70, 45, 48, 1, 32, 35, 14, &poketmon_all_list[35], base_skill, 150);
+	initi_poketmon(&poketmon_all_list[35], 36, "í”½ì‹œ", FAIRY, 95, 70, 73, 1, 0, 60, 9, NULL, base_skill, 25);
+	initi_poketmon(&poketmon_all_list[36], 37, "ì‹ìŠ¤í…Œì¼", FIRE, 38, 41, 40, 1, 22, 65, 14, &poketmon_all_list[37], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[37], 38, "ë‚˜ì¸í…Œì¼", FIRE, 73, 76, 75, 1, 0, 100, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[38], 39, "í‘¸ë¦°", FAIRY, 115, 45, 20, 1, 32, 20, 14, &poketmon_all_list[39], base_skill, 170);
+	initi_poketmon(&poketmon_all_list[39], 40, "í‘¸í¬ë¦°", FAIRY, 140, 70, 45, 1, 0, 45, 12, NULL, base_skill, 50);
+	initi_poketmon(&poketmon_all_list[40], 41, "ì£¼ë±ƒ", POISON, 40, 45, 35, 1, 22, 55, 14, &poketmon_all_list[41], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[41], 42, "ê³¨ë±ƒ", POISON, 75, 80, 70, 1, 0, 90, 12, NULL, base_skill, 90);
+	initi_poketmon(&poketmon_all_list[42], 43, "ëšœë²…ìµ¸", GRASS, 45, 75, 65, 1, 21, 30, 14, &poketmon_all_list[43], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[43], 44, "ëƒ„ìƒˆê¼¬", GRASS, 60, 58, 75, 1, 32, 40, 9, &poketmon_all_list[44], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[44], 45, "ë¼í”Œë ˆì‹œì•„", GRASS, 75, 110, 90, 1, 0, 50, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[45], 46, "íŒŒë¼ìŠ¤", BUG, 35, 70, 55, 1, 24, 25, 14, &poketmon_all_list[46], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[46], 47, "íŒŒë¼ì„¹íŠ¸", BUG, 60, 95, 80, 1, 0, 30, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[47], 48, "ì½˜íŒ¡", BUG, 60, 55, 50, 1, 31, 45, 14, &poketmon_all_list[48], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[48], 49, "ë„ë‚˜ë¦¬", BUG, 70, 65, 60, 1, 0, 90, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[49], 50, "ë””ê·¸ë‹¤", GROUND, 10, 55, 25, 1, 26, 95, 14, &poketmon_all_list[50], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[50], 51, "ë‹¥íŠ¸ë¦¬ì˜¤", GROUND, 35, 100, 50, 1, 0, 120, 12, NULL, base_skill, 50);
+	initi_poketmon(&poketmon_all_list[51], 52, "ë‚˜ì˜¹", NORMAL, 40, 45, 35, 1, 28, 90, 14, &poketmon_all_list[52], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[52], 53, "í˜ë¥´ì‹œì˜¨", NORMAL, 65, 70, 60, 1, 0, 115, 12, NULL, base_skill, 90);
+	initi_poketmon(&poketmon_all_list[53], 54, "ê³ ë¼íŒŒë•", WATER, 50, 52, 48, 1, 33, 55, 14, &poketmon_all_list[54], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[54], 55, "ê³¨ë•", WATER, 80, 82, 78, 1, 0, 85, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[55], 56, "ë§í‚¤", FIGHTING, 40, 80, 35, 1, 28, 70, 14, &poketmon_all_list[56], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[56], 57, "ì„±ì›ìˆ­", FIGHTING, 65, 105, 60, 1, 0, 95, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[57], 58, "ê°€ë””", FIRE, 55, 70, 45, 1, 36, 60, 14, &poketmon_all_list[58], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[58], 59, "ìœˆë””", FIRE, 90, 110, 80, 1, 0, 95, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[59], 60, "ë°œì±™ì´", WATER, 40, 50, 40, 1, 25, 90, 14, &poketmon_all_list[60], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[60], 61, "ìŠˆë¥™ì±™ì´", WATER, 65, 65, 65, 1, 36, 70, 9, &poketmon_all_list[61], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[61], 62, "ê°•ì±™ì´", WATER, 90, 95, 95, 1, 0, 70, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[62], 63, "ìºì´ì‹œ", PSYCHIC, 25, 20, 15, 1, 16, 90, 14, &poketmon_all_list[63], base_skill, 200);
+    initi_poketmon(&poketmon_all_list[63], 64, "ìœ¤ê²”ë¼", PSYCHIC, 40, 35, 30, 1, 36, 105, 9, &poketmon_all_list[64], base_skill, 100);
+    initi_poketmon(&poketmon_all_list[64], 65, "í›„ë”˜", PSYCHIC, 55, 50, 45, 1, 0, 120, 12, NULL, base_skill, 50);	    
+	initi_poketmon(&poketmon_all_list[65], 66, "ì•Œí†µëª¬", FIGHTING, 70, 80, 50, 1, 28, 70, 14, &poketmon_all_list[66], base_skill, 180);
+	initi_poketmon(&poketmon_all_list[66], 67, "ê·¼ìœ¡ëª¬", FIGHTING, 80, 100, 70, 1, 36, 45, 9, &poketmon_all_list[67], base_skill, 90);
+	initi_poketmon(&poketmon_all_list[67], 68, "ê´´ë ¥ëª¬", FIGHTING, 90, 130, 80, 1, 0, 55, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[68], 69, "ëª¨ë‹¤í”¼", GRASS, 50, 75, 35, 1, 21, 30, 14, &poketmon_all_list[69], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[69], 70, "ìš°ì¸ ë™", GRASS, 65, 90, 50, 1, 36, 45, 9, &poketmon_all_list[70], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[70], 71, "ìš°ì¸ ë³´íŠ¸", GRASS, 80, 105, 65, 1, 0, 70, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[71], 72, "ì™•ëˆˆí•´", WATER, 40, 40, 35, 1, 30, 70, 14, &poketmon_all_list[72], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[72], 73, "ë…íŒŒë¦¬", WATER, 80, 70, 65, 1, 0, 100, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[73], 74, "ê¼¬ë§ˆëŒ", ROCK, 40, 80, 100, 1, 25, 20, 14, &poketmon_all_list[74], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[74], 75, "ë°êµ¬ë¦¬", ROCK, 55, 95, 115, 1, 36, 35, 9, &poketmon_all_list[75], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[75], 76, "ë”±êµ¬ë¦¬", ROCK, 80, 120, 130, 1, 0, 45, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[76], 77, "í¬ë‹ˆíƒ€", FIRE, 50, 85, 55, 1, 40, 90, 14, &poketmon_all_list[77], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[77], 78, "ë‚ ìŒ©ë§ˆ", FIRE, 65, 100, 70, 1, 0, 105, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[78], 79, "ì•¼ëˆ", WATER, 90, 65, 65, 1, 37, 15, 14, &poketmon_all_list[79], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[79], 80, "ì•¼ë„ë€", WATER, 95, 75, 110, 1, 0, 30, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[80], 81, "ì½”ì¼", ELECTRIC, 25, 35, 70, 1, 30, 45, 14, &poketmon_all_list[81], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[81], 82, "ë ˆì–´ì½”ì¼", ELECTRIC, 50, 60, 95, 1, 0, 70, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[82], 83, "íŒŒì˜¤ë¦¬", FLYING, 52, 65, 55, 1, 0, 60, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[83], 84, "ë‘ë‘", NORMAL, 35, 85, 45, 1, 31, 75, 14, &poketmon_all_list[84], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[84], 85, "ë‘íŠ¸ë¦¬ì˜¤", NORMAL, 60, 110, 70, 1, 0, 100, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[85], 86, "ì¥¬ì¥¬", WATER, 65, 45, 55, 1, 34, 45, 14, &poketmon_all_list[86], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[86], 87, "ì¥¬ë ˆê³¤", WATER, 90, 70, 80, 1, 0, 70, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[87], 88, "ì§ˆí½ì´", POISON, 80, 80, 50, 1, 38, 25, 14, &poketmon_all_list[88], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[88], 89, "ì§ˆë»ê¸°", POISON, 105, 105, 75, 1, 0, 50, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[89], 90, "ì…€ëŸ¬", WATER, 30, 65, 100, 1, 36, 40, 14, &poketmon_all_list[90], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[90], 91, "íŒŒë¥´ì…€", WATER, 50, 95, 180, 1, 0, 70, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[91], 92, "ê³ ì˜¤ìŠ¤", GHOST, 30, 35, 30, 1, 25, 80, 14, &poketmon_all_list[92], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[92], 93, "ê³ ìš°ìŠ¤íŠ¸", GHOST, 45, 50, 45, 1, 38, 95, 9, &poketmon_all_list[93], base_skill, 90);
+	initi_poketmon(&poketmon_all_list[93], 94, "íŒ¬í…€", GHOST, 60, 65, 60, 1, 0, 110, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[94], 95, "ë¡±ìŠ¤í†¤", ROCK, 35, 45, 160, 1, 0, 70, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[95], 96, "ìŠ¬ë¦¬í”„", PSYCHIC, 60, 48, 45, 1, 26, 42, 14, &poketmon_all_list[96], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[96], 97, "ìŠ¬ë¦¬í¼", PSYCHIC, 85, 73, 70, 1, 0, 67, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[97], 98, "í¬ë©", WATER, 30, 105, 90, 1, 28, 50, 14, &poketmon_all_list[98], base_skill, 225);
+	initi_poketmon(&poketmon_all_list[98], 99, "í‚¹í¬ë©", WATER, 55, 130, 115, 1, 0, 75, 9, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[99], 100, "ì°Œë¦¬ë¦¬ê³µ", ELECTRIC, 40, 30, 50, 1, 30, 100, 14, &poketmon_all_list[100], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[100], 101, "ë¶ë³¼", ELECTRIC, 60, 50, 70, 1, 0, 140, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[101], 102, "ì•„ë¼ë¦¬", GRASS, 60, 40, 80, 1, 36, 40, 14, &poketmon_all_list[102], base_skill, 90);
+	initi_poketmon(&poketmon_all_list[102], 103, "ë‚˜ì‹œ", GRASS, 95, 95, 85, 1, 0, 55, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[103], 104, "íƒ•êµ¬ë¦¬", GROUND, 50, 50, 95, 1, 28, 35, 14, &poketmon_all_list[104], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[104], 105, "í……êµ¬ë¦¬", GROUND, 60, 80, 110, 1, 0, 45, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[105], 106, "ì‹œë¼ì†Œëª¬", FIGHTING, 50, 120, 53, 1, 0, 87, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[106], 107, "í™ìˆ˜ëª¬", FIGHTING, 50, 105, 79, 1, 0, 76, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[107], 108, "ë‚´ë£¨ë¯¸", NORMAL, 90, 55, 75, 1, 0, 30, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[108], 109, "ë˜ê°€ìŠ¤", POISON, 40, 65, 95, 1, 35, 35, 14, &poketmon_all_list[109], base_skill, 190);
+	initi_poketmon(&poketmon_all_list[109], 110, "ë˜ë„ê°€ìŠ¤", POISON, 65, 90, 120, 1, 0, 60, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[110], 111, "ë¿”ì¹´ë…¸", GROUND, 80, 85, 95, 1, 42, 25, 9, &poketmon_all_list[111], base_skill, 120);
+	initi_poketmon(&poketmon_all_list[111], 112, "ì½”ë¿Œë¦¬", GROUND, 105, 130, 120, 1, 0, 40, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[112], 113, "ëŸ­í‚¤", NORMAL, 250, 5, 5, 1, 0, 50, 9, NULL, base_skill, 30);
+	initi_poketmon(&poketmon_all_list[113], 114, "ë©ì¿ ë¦¬", GRASS, 65, 55, 115, 1, 0, 60, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[114], 115, "ìº¥ì¹´", NORMAL, 105, 95, 80, 1, 0, 90, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[115], 116, "ì˜ë“œë¼", WATER, 30, 40, 70, 1, 32, 60, 14, &poketmon_all_list[116], base_skill, 225);
+	initi_poketmon(&poketmon_all_list[116], 117, "ì‹œë“œë¼", WATER, 55, 65, 95, 1, 0, 85, 12, NULL, base_skill, 75);
+	initi_poketmon(&poketmon_all_list[117], 118, "ì½˜ì¹˜", WATER, 45, 67, 60, 1, 33, 63, 14, &poketmon_all_list[118], base_skill, 225);
+	initi_poketmon(&poketmon_all_list[118], 119, "ì™•ì½˜ì¹˜", WATER, 80, 92, 65, 1, 0, 68, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[119], 120, "ë³„ê°€ì‚¬ë¦¬", WATER, 30, 45, 55, 1, 36, 85, 14, &poketmon_all_list[120], base_skill, 225);
+	initi_poketmon(&poketmon_all_list[120], 121, "ì•„ì¿ ìŠ¤íƒ€", WATER, 60, 75, 85, 1, 0, 115, 12, NULL, base_skill, 60);
+	initi_poketmon(&poketmon_all_list[121], 122, "ë§ˆì„ë§¨", PSYCHIC, 40, 45, 65, 1, 0, 90, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[122], 123, "ìŠ¤ë¼í¬", BUG, 70, 110, 80, 1, 0, 105, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[123], 124, "ë£¨ì£¼ë¼", ICE, 65, 50, 35, 1, 0, 95, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[124], 125, "ì—ë ˆë¸Œ", ELECTRIC, 65, 83, 57, 1, 0, 105, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[125], 126, "ë§ˆê·¸ë§ˆ", FIRE, 65, 95, 57, 1, 0, 93, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[126], 127, "ì˜ì‚¬ì´ì €", BUG, 65, 125, 100, 1, 0, 85, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[127], 128, "ì¼„íƒ€ë¡œìŠ¤", NORMAL, 75, 100, 95, 1, 0, 110, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[128], 129, "ì‰ì–´í‚¹", WATER, 20, 10, 55, 1, 20, 80, 14, &poketmon_all_list[129], base_skill, 255);
+	initi_poketmon(&poketmon_all_list[129], 130, "ê°¸ë¼ë„ìŠ¤", WATER, 95, 125, 79, 1, 0, 81, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[130], 131, "ë¼í”„ë¼ìŠ¤", WATER, 130, 85, 80, 1, 0, 60, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[131], 132, "ë©”íƒ€ëª½", NORMAL, 48, 48, 48, 1, 0, 48, 12, NULL, base_skill, 35);
+	initi_poketmon(&poketmon_all_list[132], 133, "ì´ë¸Œì´", NORMAL, 55, 55, 50, 1, 26, 55, 14, &poketmon_all_list[133], base_skill, 45);
+	initi_poketmon(&poketmon_all_list[133], 134, "ìƒ¤ë¯¸ë“œ", WATER, 130, 65, 60, 1, 0, 65, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[134], 135, "ì¥¬í”¼ì¬ë”", ELECTRIC, 65, 65, 60, 1, 0, 130, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[135], 136, "ë¶€ìŠ¤í„°", FIRE, 65, 130, 60, 1, 0, 65, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[136], 137, "í´ë¦¬ê³¤", NORMAL, 65, 60, 70, 1, 0, 40, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[137], 138, "ì•”ë‚˜ì´íŠ¸", ROCK, 35, 40, 100, 1, 40, 35, 14, &poketmon_all_list[138], base_skill, 45);
+	initi_poketmon(&poketmon_all_list[138], 139, "ì•”ìŠ¤íƒ€", ROCK, 70, 60, 125, 1, 0, 55, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[139], 140, "íˆ¬êµ¬", ROCK, 30, 80, 90, 1, 40, 55, 14, &poketmon_all_list[140], base_skill, 45);
+	initi_poketmon(&poketmon_all_list[140], 141, "íˆ¬êµ¬í‘¸ìŠ¤", ROCK, 60, 115, 105, 1, 0, 80, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[141], 142, "í”„í…Œë¼", ROCK, 80, 105, 65, 1, 0, 130, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[142], 143, "ì ë§Œë³´", NORMAL, 160, 110, 65, 1, 0, 30, 12, NULL, base_skill, 25);
+	initi_poketmon(&poketmon_all_list[143], 144, "í”„ë¦¬ì ¸", ICE, 90, 85, 100, 1, 0, 85, 12, NULL, base_skill, 3);
+	initi_poketmon(&poketmon_all_list[144], 145, "ì¬ë”", ELECTRIC, 90, 90, 85, 1, 0, 100, 12, NULL, base_skill, 3);
+	initi_poketmon(&poketmon_all_list[145], 146, "íŒŒì´ì–´", FIRE, 90, 100, 90, 1, 0, 90, 12, NULL, base_skill, 3);
+	initi_poketmon(&poketmon_all_list[146], 147, "ë¯¸ë‡½", DRAGON, 41, 64, 45, 1, 30, 50, 14, &poketmon_all_list[147], base_skill, 45);
+	initi_poketmon(&poketmon_all_list[147], 148, "ì‹ ë‡½", DRAGON, 61, 84, 65, 1, 55, 70, 9, &poketmon_all_list[148], base_skill, 45);
+	initi_poketmon(&poketmon_all_list[148], 149, "ë§ë‚˜ë‡½", DRAGON, 91, 134, 95, 1, 0, 80, 12, NULL, base_skill, 45);
+	initi_poketmon(&poketmon_all_list[149], 150, "ë®¤ì¸ ", PSYCHIC, 106, 110, 90, 1, 0, 130, 5, NULL, base_skill, 3);
+	initi_poketmon(&poketmon_all_list[150], 151, "ë®¤", PSYCHIC, 100, 100, 100, 1, 0, 100, 5, NULL, base_skill, 45);
 }
 
 void insert_poketmon_skill(){
-	set_learn_skill(&poketmon_all_list[0], 0, 12, 9); //ÀÌ»óÇØ¾¾ 
+	set_learn_skill(&poketmon_all_list[0], 0, 12, 9); //ì´ìƒí•´ì”¨ 
 	
-	set_learn_skill(&poketmon_all_list[1], 0, 12, 9);// ÀÌ»óÇØÇ® 
+	set_learn_skill(&poketmon_all_list[1], 0, 12, 9);// ì´ìƒí•´í’€ 
 	set_learn_skill(&poketmon_all_list[1], 1, 18, 11);
 	set_learn_skill(&poketmon_all_list[1], 2, 21, 12);	
 	set_learn_skill(&poketmon_all_list[1], 3, 36, 10);
 	
-	set_learn_skill(&poketmon_all_list[2], 0, 12, 9);// ÀÌ»óÇØ²É 
+	set_learn_skill(&poketmon_all_list[2], 0, 12, 9);// ì´ìƒí•´ê½ƒ 
 	set_learn_skill(&poketmon_all_list[2], 0, 12, 9);
 	set_learn_skill(&poketmon_all_list[2], 1, 18, 11);
 	set_learn_skill(&poketmon_all_list[2], 2, 21, 12);	
 	set_learn_skill(&poketmon_all_list[2], 3, 36, 10);
 	
-	set_learn_skill(&poketmon_all_list[3], 0, 12, 6); //ÆÄÀÌ¸®
+	set_learn_skill(&poketmon_all_list[3], 0, 12, 6); //íŒŒì´ë¦¬
 	
-	set_learn_skill(&poketmon_all_list[4], 1, 17, 14); //¸®ÀÚµå 
+	set_learn_skill(&poketmon_all_list[4], 1, 17, 14); //ë¦¬ìë“œ 
 	set_learn_skill(&poketmon_all_list[4], 2, 20, 3);
 	set_learn_skill(&poketmon_all_list[4], 3, 24, 5);
 	
-	set_learn_skill(&poketmon_all_list[5], 0, 6, 6);//¸®ÀÚ¸ù 
+	set_learn_skill(&poketmon_all_list[5], 0, 6, 6);//ë¦¬ìëª½ 
 	set_learn_skill(&poketmon_all_list[5], 1, 17, 14);
 	set_learn_skill(&poketmon_all_list[5], 2, 20, 3);
 	set_learn_skill(&poketmon_all_list[5], 3, 24, 5);
 	
-	set_learn_skill(&poketmon_all_list[6], 0, 12, 15);//²¿ºÎ±â 
+	set_learn_skill(&poketmon_all_list[6], 0, 12, 15);//ê¼¬ë¶€ê¸° 
 	set_learn_skill(&poketmon_all_list[6], 1, 15, 16);
 	
-	set_learn_skill(&poketmon_all_list[7], 0, 12, 15);//¾î´ÏºÎ±â
+	set_learn_skill(&poketmon_all_list[7], 0, 12, 15);//ì–´ë‹ˆë¶€ê¸°
 	set_learn_skill(&poketmon_all_list[7], 1, 15, 16); 
 	set_learn_skill(&poketmon_all_list[7], 1, 24, 17); 
 	set_learn_skill(&poketmon_all_list[7], 1, 36, 18); 
 	
-	set_learn_skill(&poketmon_all_list[8], 0, 12, 15);//°ÅºÏ¿Õ 
+	set_learn_skill(&poketmon_all_list[8], 0, 12, 15);//ê±°ë¶ì™• 
 	set_learn_skill(&poketmon_all_list[8], 1, 15, 16); 
 	set_learn_skill(&poketmon_all_list[8], 1, 24, 17); 
 	set_learn_skill(&poketmon_all_list[8], 1, 36, 18); 
